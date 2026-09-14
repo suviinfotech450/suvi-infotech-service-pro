@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title id="licensePageTitle">
+    License Activation
+</title>
+
+    <link
+        rel="stylesheet"
+        href="license.css">
+
+    <!-- RAZORPAY CHECKOUT -->
+    <script
+        src="https://checkout.razorpay.com/v1/checkout.js">
+    </script>
+
+</head>
+
+
+<body>
+
+<div class="license-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="license-header">
+
+        <div class="brand-area">
+
+            <div class="brand-icon">
+                🔐
+            </div>
+
+            <div>
+
+                <h1 id="licenseFirmName">
+    License Activation
+</h1>
+
+               <p>
+    Enter your license information
+</p> 
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="back-btn"
+            onclick="history.back()">
+
+            ← Back
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="license-container">
+
+
+        <!-- =================================================
+             LICENSE FORM CARD
+        ================================================== -->
+
+        <section
+    id="licenseFormCard"
+    class="license-form-card"
+    style="display:none;">
+
+
+            <div class="section-header">
+
+                <div class="section-icon">
+                    🔑
+                </div>
+
+                <div>
+
+                    <h2>
+                        License Details
+                    </h2>
+
+                    <p>
+                        Enter your SUVI INFOTECH license information
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="license-form-grid">
+
+
+                <!-- SOFTWARE -->
+
+                <div class="form-group">
+
+                    <label for="softwareName">
+                        Software / Product Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="softwareName"
+                        placeholder="Enter software / product name"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- LICENSE KEY -->
+
+                <div class="form-group">
+
+                    <label for="licenseKey">
+                        License Key
+                    </label>
+
+                    <input
+                        type="text"
+                        id="licenseKey"
+                        placeholder="Example: SUVI-XXXX-XXXX-XXXX"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- LICENSE TYPE -->
+
+                <div class="form-group">
+
+                    <label for="licenseType">
+                        License Type
+                    </label>
+
+                    <select id="licenseType">
+
+                        <option value="">
+                            Select License Type
+                        </option>
+
+                        <option value="trial">
+                            Trial Version - 7 Days
+                        </option>
+
+                        <option value="yearly">
+                            Yearly Version - 1 Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- CUSTOMER -->
+
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Customer / Company Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter customer / company name"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- PURCHASE DATE -->
+
+                <div class="form-group">
+
+                    <label for="purchaseDate">
+                        Purchase Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="purchaseDate">
+
+                </div>
+
+
+
+                <!-- ACTIVATION DATE -->
+
+                <div class="form-group">
+
+                    <label for="activationDate">
+                        Activation Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="activationDate">
+
+                </div>
+
+
+
+                <!-- EXPIRY DATE -->
+
+                <div class="form-group">
+
+                    <label for="expiryDate">
+                        Expiry Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="expiryDate">
+
+                </div>
+
+
+
+                <!-- STATUS -->
+
+                <div class="form-group">
+
+                    <label for="licenseStatus">
+                        License Status
+                    </label>
+
+                    <select id="licenseStatus">
+
+                        <option value="pending">
+                            Pending
+                        </option>
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="expired">
+                            Expired
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DEVICES -->
+
+                <div class="form-group">
+
+                    <label for="numberOfDevices">
+                        Number of Devices
+                    </label>
+
+                    <input
+                        type="number"
+                        id="numberOfDevices"
+                        min="1"
+                        value="1">
+
+                </div>
+
+
+
+                <!-- DEVICE ID -->
+
+                <div class="form-group">
+
+                    <label for="deviceId">
+                        Device ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="deviceId"
+                        placeholder="Automatically generated"
+                        readonly>
+
+                </div>
+
+
+
+                <!-- VENDOR -->
+
+                <div class="form-group">
+
+                    <label for="vendorName">
+                        Vendor / Supplier
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vendorName"
+                        placeholder="Enter vendor / supplier"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- SUPPORT -->
+
+                <div class="form-group">
+
+                    <label for="supportContact">
+                        Support Contact
+                    </label>
+
+                    <input
+                        type="text"
+                        id="supportContact"
+                        placeholder="Phone / Email"
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- NOTES -->
+
+                <div class="form-group full-width">
+
+                    <label for="licenseNotes">
+                        Notes
+                    </label>
+
+                    <textarea
+                        id="licenseNotes"
+                        rows="2"
+                        placeholder="Enter notes">
+                    </textarea>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ACTIVATE -->
+
+            <button
+                type="button"
+                id="activateBtn"
+                class="activate-btn"
+                onclick="activateLicense()">
+
+                ✓ Activate License
+
+            </button>
+
+
+
+            <!-- =================================================
+                 YEARLY PAYMENT
+            ================================================== -->
+
+            <div
+                id="yearlyPaymentSection"
+                style="display:none;">
+
+                <div class="payment-plan-card">
+
+                    <div class="payment-top">
+
+                        <div>
+
+                            <span class="plan-badge">
+                                PREMIUM PLAN
+                            </span>
+
+                            <h3>
+                                Yearly Version
+                            </h3>
+
+                          <p id="yearlyLicenseDescription">
+    Full ServiceOps Pro License
+</p>  
+                        </div>
+
+                        <div class="payment-price">
+
+                            ₹<span id="yearlyAmount">
+                                5,500
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="payment-bottom">
+
+                        <div class="payment-validity">
+
+                            ✓
+                            1 Year / 365 Days
+
+                        </div>
+
+                        <button
+                            type="button"
+                            id="payYearlyBtn"
+                            class="pay-yearly-btn"
+                            onclick="startYearlyPayment()">
+
+                            Pay & Activate Yearly License
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             LICENSE MANAGEMENT
+        ================================================== -->
+
+        <section class="license-management">
+
+
+            <div class="section-title-row">
+
+                <div>
+
+                    <h2>
+                        License Management
+                    </h2>
+
+                    <p>
+                        Search and manage existing licenses
+                    </p>
+
+                </div>
+
+                <div class="management-icon">
+                    📋
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="license-search">
+
+                <div class="search-input-wrap">
+
+                    <span>
+                        🔎
+                    </span>
+
+                    <input
+                        type="text"
+                        id="licenseSearch"
+                        placeholder="Search by License Key"
+                        autocomplete="off">
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="search-btn"
+                    onclick="searchLicenseInfo()">
+
+                    Search
+
+                </button>
+
+
+<button
+    type="button"
+    class="new-btn"
+    onclick="
+        clearLicenseForm();
+        document.getElementById('licenseFormCard').style.display = 'block';
+    ">
+
+    + New
+
+</button>
+            </div>
+
+
+
+            <!-- SAVE -->
+
+            <button
+                type="button"
+                class="save-license-btn"
+                onclick="saveLicenseInfo()">
+
+                💾 Save License
+
+            </button>
+
+
+
+            <!-- LICENSE LIST -->
+
+            <div class="license-list-section">
+
+
+                <div class="list-title-row">
+
+                    <h3>
+                        License List
+                    </h3>
+
+                    <span class="license-count">
+                        License Records
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="licenseList"
+                    class="license-list">
+
+                    <p class="empty-license">
+                        No licenses found.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             MESSAGE
+        ================================================== -->
+
+        <div
+            id="licenseMessage"
+            class="license-message">
+        </div>
+
+
+
+        <!-- =================================================
+             LICENSE INFORMATION
+        ================================================== -->
+
+        <section
+            id="licenseDetails"
+            class="license-details"
+            style="display:none;">
+
+
+            <div class="section-title-row">
+
+                <div>
+
+                    <h2>
+                        Current License Information
+                    </h2>
+
+                    <p>
+                        Active license details
+                    </p>
+
+                </div>
+
+                <div class="info-icon">
+                    ℹ
+                </div>
+
+            </div>
+
+
+            <div class="details-grid">
+
+
+                <div class="detail-card">
+
+                    <span>
+                        🔑 License Key
+                    </span>
+
+                    <strong id="showLicenseKey">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <span>
+                        👤 Customer Name
+                    </span>
+
+                    <strong id="showCustomerName">
+                        -
+                    </strong>
+
+                </div>
+
+<div class="detail-card">
+    <span>
+        📦 License Plan
+    </span>
+
+    <strong id="showLicensePlan">
+        -
+    </strong>
+</div>
+
+<div class="detail-card">
+    <span>
+        ⏳ Validity
+    </span>
+
+    <strong id="showLicenseValidity">
+        -
+    </strong>
+</div>
+                <div class="detail-card">
+
+                    <span>
+                        📅 Activation Date
+                    </span>
+
+                    <strong id="showActivationDate">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <span>
+                        📅 Expiry Date
+                    </span>
+
+                    <strong id="showExpiryDate">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <span>
+                        🛡 Status
+                    </span>
+
+                    <strong
+                        id="showStatus"
+                        class="status-value">
+
+                        -
+
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-card">
+
+                    <span>
+                        💻 Device ID
+                    </span>
+
+                    <strong id="showDeviceId">
+                        -
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+       
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+    © 2026 <span id="licenseFooterFirmName">ServiceOps Pro</span>
+    • ServiceOps Pro
+    • All Rights Reserved
+</footer>
+
+
+</div>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================== -->
+
+<script
+    type="module"
+    src="license.js">
+</script>
+
+<script
+    type="module"
+    src="license-info.js">
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const firmName =
+        localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM")
+        || "ServiceOps Pro";
+
+    const cleanFirmName = firmName.trim();
+
+    document.title =
+        "License Activation - " + cleanFirmName;
+
+    const headerName =
+        document.getElementById("licenseFirmName");
+
+    if (headerName) {
+        headerName.textContent = cleanFirmName;
+    }
+
+    const pageTitle =
+        document.getElementById("licensePageTitle");
+
+    if (pageTitle) {
+        pageTitle.textContent =
+            "License Activation - " + cleanFirmName;
+    }
+
+    const yearlyDescription =
+        document.getElementById("yearlyLicenseDescription");
+
+    if (yearlyDescription) {
+        yearlyDescription.textContent =
+            "Full " + cleanFirmName +
+            " ServiceOps Pro License";
+    }
+
+    const footerName =
+        document.getElementById("licenseFooterFirmName");
+
+    if (footerName) {
+        footerName.textContent = cleanFirmName;
+    }
+
+});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUVI INFOTECH - Expense Management</title>
+    <link rel="stylesheet" href="expense.css">
+</head>
+
+<body>
+
+<div class="expense-page">
+
+    <!-- HEADER -->
+    <header class="expense-header">
+        <div class="header-title">
+           <div class="brand" id="expenseFirmName">SUVI INFOTECH</div>
+            <h1>Expense Management</h1>
+            <p>Business Expense Tracking & Management</p>
+        </div>
+
+        <div class="header-actions">
+            <button class="back-btn" onclick="history.back()">← Back</button>
+            <button class="dashboard-btn" onclick="goDashboard()">← Back to Dashboard</button>
+        </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section class="summary-grid">
+
+        <div class="summary-card">
+            <div class="summary-icon">💰</div>
+            <div>
+                <span>Total Expense</span>
+                <strong id="totalExpense">₹0.00</strong>
+            </div>
+        </div>
+
+        <div class="summary-card today">
+            <div class="summary-icon">📅</div>
+            <div>
+                <span>Today Expense</span>
+                <strong id="todayExpense">₹0.00</strong>
+            </div>
+        </div>
+
+        <div class="summary-card month">
+            <div class="summary-icon">📆</div>
+            <div>
+                <span>This Month</span>
+                <strong id="monthExpense">₹0.00</strong>
+            </div>
+        </div>
+
+        <div class="summary-card year">
+            <div class="summary-icon">📊</div>
+            <div>
+                <span>This Year</span>
+                <strong id="yearExpense">₹0.00</strong>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ADD EXPENSE -->
+    <section class="expense-card">
+
+        <div class="section-header">
+            <div>
+                <h2>➕ Add Expense</h2>
+                <p>Enter business expense details</p>
+            </div>
+        </div>
+
+        <form id="expenseForm">
+
+            <div class="form-grid">
+
+                <div class="field">
+                    <label for="expenseDate">Date *</label>
+                    <input type="date" id="expenseDate" required>
+                </div>
+
+                <div class="field">
+                    <label for="expenseId">Expense ID</label>
+                    <input type="text" id="expenseId" readonly>
+                </div>
+
+                <div class="field">
+                    <label for="expenseCategory">Category *</label>
+                    <select id="expenseCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Fuel">Fuel</option>
+                        <option value="Purchase">Purchase</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Electricity">Electricity</option>
+                        <option value="Internet">Internet</option>
+                        <option value="Office">Office</option>
+                        <option value="Repair">Repair</option>
+                        <option value="Food">Food</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="expenseAmount">Amount *</label>
+                    <input
+                        type="number"
+                        id="expenseAmount"
+                        min="0"
+                        step="0.01"
+                        placeholder="Enter amount"
+                        required
+                    >
+                </div>
+
+                <div class="field field-wide">
+                    <label for="expenseDescription">Description *</label>
+                    <input
+                        type="text"
+                        id="expenseDescription"
+                        placeholder="Enter expense description"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="paymentMode">Payment Mode *</label>
+                    <select id="paymentMode" required>
+                        <option value="">Select Payment Mode</option>
+                        <option value="Cash">Cash</option>
+                        <option value="UPI">UPI</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Card">Card</option>
+                        <option value="Cheque">Cheque</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="paidTo">Paid To</label>
+                    <input
+                        type="text"
+                        id="paidTo"
+                        placeholder="Person / Vendor"
+                    >
+                </div>
+
+                <div class="field field-wide">
+                    <label for="expenseNotes">Notes</label>
+                    <textarea
+                        id="expenseNotes"
+                        rows="2"
+                        placeholder="Additional notes"
+                    ></textarea>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="reset-btn" onclick="resetExpenseForm()">
+                    ↻ Reset
+                </button>
+
+                <button type="submit" class="save-btn">
+                    ✓ Save Expense
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- HISTORY -->
+    <section class="expense-card">
+
+        <div class="section-header history-header">
+            <div>
+                <h2>📋 Expense History</h2>
+                <p>View and manage recorded expenses</p>
+            </div>
+        </div>
+
+        <!-- FILTER -->
+        <div class="filter-grid">
+
+            <div class="field">
+                <label>Search</label>
+                <input
+                    type="text"
+                    id="expenseSearch"
+                    placeholder="Search expense..."
+                    oninput="renderExpenseHistory()"
+                >
+            </div>
+
+            <div class="field">
+                <label>Category</label>
+                <select id="filterCategory" onchange="renderExpenseHistory()">
+                    <option value="">All Categories</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Fuel">Fuel</option>
+                    <option value="Purchase">Purchase</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Electricity">Electricity</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Office">Office</option>
+                    <option value="Repair">Repair</option>
+                    <option value="Food">Food</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>From Date</label>
+                <input type="date" id="filterFrom" onchange="renderExpenseHistory()">
+            </div>
+
+            <div class="field">
+                <label>To Date</label>
+                <input type="date" id="filterTo" onchange="renderExpenseHistory()">
+            </div>
+
+            <div class="filter-buttons">
+                <button type="button" onclick="clearExpenseFilters()">
+                    Clear
+                </button>
+            </div>
+
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-wrap">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sl. No.</th>
+                        <th>Date</th>
+                        <th>Expense ID</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Payment Mode</th>
+                        <th>Paid To</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="expenseHistoryBody">
+                    <tr>
+                        <td colspan="9" class="empty-row">
+                            No expenses found
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="history-footer">
+            <span id="expenseCount">0 records</span>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 SUVI INFOTECH — Expense Management
+    </footer>
+
+</div>
+
+<script src="expense.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const firmName =
+        localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM")
+        || "SUVI INFOTECH";
+
+    const expenseFirmName =
+        document.getElementById("expenseFirmName");
+
+    if (expenseFirmName) {
+        expenseFirmName.textContent = firmName.trim();
+    }
+
+    document.title =
+        firmName.trim() + " - Expense Management";
+
+});
+</script>
+</body>
+</html>

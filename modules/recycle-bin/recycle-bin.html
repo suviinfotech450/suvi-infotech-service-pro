@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        SUVI INFOTECH - Recycle Bin
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="recycle-bin.css">
+
+</head>
+
+<body>
+
+    <div class="recycle-page">
+
+        <!-- HEADER -->
+
+        <header class="recycle-header">
+
+            <div>
+
+               <h1 id="recycleFirmName">
+    ♻️ SUVI INFOTECH
+</h1>
+
+                <p>
+                    Recycle Bin
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="recycle-navigation">
+
+            <button
+                type="button"
+                onclick="history.back()">
+
+                ← Back
+
+            </button>
+
+            <button
+                type="button"
+                onclick="window.location.href='../../dashboard.html'">
+
+                ← Back to Dashboard
+
+            </button>
+
+        </div>
+
+
+        <!-- RECYCLE CONTENT -->
+
+        <section class="recycle-card">
+
+            <div class="recycle-title">
+
+                <div>
+
+                    <h2>
+                        Deleted Records
+                    </h2>
+
+                    <p>
+                        Deleted data from all modules
+                    </p>
+
+                </div>
+
+                <div class="retention-info">
+
+                    <strong>
+                        60 Days
+                    </strong>
+
+                    <span>
+                        Retention Period
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="recycle-search">
+
+                <input
+                    type="text"
+                    id="recycleSearch"
+                    placeholder="Search deleted records...">
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="recycle-table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Module
+                            </th>
+
+                            <th>
+                                Record ID
+                            </th>
+
+                            <th>
+                                Details
+                            </th>
+
+                            <th>
+                                Deleted On
+                            </th>
+
+                            <th>
+                                Auto Delete
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="recycleTable">
+
+                        <tr>
+
+                            <td
+                                colspan="6"
+                                style="text-align:center;">
+
+                                Loading deleted records...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script
+        type="module"
+        src="recycle-bin.js">
+    </script>
+<script>
+    const selectedFirm =
+        localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM")
+        || "SUVI INFOTECH";
+
+    document.getElementById("recycleFirmName").textContent =
+        "♻️ " + selectedFirm;
+
+    document.title =
+        selectedFirm + " - Recycle Bin";
+</script>
+</body>
+
+</html>

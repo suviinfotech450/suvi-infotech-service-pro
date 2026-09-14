@@ -1,0 +1,1186 @@
+/* =========================================================
+   SUVI INFOTECH - TICKET RAISE
+   BLUE + PURPLE DUAL COLOR THEME
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1e293b;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff 0%,
+            #f8f7ff 45%,
+            #ede9fe 100%
+        );
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.page-header {
+    width: 100%;
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 24px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1e40af 0%,
+            #4f46e5 50%,
+            #7c3aed 100%
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 18px rgba(79, 70, 229, 0.25);
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.page-name {
+    font-size: 18px;
+    font-weight: 600;
+
+    padding-left: 14px;
+
+    border-left:
+        1px solid rgba(255, 255, 255, 0.55);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-actions button {
+    border:
+        1px solid rgba(255, 255, 255, 0.45);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    color: #ffffff;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.header-actions button:hover {
+    background:
+        rgba(255, 255, 255, 0.23);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.ticket-container {
+    width: min(1200px, calc(100% - 32px));
+
+    margin: 25px auto 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.ticket-card {
+    width: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff 0%,
+            #f5f3ff 100%
+        );
+
+    border:
+        1px solid #ddd6fe;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.12);
+}
+
+
+/* =========================================================
+   SECTION TITLE
+   ========================================================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 12px;
+
+    border-bottom:
+        2px solid #ddd6fe;
+}
+
+.section-title h2 {
+    margin: 0;
+
+    font-size: 20px;
+
+    color: #4338ca;
+
+    font-weight: 750;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+#ticketForm {
+    width: 100%;
+}
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.full-width {
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.field-group label {
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #374151;
+}
+
+.field-group label span {
+    color: #dc2626;
+}
+
+
+/* =========================================================
+   INPUT / SELECT / TEXTAREA
+   ========================================================= */
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+    width: 100%;
+
+    border:
+        1px solid #c7d2fe;
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    border-radius: 9px;
+
+    padding: 11px 13px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.field-group input {
+    height: 42px;
+}
+
+.field-group select {
+    height: 42px;
+
+    cursor: pointer;
+}
+
+.field-group textarea {
+    min-height: 90px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.14);
+
+    background: #fafaff;
+}
+
+
+/* =========================================================
+   AUTO FIELDS
+   ========================================================= */
+
+#ticketId,
+#ticketDate,
+#ticketTime {
+    background: #eef2ff;
+
+    color: #3730a3;
+
+    font-weight: 700;
+
+    border-color: #a5b4fc;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CLIENT SEARCH
+   ========================================================= */
+
+#clientSearch {
+    background: #f8f7ff;
+
+    border-color: #a5b4fc;
+}
+
+#clientSearch:focus {
+    border-color: #4f46e5;
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.13);
+}
+
+
+/* =========================================================
+   CLIENT SUGGESTIONS
+   ========================================================= */
+
+.suggestions {
+    position: relative;
+
+    width: 100%;
+
+    z-index: 50;
+}
+
+.suggestion-item {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 11px 13px;
+
+    margin-top: 3px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #ddd6fe;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(67, 56, 202, 0.10);
+
+    transition: 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background: #f5f3ff;
+
+    transform: translateY(-1px);
+}
+
+.suggestion-name {
+    font-weight: 700;
+
+    color: #4338ca;
+}
+
+.suggestion-mobile {
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   EXPECTED VISIT DATE / TIME
+   ========================================================= */
+
+#expectedVisitDate,
+#expectedVisitTime {
+    background: #f5f3ff;
+
+    border-color: #c4b5fd;
+}
+
+#expectedVisitDate:focus,
+#expectedVisitTime:focus {
+    border-color: #7c3aed;
+
+    box-shadow:
+        0 0 0 3px rgba(124, 58, 237, 0.13);
+}
+
+
+/* =========================================================
+   TECHNICIAN
+   ========================================================= */
+
+#technician {
+    background: #f5f3ff;
+
+    border-color: #c4b5fd;
+}
+
+#technician:focus {
+    border-color: #7c3aed;
+
+    box-shadow:
+        0 0 0 3px rgba(124, 58, 237, 0.13);
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+#status {
+    font-weight: 700;
+
+    background: #fafaff;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.form-buttons {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 8px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid #e5e7eb;
+}
+
+.form-buttons button {
+    min-width: 130px;
+
+    border: none;
+
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.btn-save {
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 14px rgba(79, 70, 229, 0.25);
+}
+
+.btn-save:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(79, 70, 229, 0.30);
+}
+
+.btn-reset {
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+.btn-reset:hover {
+    background: #d1d5db;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HISTORY SEARCH
+   ========================================================= */
+
+.history-search {
+    margin-bottom: 16px;
+}
+
+.history-search input {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 10px 13px;
+
+    border:
+        1px solid #c4b5fd;
+
+    border-radius: 9px;
+
+    background: #fafaff;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.history-search input:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.11);
+}
+
+
+/* =========================================================
+   HISTORY TABLE
+   ========================================================= */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border:
+        1px solid #ddd6fe;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+}
+
+#ticketHistoryTable {
+    width: 100%;
+
+    min-width: 950px;
+
+    border-collapse: collapse;
+
+    font-size: 13px;
+}
+
+#ticketHistoryTable th {
+    padding: 12px 10px;
+
+    text-align: left;
+
+    white-space: nowrap;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    border-bottom:
+        2px solid #4338ca;
+}
+
+#ticketHistoryTable td {
+    padding: 11px 10px;
+
+    border-bottom:
+        1px solid #e5e7eb;
+
+    color: #374151;
+
+    white-space: nowrap;
+
+    background: #ffffff;
+}
+
+#ticketHistoryTable tbody tr:nth-child(even) td {
+    background: #faf9ff;
+}
+
+#ticketHistoryTable tbody tr:hover td {
+    background: #f3f0ff;
+}
+
+
+/* =========================================================
+   NO DATA
+   ========================================================= */
+
+.no-data {
+    text-align: center;
+
+    padding: 25px !important;
+
+    color: #64748b !important;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.ticket-status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 78px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    border: 1px solid transparent;
+}
+
+
+/* OPEN */
+
+.status-open {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #86efac;
+}
+
+
+/* PROCESS */
+
+.status-process {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-color: #93c5fd;
+}
+
+
+/* PENDING */
+
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+    border-color: #fcd34d;
+}
+
+
+/* HOLD */
+
+.status-hold {
+    background: #ffedd5;
+    color: #c2410c;
+    border-color: #fdba74;
+}
+
+
+/* COMPLETE */
+
+.status-complete {
+    background: #dcfce7;
+    color: #15803d;
+    border-color: #86efac;
+}
+
+
+/* CANCEL */
+
+.status-cancel {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #fca5a5;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .page-header {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+
+        padding: 14px 16px;
+    }
+
+    .header-title {
+        justify-content: center;
+    }
+
+    .header-actions {
+        justify-content: center;
+    }
+
+    .ticket-container {
+        width: calc(100% - 20px);
+
+        margin-top: 15px;
+    }
+
+    .ticket-card {
+        padding: 16px;
+
+        border-radius: 13px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin-bottom: 14px;
+    }
+
+    .full-width {
+        margin-bottom: 14px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .form-buttons button {
+        width: 100%;
+    }
+
+    .header-actions button {
+        flex: 1;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .brand-name {
+        font-size: 18px;
+    }
+
+    .page-name {
+        font-size: 15px;
+
+        padding-left: 10px;
+    }
+
+    .header-actions {
+        flex-direction: column;
+    }
+
+    .header-actions button {
+        width: 100%;
+    }
+
+    .ticket-card {
+        padding: 13px;
+    }
+
+    .section-title h2 {
+        font-size: 18px;
+    }
+
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+        font-size: 14px;
+    }
+}
+/* =====================================================
+   TICKET RAISE - NEW CARD STYLE
+   DESIGN ONLY
+   ===================================================== */
+
+/* Page spacing */
+.ticket-container {
+    width: min(1180px, calc(100% - 36px));
+    margin: 28px auto 45px;
+    gap: 26px;
+}
+
+/* Header */
+.page-header {
+    min-height: 82px;
+    padding: 14px 28px;
+    border-radius: 0 0 18px 18px;
+}
+
+.brand-name {
+    font-size: 23px;
+}
+
+.page-name {
+    font-size: 19px;
+}
+
+/* Main card */
+.ticket-card {
+    padding: 0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Section title */
+.section-title {
+    margin: 0;
+    padding: 20px 25px;
+    border-bottom: 1px solid #ddd6fe;
+}
+
+.section-title h2 {
+    font-size: 21px;
+}
+
+/* Form area */
+#ticketForm {
+    padding: 25px;
+}
+
+/* Each row */
+.form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+/* Fields */
+.field-group {
+    padding: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+    background: rgba(255,255,255,.72);
+}
+
+.field-group label {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* Inputs */
+.field-group input,
+.field-group select,
+.field-group textarea {
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+/* Auto fields */
+#ticketId,
+#ticketDate,
+#ticketTime {
+    background: #eef2ff;
+    font-weight: 800;
+}
+
+/* Client search */
+#clientSearch {
+    background: #f8f7ff;
+    font-weight: 700;
+}
+
+/* Printer Model */
+#printerModel {
+    background: #faf9ff;
+    font-weight: 700;
+}
+
+/* Full width field */
+.full-width {
+    margin-bottom: 22px;
+}
+
+/* Buttons */
+.form-buttons {
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 10px;
+    padding: 22px 0 0;
+}
+
+.form-buttons button {
+    min-width: 145px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+/* History */
+.history-card {
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.history-search {
+    margin-bottom: 18px;
+}
+
+.history-search input {
+    height: 45px;
+    border-radius: 10px;
+}
+
+/* Table */
+.table-wrapper {
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+#ticketHistoryTable th {
+    padding: 14px 12px;
+}
+
+#ticketHistoryTable td {
+    padding: 13px 12px;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .ticket-container {
+        width: calc(100% - 20px);
+        margin: 15px auto 30px;
+    }
+
+    #ticketForm {
+        padding: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 14px;
+    }
+
+    .field-group {
+        padding: 12px;
+    }
+
+    .section-title {
+        padding: 17px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .form-buttons button {
+        width: 100%;
+    }
+
+    .history-card {
+        padding: 12px;
+    }
+}/* =====================================================
+   TICKET RAISE - NEW CARD STYLE
+   DESIGN ONLY
+   ===================================================== */
+
+/* Page spacing */
+.ticket-container {
+    width: min(1180px, calc(100% - 36px));
+    margin: 28px auto 45px;
+    gap: 26px;
+}
+
+/* Header */
+.page-header {
+    min-height: 82px;
+    padding: 14px 28px;
+    border-radius: 0 0 18px 18px;
+}
+
+.brand-name {
+    font-size: 23px;
+}
+
+.page-name {
+    font-size: 19px;
+}
+
+/* Main card */
+.ticket-card {
+    padding: 0;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Section title */
+.section-title {
+    margin: 0;
+    padding: 20px 25px;
+    border-bottom: 1px solid #ddd6fe;
+}
+
+.section-title h2 {
+    font-size: 21px;
+}
+
+/* Form area */
+#ticketForm {
+    padding: 25px;
+}
+
+/* Each row */
+.form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    margin-bottom: 22px;
+}
+
+/* Fields */
+.field-group {
+    padding: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+    background: rgba(255,255,255,.72);
+}
+
+.field-group label {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* Inputs */
+.field-group input,
+.field-group select,
+.field-group textarea {
+    border-radius: 9px;
+    background: #ffffff;
+}
+
+/* Auto fields */
+#ticketId,
+#ticketDate,
+#ticketTime {
+    background: #eef2ff;
+    font-weight: 800;
+}
+
+/* Client search */
+#clientSearch {
+    background: #f8f7ff;
+    font-weight: 700;
+}
+
+/* Printer Model */
+#printerModel {
+    background: #faf9ff;
+    font-weight: 700;
+}
+
+/* Full width field */
+.full-width {
+    margin-bottom: 22px;
+}
+
+/* Buttons */
+.form-buttons {
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 10px;
+    padding: 22px 0 0;
+}
+
+.form-buttons button {
+    min-width: 145px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+/* History */
+.history-card {
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.history-search {
+    margin-bottom: 18px;
+}
+
+.history-search input {
+    height: 45px;
+    border-radius: 10px;
+}
+
+/* Table */
+.table-wrapper {
+    border-radius: 12px;
+    overflow-x: auto;
+}
+
+#ticketHistoryTable th {
+    padding: 14px 12px;
+}
+
+#ticketHistoryTable td {
+    padding: 13px 12px;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .ticket-container {
+        width: calc(100% - 20px);
+        margin: 15px auto 30px;
+    }
+
+    #ticketForm {
+        padding: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 14px;
+    }
+
+    .field-group {
+        padding: 12px;
+    }
+
+    .section-title {
+        padding: 17px;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .form-buttons button {
+        width: 100%;
+    }
+
+    .history-card {
+        padding: 12px;
+    }
+}

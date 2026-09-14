@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desktop & Laptop Service | SUVI INFOTECH</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",Arial,sans-serif;min-height:100vh;color:#172033;background:linear-gradient(135deg,#fff7ed 0%,#ffedd5 50%,#dbeafe 100%);background-attachment:fixed}
+.page{width:100%;max-width:1180px;margin:auto;padding:25px 20px 50px}
+.navigation{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.nav-btn,.dashboard-btn{border:none;background:#fff;color:#334155;border-radius:12px;padding:12px 18px;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 6px 20px rgba(15,23,42,.08)}
+.nav-btn{width:42px;height:42px;padding:0;font-size:27px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}
+.brand{color:#ea580c;font-size:13px;font-weight:800;letter-spacing:1.5px;margin-bottom:5px}
+.header h1{color:#111827;font-size:29px;margin-bottom:5px}.header p{color:#64748b;font-size:14px}
+.card{background:linear-gradient(145deg,#fff7ed,#eff6ff);border:1px solid #fdba74;border-radius:24px;overflow:hidden;box-shadow:0 20px 55px rgba(234,88,12,.13),0 3px 12px rgba(37,99,235,.10)}
+.card-header{padding:24px 28px;background:linear-gradient(135deg,#fed7aa,#dbeafe);border-bottom:1px solid #93c5fd}
+.card-header h2{font-size:20px;color:#111827}.card-header p{margin-top:5px;color:#64748b;font-size:13px}
+.form-area{padding:28px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
+.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}
+label{color:#334155;font-size:13px;font-weight:700}.required{color:#ef4444}
+input,select,textarea{width:100%;border:1px solid #d9e1ec;background:#fff;color:#172033;border-radius:12px;padding:12px 14px;font:14px "Segoe UI",Arial,sans-serif;outline:none}
+input,select{height:48px}textarea{min-height:95px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:#ea580c;box-shadow:0 0 0 4px rgba(234,88,12,.10)}
+.auto{background:#f8fafc!important;color:#475569!important;font-weight:700}
+.barcode{display:flex;gap:9px}.barcode input{flex:1}
+.scan{min-width:115px;border:none;border-radius:11px;background:linear-gradient(135deg,#ea580c,#2563eb);color:#fff;font-size:13px;font-weight:800;cursor:pointer}
+.status{display:none;padding:13px 15px;margin-top:18px;border-radius:12px;font-size:13px;font-weight:700}
+.status.success{display:block;background:#ecfdf5;color:#047857;border:1px solid #bbf7d0}
+.status.warning{display:block;background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
+.save-area{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:28px;padding-top:24px;border-top:1px solid #edf1f6}
+.save-info strong{display:block;color:#334155;font-size:13px}.save-info span{color:#64748b;font-size:12px}
+.save{min-width:170px;height:50px;border:none;border-radius:13px;background:linear-gradient(135deg,#16a34a,#059669);color:#fff;font-size:14px;font-weight:800;cursor:pointer}
+.history{margin-top:25px;background:rgba(255,255,255,.97);border:1px solid #e2e8f0;border-radius:20px;overflow:hidden;box-shadow:0 12px 35px rgba(15,23,42,.06)}
+.history-head{padding:20px 24px;border-bottom:1px solid #e8edf5;background:linear-gradient(135deg,#fff,#f8fbff)}
+.history-head h2{color:#111827;font-size:18px}.history-head p{color:#64748b;font-size:12px;margin-top:4px}
+.table-wrap{overflow-x:auto}.table{width:100%;min-width:980px;border-collapse:collapse}
+.table th,.table td{padding:13px 14px;text-align:left;border-bottom:1px solid #edf1f6;font-size:12px;white-space:nowrap}
+.table th{background:#f8fafc;color:#334155;font-weight:800}.table td{color:#475569}.empty{text-align:center;padding:35px;color:#94a3b8}
+@media(max-width:700px){.page{padding:18px 12px 35px}.header{align-items:flex-start;flex-direction:column}.header h1{font-size:24px}.dashboard-btn{width:100%}.form-area{padding:20px 17px}.form-grid{grid-template-columns:1fr;gap:16px}.full{grid-column:auto}.barcode{flex-direction:column}.scan{height:46px}.save-area{align-items:stretch;flex-direction:column}.save{width:100%}}
+/* =========================================
+   DESKTOP & LAPTOP SERVICE
+   FIT TO PAGE + BIG FONT
+   ========================================= */
+
+html,body{
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden !important;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif !important;
+}
+
+/* PAGE FULL WIDTH */
+.page,
+.service-page,
+.desktop-page,
+.laptop-page,
+.desktop-laptop-page{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:10px 14px 20px !important;
+}
+
+/* HEADER */
+.brand{
+    font-size:30px !important;
+    font-weight:900 !important;
+}
+
+.header h1,
+.page-header h1{
+    font-size:28px !important;
+    font-weight:900 !important;
+}
+
+.header p,
+.page-header p{
+    font-size:15px !important;
+}
+
+/* NAVIGATION */
+.navigation,
+.service-navigation{
+    width:100% !important;
+    margin-bottom:8px !important;
+}
+
+.back-btn,
+.dashboard-btn,
+.back-button{
+    font-size:15px !important;
+    font-weight:900 !important;
+}
+
+/* CARDS */
+.service-card,
+.main-card,
+.form-card,
+.history-card{
+    width:100% !important;
+}
+
+/* CARD HEADERS */
+.card-header,
+.section-header{
+    padding:12px 16px !important;
+}
+
+.card-header h2,
+.section-header h2{
+    font-size:22px !important;
+    font-weight:900 !important;
+}
+
+.card-header p,
+.section-header p{
+    font-size:14px !important;
+}
+
+/* FORM */
+.form-area{
+    padding:14px 16px !important;
+}
+
+.form-grid{
+    width:100% !important;
+    gap:10px 12px !important;
+}
+
+.field label,
+.form-group label{
+    font-size:15px !important;
+    font-weight:800 !important;
+}
+
+.field input,
+.field select,
+.field textarea,
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100% !important;
+    min-height:42px !important;
+    padding:8px 11px !important;
+    font-size:17px !important;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+}
+
+textarea{
+    min-height:75px !important;
+}
+
+input::placeholder,
+textarea::placeholder{
+    font-size:15px !important;
+}
+
+/* BUTTONS */
+button{
+    font-family:"Segoe UI",Arial,sans-serif !important;
+    font-size:15px !important;
+    font-weight:900 !important;
+}
+
+/* HISTORY TABLE */
+.table-wrapper,
+.history-table-wrapper{
+    width:100% !important;
+    overflow-x:auto !important;
+}
+
+.history-table,
+.service-history-table{
+    width:100% !important;
+}
+
+.history-table th,
+.service-history-table th{
+    font-size:14px !important;
+    font-weight:900 !important;
+    padding:8px !important;
+}
+
+.history-table td,
+.service-history-table td{
+    font-size:14px !important;
+    font-weight:600 !important;
+    padding:8px !important;
+}
+
+/* SAVE AREA */
+.save-area{
+    margin-top:10px !important;
+    padding-top:10px !important;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .page,
+    .service-page,
+    .desktop-page,
+    .laptop-page,
+    .desktop-laptop-page{
+        padding:7px !important;
+    }
+
+    .brand{
+        font-size:26px !important;
+    }
+
+    .header h1,
+    .page-header h1{
+        font-size:24px !important;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+        font-size:17px !important;
+    }
+
+    .history-table th,
+    .service-history-table th{
+        font-size:13px !important;
+    }
+
+    .history-table td,
+    .service-history-table td{
+        font-size:14px !important;
+    }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="navigation">
+<button type="button" class="nav-btn" id="serviceBackButton" title="Back to Service Modules">←</button>
+</div>
+
+<header class="header">
+<div>
+<div class="brand" id="desktopLaptopFirmName">
+    SUVI INFOTECH
+</div>
+<h1>💻 Desktop & Laptop Service</h1>
+<p>Computer service and maintenance</p>
+</div>
+<button type="button" class="dashboard-btn" id="backToDashboard">← Back to Dashboard</button>
+</header>
+
+<section class="card">
+<div class="card-header"><h2>Desktop & Laptop Service Entry</h2><p>Enter service details and save the service history.</p></div>
+<div class="form-area">
+<form id="computerServiceForm">
+<div class="form-grid">
+
+<div class="field"><label>Service Code</label><input type="text" id="serviceCode" class="auto" readonly></div>
+
+<div class="field"><label>Date</label><input type="date" id="serviceDate"></div>
+
+<div class="field full"><label>Barcode</label><div class="barcode"><input type="text" id="barcode" placeholder="Scan or enter barcode"><button type="button" class="scan" id="scanButton">📷 Scan</button></div></div>
+
+<div class="field"><label>Sl. No. <span class="required">*</span></label><input type="text" id="serialNumber" class="auto" placeholder="Auto from barcode"></div>
+
+<div class="field"><label>Device Type <span class="required">*</span></label><select id="deviceType"><option value="">Select Type</option><option>Desktop</option><option>Laptop</option></select></div>
+
+<div class="field"><label>Make</label><select id="make"><option value="">Select Make</option><option>HP</option><option>Dell</option><option>Lenovo</option><option>Acer</option><option>Asus</option><option>MSI</option><option>Apple</option><option>Samsung</option><option>Other</option></select></div>
+
+<div class="field"><label>Model No.</label><div style="display:flex;gap:9px"><select id="modelName" style="flex:1"><option value="">Select Model</option></select><button type="button" class="scan" id="addModelButton" style="min-width:105px">+ Add Model</button></div></div>
+
+<div class="field"><label>Problem <span class="required">*</span></label><select id="problem">
+<option value="">Select Problem</option><option>Not Powering On</option><option>No Display</option><option>Slow Performance</option><option>Windows / OS Problem</option><option>Hanging / Freezing</option><option>Overheating</option><option>Keyboard Problem</option><option>Touchpad Problem</option><option>Screen / Display Problem</option><option>Battery Problem</option><option>Charging Problem</option><option>Hard Disk / SSD Problem</option><option>RAM Problem</option><option>USB / Port Problem</option><option>Network / Wi-Fi Problem</option><option>Virus / Malware</option><option>Software Installation</option><option>General Service</option><option>Other</option>
+</select></div>
+
+<div class="field"><label>Part Name</label><select id="partsName">
+<option value="">Select Part</option><option>RAM</option><option>SSD</option><option>HDD</option><option>SMPS</option><option>Motherboard</option><option>CPU Fan</option><option>Laptop Battery</option><option>Laptop Adapter</option><option>Keyboard</option><option>Touchpad</option><option>Display</option><option>Cooling Fan</option><option>CMOS Battery</option><option>Power Connector</option><option>Other</option>
+</select></div>
+
+<div class="field"><label>Qty</label><input type="number" id="qty" min="1" step="1" value="1"></div>
+
+<div class="field"><label>Amount</label><input type="number" id="amount" min="0" step="0.01" placeholder="₹ 0.00"></div>
+
+<div class="field full"><label>Remarks</label><textarea id="remarks" placeholder="Enter service remarks..."></textarea></div>
+
+</div>
+
+<div id="deviceStatus" class="status"></div>
+
+<div class="save-area">
+<div class="save-info"><strong>Service History</strong><span>Saved records will appear below.</span></div>
+<button type="submit" class="save">💾 Save Record</button>
+</div>
+</form>
+</div>
+</section>
+
+<section class="history">
+<div class="history-head"><h2>Service History</h2><p>Previous desktop and laptop service records</p></div>
+<div class="table-wrap"><table class="table"><thead><tr><th>Date</th><th>Sl. No.</th><th>Type</th><th>Make</th><th>Model</th><th>Problem</th><th>Parts</th><th>Remarks</th><th>Amount</th></tr></thead><tbody id="historyBody"></tbody></table></div>
+</section>
+</div>
+
+<script>
+const SERVICE_KEY="suviInfotechDesktopLaptopServices",DEVICE_KEY="suviInfotechDeviceMaster";
+const form=document.getElementById("computerServiceForm"),serviceCode=document.getElementById("serviceCode"),serviceDate=document.getElementById("serviceDate"),barcode=document.getElementById("barcode"),serialNumber=document.getElementById("serialNumber"),deviceType=document.getElementById("deviceType"),make=document.getElementById("make"),modelName=document.getElementById("modelName"),problem=document.getElementById("problem"),partsName=document.getElementById("partsName"),remarks=document.getElementById("remarks"),qty=document.getElementById("qty"),amount=document.getElementById("amount"),historyBody=document.getElementById("historyBody"),deviceStatus=document.getElementById("deviceStatus"),scanButton=document.getElementById("scanButton");
+
+function generateServiceCode(){
+const r=getRecords();
+if(!deviceType.value)return "";
+const prefix=deviceType.value==="Laptop"?"LAP":"DSK";
+let max=0;
+r.forEach(x=>{
+const m=String(x.serviceCode||"").match(new RegExp("^"+prefix+"(\\d+)$","i"));
+if(m)max=Math.max(max,Number(m[1]));
+});
+return prefix+String(max+1).padStart(2,"0");
+}
+function setToday(){const n=new Date();serviceDate.value=n.toISOString().slice(0,10)}
+function getDevices(){try{return JSON.parse(localStorage.getItem(DEVICE_KEY))||[]}catch(e){return[]}}
+function findDevice(code){const s=String(code).trim().toLowerCase();return getDevices().find(d=>String(d.barcode||"").toLowerCase()===s||String(d.serialNumber||"").toLowerCase()===s)}
+function lookupDevice(){const c=barcode.value.trim();if(!c)return;const d=findDevice(c);if(d){serialNumber.value=d.serialNumber||"";if(d.deviceType){deviceType.value=d.deviceType;serviceCode.value=generateServiceCode();}const makeValue=d.make||"";if(makeValue&&!Array.from(make.options).some(option=>option.value===makeValue)){const option=document.createElement("option");option.value=makeValue;option.textContent=makeValue;make.appendChild(option)}make.value=makeValue;const modelValue=d.modelName||d.modelNo||"";modelName.innerHTML='<option value="">Select Model</option>';if(modelValue){const option=document.createElement("option");option.value=modelValue;option.textContent=modelValue;modelName.appendChild(option);modelName.value=modelValue}deviceStatus.className="status success";deviceStatus.textContent="✓ Device found. Details auto-filled."}else{serialNumber.value=c;deviceStatus.className="status warning";deviceStatus.textContent="Device not found in Device Master. Please verify device details."}}
+barcode.addEventListener("change",lookupDevice);barcode.addEventListener("blur",lookupDevice);
+deviceType.addEventListener("change",()=>{serviceCode.value=generateServiceCode()});
+
+scanButton.addEventListener("click",async()=>{if("BarcodeDetector"in window){try{const detector=new BarcodeDetector({formats:["code_128","code_39","ean_13","ean_8","qr_code"]}),stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment"}}),video=document.createElement("video");Object.assign(video.style,{position:"fixed",left:"50%",top:"50%",transform:"translate(-50%,-50%)",width:"90%",maxWidth:"500px",zIndex:"99999"});video.autoplay=true;video.playsInline=true;video.srcObject=stream;document.body.appendChild(video);const loop=async()=>{try{const codes=await detector.detect(video);if(codes.length){barcode.value=codes[0].rawValue;lookupDevice();stream.getTracks().forEach(t=>t.stop());video.remove();return}}catch(e){console.log("Barcode scan error",e)}requestAnimationFrame(loop)};loop();return}catch(e){console.log("Camera scan unavailable",e)}}const v=prompt("Enter / scan barcode value:");if(v){barcode.value=v.trim();lookupDevice()}});
+
+function getRecords(){try{return JSON.parse(localStorage.getItem(SERVICE_KEY))||[]}catch(e){return[]}}
+const MODEL_KEY="suviInfotechComputerModels";
+function getSavedModels(){
+try{return JSON.parse(localStorage.getItem(MODEL_KEY))||[]}catch(e){return[]}
+}
+function loadSavedModels(){
+const current=Array.from(modelName.options).map(o=>o.value).filter(Boolean);
+getSavedModels().forEach(m=>{
+if(!current.includes(m)){
+const o=document.createElement("option");
+o.value=m;o.textContent=m;
+modelName.appendChild(o);
+}
+});
+}
+document.getElementById("addModelButton").addEventListener("click",()=>{
+const value=prompt("Enter Model No.:");
+if(!value)return;
+const model=value.trim();
+if(!model)return;
+const models=getSavedModels();
+if(!models.some(x=>String(x).toLowerCase()===model.toLowerCase())){
+models.push(model);
+localStorage.setItem(MODEL_KEY,JSON.stringify(models));
+}
+if(!Array.from(modelName.options).some(o=>o.value.toLowerCase()===model.toLowerCase())){
+const o=document.createElement("option");
+o.value=model;o.textContent=model;
+modelName.appendChild(o);
+}
+modelName.value=model;
+});
+loadSavedModels();
+
+form.addEventListener("submit",e=>{e.preventDefault();const s=serialNumber.value.trim();if(!s){alert("Please enter or scan Sl. No.");serialNumber.focus();return}if(!deviceType.value){alert("Please select Device Type.");deviceType.focus();return}if(!problem.value){alert("Please select Problem.");problem.focus();return}if(amount.value===""){alert("Please enter Amount.");amount.focus();return}const r=getRecords();r.push({id:"DLS"+Date.now(),serviceCode:serviceCode.value,date:serviceDate.value,barcode:barcode.value.trim(),serialNumber:s,deviceType:deviceType.value,make:make.value,modelName:modelName.value,problem:problem.value,partsName:partsName.value,remarks:remarks.value.trim(),qty:Number(qty.value||1),amount:Number(amount.value)});localStorage.setItem(SERVICE_KEY,JSON.stringify(r));alert("Desktop / Laptop service saved successfully.");resetForm();loadHistory()});
+function resetForm(){form.reset();serviceCode.value=generateServiceCode();setToday();deviceStatus.className="status";deviceStatus.textContent=""}
+
+const serviceParams = new URLSearchParams(window.location.search);
+if (serviceParams.get("ticketDate")) serviceDate.value = serviceParams.get("ticketDate");
+if (serviceParams.get("barcode")) { barcode.value = serviceParams.get("barcode"); lookupDevice(); }
+if (serviceParams.get("serialNumber")) serialNumber.value = serviceParams.get("serialNumber");
+if (serviceParams.get("make")) make.value = serviceParams.get("make");
+if (serviceParams.get("modelName")) { const modelValue=serviceParams.get("modelName"); modelName.innerHTML='<option value="">Select Model</option>'; const option=document.createElement("option"); option.value=modelValue; option.textContent=modelValue; modelName.appendChild(option); modelName.value=modelValue; }
+if (serviceParams.get("complaint")) { const complaintText=serviceParams.get("complaint"); if(problem.querySelector(`option[value="${complaintText}"]`)) problem.value=complaintText; }
+
+serviceCode.value=generateServiceCode();loadHistory();deviceStatus.className="status";deviceStatus.textContent="";
+function esc(v){return String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
+function loadHistory(){const r=getRecords();historyBody.innerHTML="";if(!r.length){historyBody.innerHTML='<tr><td colspan="9" class="empty">No desktop / laptop service records yet.</td></tr>';return}r.slice().reverse().forEach(x=>{const row=document.createElement("tr");row.innerHTML=`<td>${esc(x.date)}</td><td>${esc(x.serialNumber)}</td><td>${esc(x.deviceType)}</td><td>${esc(x.make)}</td><td>${esc(x.modelName)}</td><td>${esc(x.problem)}</td><td>${esc(x.partsName)}</td><td>${esc(x.remarks)}</td><td>₹${Number(x.amount||0).toFixed(2)}</td>`;historyBody.appendChild(row)})}
+/* =====================================================
+   DYNAMIC FIRM NAME
+   ===================================================== */
+
+const desktopLaptopFirmName =
+    document.getElementById("desktopLaptopFirmName");
+
+if (desktopLaptopFirmName) {
+
+    const selectedFirm =
+        localStorage.getItem(
+            "SUVI_INFOTECH_SELECTED_FIRM"
+        );
+
+    if (selectedFirm) {
+        desktopLaptopFirmName.textContent =
+            selectedFirm.trim();
+    }
+}
+
+document.getElementById("serviceBackButton").addEventListener("click",()=>window.location.href="../../../dashboard.html?page=service-modules");
+document.getElementById("backToDashboard").addEventListener("click",()=>window.top.location.href="../../../dashboard.html");</script>
+
+
+</body>
+</html>

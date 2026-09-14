@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUVI INFOTECH - Daily Diary</title>
+    <link rel="stylesheet" href="./daily-diary.css">
+</head>
+
+<body>
+
+    <div class="diary-container">
+
+        <!-- HEADER -->
+        <header class="diary-header">
+           <div class="brand-name" id="diaryFirmName">SUVI INFOTECH</div>
+            <div class="module-name">Daily Diary</div>
+        </header>
+
+        <!-- NAVIGATION -->
+        <div class="navigation">
+            <button type="button" onclick="goBack()">← Back</button>
+            <button type="button" onclick="goDashboard()">← Back to Dashboard</button>
+        </div>
+
+        <!-- DATE & TIME -->
+        <div class="date-time-row">
+            <div>
+                <label>Date</label>
+                <input type="text" id="diaryDate" readonly>
+            </div>
+
+            <div>
+                <label>Time</label>
+                <input type="text" id="diaryTime" readonly>
+            </div>
+        </div>
+
+        <!-- DIARY ENTRY -->
+        <div class="diary-entry">
+            <label for="diaryText">Diary Entry</label>
+
+            <textarea
+                id="diaryText"
+                placeholder="ಇಲ್ಲಿ manually type ಮಾಡಬಹುದು..."
+                rows="7"></textarea>
+
+            <!-- MIC BUTTON ONLY -->
+            <div class="mic-container">
+                <button
+                    type="button"
+                    id="micButton"
+                    class="mic-button"
+                    title="Voice">
+                    🎙️
+                </button>
+            </div>
+        </div>
+
+        <!-- SAVE -->
+        <div class="save-container">
+            <button type="button" id="saveDiary" class="save-button">
+                SAVE
+            </button>
+        </div>
+
+        <!-- HISTORY -->
+        <section class="history-section">
+
+            <h3>Previous Entries</h3>
+
+            <div class="search-row">
+                <input
+                    type="search"
+                    id="diarySearch"
+                    placeholder="Search diary...">
+            </div>
+
+            <div id="diaryHistory"></div>
+
+        </section>
+
+    </div>
+
+    <script type="module" src="daily-diary.js"></script>
+<script type="module" src="daily-diary.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const firmName =
+        localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM")
+        || "SUVI INFOTECH";
+
+    const firmElement =
+        document.getElementById("diaryFirmName");
+
+    if (firmElement) {
+        firmElement.textContent = firmName.trim();
+    }
+
+});
+</script>
+</body>
+</html>
+

@@ -1,0 +1,2966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#0b2b49">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="SUVI ServiceOps">
+    <link rel="manifest" href="manifest.json">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Dashboard | SUVI INFOTECH 
+    </title>
+
+    <!-- COMMON CSS -->
+    
+        
+    <!-- COMMON CSS -->
+    
+    <!-- DASHBOARD CSS -->
+     <link rel="stylesheet" href="css/dashboard.css">
+  
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style id="suvi-quick-modules">
+.quick-modules-panel{
+    margin-top:20px;
+    padding:22px;
+    border:1px solid #dbe5ef;
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 10px 28px rgba(16,42,67,.07);
+}
+.quick-modules-brand{
+    color:#087ea4;
+    font-size:11px;
+    font-weight:1000;
+    letter-spacing:2.5px;
+}
+.quick-modules-heading h2{
+    margin:3px 0 2px;
+    color:#102a43;
+    font-size:21px;
+    font-weight:900;
+}
+.quick-modules-heading p{
+    margin:0;
+    color:#64748b;
+    font-size:12px;
+}
+.quick-modules-grid{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:12px;
+}
+.module-action{
+    min-height:76px;
+    padding:13px 12px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    border:1px solid #dce6ef;
+    border-radius:14px;
+    background:#f8fbfd;
+    color:#102a43;
+    font:inherit;
+    font-weight:800;
+    text-align:left;
+    cursor:pointer;
+    transition:.18s ease;
+}
+.module-action i{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    flex:0 0 38px;
+    border-radius:11px;
+    background:#e4f5fa;
+    color:#087ea4;
+    font-size:17px;
+}
+.module-action:hover{
+    transform:translateY(-2px);
+    border-color:#8ed7e8;
+    background:#fff;
+    box-shadow:0 8px 20px rgba(8,126,164,.12);
+}
+@media(max-width:1000px){
+    .quick-modules-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+@media(max-width:700px){
+    .quick-modules-panel{padding:16px;}
+    .quick-modules-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;}
+    .module-action{min-height:66px;padding:10px;font-size:12px;}
+    .module-action i{width:34px;height:34px;flex-basis:34px;font-size:15px;}
+}
+
+
+/* LEFT CONTENT */
+.dashboard-welcome .welcome-content {
+    position: relative !important;
+    z-index: 3 !important;
+    width: 65% !important;
+}
+
+
+
+
+
+/* SUVI INFOTECH */
+.dashboard-welcome h1 {
+    margin: 7px 0 5px !important;
+    color: #ffffff !important;
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    letter-spacing: .5px !important;
+}
+
+
+/* NOTHING IS IMPOSSIBLE */
+.dashboard-welcome p {
+    margin: 0 !important;
+    color: #e0f2fe !important;
+    opacity: 1 !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+}
+
+
+/* ONE CLICK */
+.dashboard-welcome small {
+    display: block !important;
+    margin-top: 12px !important;
+    color: #ffffff !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    letter-spacing: 1.5px !important;
+}
+
+
+/* BUSINESS INFORMATION */
+.dashboard-welcome .welcome-business-info {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-top: 12px !important;
+}
+
+
+/* INFO BOX */
+.dashboard-welcome .welcome-info-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    min-height: 42px !important;
+    padding: 7px 10px !important;
+
+    border: 1px solid rgba(255,255,255,.30) !important;
+    border-radius: 10px !important;
+
+    background: rgba(255,255,255,.10) !important;
+
+    color: #ffffff !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+}
+
+
+/* INFO ICON */
+.dashboard-welcome .welcome-info-item i {
+    width: 28px !important;
+    height: 28px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    border-radius: 8px !important;
+
+    background: rgba(255,255,255,.18) !important;
+    color: #ffffff !important;
+
+    font-size: 13px !important;
+}
+
+
+/* INFO TITLE */
+.dashboard-welcome .welcome-info-item strong {
+    display: block !important;
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    margin-bottom: 2px !important;
+}
+
+
+/* ADDRESS */
+.dashboard-welcome .welcome-address {
+    max-width: 470px !important;
+}
+
+
+/* RIGHT ICON - ONLY ONE */
+.dashboard-welcome .welcome-icon {
+    width: 220px !important;
+    height: 110px !important;
+
+    flex: 0 0 220px !important;
+
+    display: grid !important;
+    place-items: center !important;
+
+    border-radius: 18px !important;
+
+    background: rgba(255,255,255,.95) !important;
+
+    color: #075985 !important;
+
+    font-size: 48px !important;
+
+    box-shadow: 0 8px 22px rgba(0,0,0,.15) !important;
+
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+
+/* BOLT ICON */
+.dashboard-welcome .welcome-icon i {
+    color: #075985 !important;
+    font-weight: 900 !important;
+    font-size: 46px !important;
+}
+
+
+/* REMOVE ANY EXTRA ICON GROUPS INSIDE BANNER */
+.dashboard-welcome .suvi-quick-modules,
+.dashboard-welcome .quick-modules-panel,
+.dashboard-welcome .quick-modules-grid {
+    display: none !important;
+}
+
+
+/* MOBILE */
+@media (max-width:700px) {
+
+    .dashboard-welcome {
+        margin: 16px !important;
+        padding: 22px !important;
+
+        min-height: auto !important;
+
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 18px !important;
+    }
+
+    .dashboard-welcome .welcome-content {
+        width: 100% !important;
+    }
+
+    .dashboard-welcome h1 {
+        font-size: 25px !important;
+    }
+
+    .dashboard-welcome .welcome-icon {
+        width: 100% !important;
+        height: 80px !important;
+        flex: none !important;
+    }
+
+    .dashboard-welcome .welcome-business-info {
+        flex-direction: column !important;
+    }
+
+    .dashboard-welcome .welcome-info-item {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+.welcome-label{
+    display:block !important;
+    font-size:11px !important;
+    font-weight:900 !important;
+    letter-spacing:1.5px !important;
+    color:#31566f !important;
+    opacity:1 !important;
+}
+
+.dashboard-welcome h1{
+    margin:7px 0 5px !important;
+    font-size:30px !important;
+    font-weight:900 !important;
+    color:#07579d !important;
+}
+
+.dashboard-welcome p{
+    margin:0 !important;
+    font-size:14px !important;
+    font-weight:800 !important;
+    color:#31566f !important;
+    opacity:1 !important;
+}
+
+.dashboard-welcome small{
+    display:block !important;
+    margin-top:12px !important;
+    font-size:10px !important;
+    font-weight:900 !important;
+    letter-spacing:1.5px !important;
+    color:#0878c9 !important;
+}
+
+.dashboard-welcome .welcome-icon{
+    width:330px !important;
+    height:78px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:22px !important;
+
+    padding:12px 20px !important;
+
+    background:#f4fbff !important;
+    border:1px solid #c3e0f1 !important;
+    border-radius:16px !important;
+
+    box-shadow:0 5px 16px rgba(0,100,170,.12) !important;
+}
+
+.dashboard-welcome .welcome-icon i{
+    color:#087fd1 !important;
+    font-size:25px !important;
+    font-weight:900 !important;
+}
+
+
+/* Mobile */
+@media(max-width:700px){
+
+    .dashboard-welcome{
+        margin:10px 14px !important;
+        padding:20px !important;
+        min-height:auto !important;
+    }
+
+    .dashboard-welcome h1{
+        font-size:24px !important;
+    }
+
+    .dashboard-welcome .welcome-icon{
+        width:170px !important;
+        height:60px !important;
+        gap:10px !important;
+        padding:8px !important;
+    }
+
+    .dashboard-welcome .welcome-icon i{
+        font-size:19px !important;
+    }
+}
+.dashboard-user-info{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:22px;
+}
+.dashboard-date-time{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:4px;
+}
+.dashboard-date-time strong{
+    color:#17324d;
+    font-size:13px;
+    font-weight:900;
+}
+.dashboard-date-time span{
+    color:#2563eb;
+    font-size:12px;
+    font-weight:700;
+}
+.dashboard-user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.dashboard-user-icon{
+    width:46px;
+    height:46px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#e0f2fe;
+    color:#087ea4;
+    box-shadow:0 5px 14px rgba(8,126,164,.12);
+}
+.dashboard-user strong{
+    display:block;
+    color:#17324d;
+    font-size:14px;
+    font-weight:900;
+}
+.dashboard-user small{
+    display:block;
+    margin-top:2px;
+    color:#64748b;
+    font-size:11px;
+}
+@media(max-width:700px){
+    .dashboard-user-info{
+        gap:12px;
+    }
+    .dashboard-date-time{
+        display:flex;
+    }
+}
+
+
+.dashboard-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding:18px 28px;
+    background:#fff;
+    border-bottom:1px solid #dce7ef;
+    box-shadow:0 4px 16px rgba(15,42,67,.06);
+}
+
+
+/* =====================================================
+   OVERVIEW CARDS - COLOR + ICON DESIGN
+   ===================================================== */
+
+
+
+.overview-card{
+    position:relative;
+    overflow:hidden;
+    border:1px solid #dbe7ef !important;
+    border-radius:18px !important;
+    background:#fff !important;
+    box-shadow:0 8px 22px rgba(15,42,67,.07) !important;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease !important;
+}
+
+.overview-card::after{
+    content:"";
+    position:absolute;
+    right:-28px;
+    top:-28px;
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    background:rgba(14,165,183,.08);
+}
+
+.overview-card:hover{
+    transform:translateY(-4px) !important;
+    box-shadow:0 14px 30px rgba(15,42,67,.12) !important;
+}
+
+/* Icon base */
+.overview-card .overview-icon{
+    width:50px !important;
+    height:50px !important;
+    min-width:50px !important;
+    display:grid !important;
+    place-items:center !important;
+    border-radius:15px !important;
+    font-size:20px !important;
+    box-shadow:0 6px 14px rgba(15,42,67,.10) !important;
+    position:relative;
+    z-index:1;
+}
+
+/* Different card accents */
+.overview-card:nth-child(1){
+    border-top:4px solid #2563eb !important;
+}
+.overview-card:nth-child(1) .overview-icon{
+    background:#e0edff !important;
+    color:#2563eb !important;
+}
+
+.overview-card:nth-child(2){
+    border-top:4px solid #0ea5a8 !important;
+}
+.overview-card:nth-child(2) .overview-icon{
+    background:#def8f5 !important;
+    color:#0e8f91 !important;
+}
+
+.overview-card:nth-child(3){
+    border-top:4px solid #f59e0b !important;
+}
+.overview-card:nth-child(3) .overview-icon{
+    background:#fff2d8 !important;
+    color:#d97706 !important;
+}
+
+.overview-card:nth-child(4){
+    border-top:4px solid #8b5cf6 !important;
+}
+.overview-card:nth-child(4) .overview-icon{
+    background:#eee7ff !important;
+    color:#7c3aed !important;
+}
+
+.overview-card:nth-child(5){
+    border-top:4px solid #ef4444 !important;
+}
+.overview-card:nth-child(5) .overview-icon{
+    background:#ffe5e8 !important;
+    color:#dc2626 !important;
+}
+
+.overview-card:nth-child(6){
+    border-top:4px solid #06b6d4 !important;
+}
+.overview-card:nth-child(6) .overview-icon{
+    background:#def8ff !important;
+    color:#0891b2 !important;
+}
+
+.overview-card:nth-child(7){
+    border-top:4px solid #10b981 !important;
+}
+.overview-card:nth-child(7) .overview-icon{
+    background:#ddf9ee !important;
+    color:#059669 !important;
+}
+
+.overview-card:nth-child(8){
+    border-top:4px solid #ec4899 !important;
+}
+.overview-card:nth-child(8) .overview-icon{
+    background:#ffe6f2 !important;
+    color:#db2777 !important;
+}
+
+/* Labels and numbers */
+.overview-card .card-label,
+.overview-card small{
+    color:#64748b !important;
+    font-weight:700 !important;
+}
+
+.overview-card .card-value,
+.overview-card strong{
+    color:#102a43 !important;
+    font-weight:900 !important;
+}
+
+/* Keep cards responsive */
+
+
+
+
+
+/* =====================================================
+   OVERVIEW - MEDIUM COLOR CARDS
+   ===================================================== */
+
+.overview-grid{
+    gap:16px !important;
+}
+
+.overview-card{
+    min-height:88px !important;
+    padding:14px 16px !important;
+    border-radius:15px !important;
+}
+
+.overview-card .overview-icon{
+    width:42px !important;
+    height:42px !important;
+    min-width:42px !important;
+    border-radius:12px !important;
+    font-size:17px !important;
+}
+
+.overview-card .overview-info span{
+    font-size:12px !important;
+    color:#64748b !important;
+    font-weight:700 !important;
+}
+
+.overview-card .overview-info strong{
+    font-size:22px !important;
+    color:#102a43 !important;
+    font-weight:900 !important;
+}
+
+/* Card accent colors */
+.overview-card:nth-child(1){border-top:3px solid #2563eb !important;}
+.overview-card:nth-child(1) .overview-icon{
+    background:#e0edff !important;color:#2563eb !important;
+}
+
+.overview-card:nth-child(2){border-top:3px solid #0ea5a8 !important;}
+.overview-card:nth-child(2) .overview-icon{
+    background:#def8f5 !important;color:#0e8f91 !important;
+}
+
+.overview-card:nth-child(3){border-top:3px solid #f59e0b !important;}
+.overview-card:nth-child(3) .overview-icon{
+    background:#fff2d8 !important;color:#d97706 !important;
+}
+
+.overview-card:nth-child(4){border-top:3px solid #8b5cf6 !important;}
+.overview-card:nth-child(4) .overview-icon{
+    background:#eee7ff !important;color:#7c3aed !important;
+}
+
+.overview-card:nth-child(5){border-top:3px solid #ef4444 !important;}
+.overview-card:nth-child(5) .overview-icon{
+    background:#ffe5e8 !important;color:#dc2626 !important;
+}
+
+.overview-card:nth-child(6){border-top:3px solid #06b6d4 !important;}
+.overview-card:nth-child(6) .overview-icon{
+    background:#def8ff !important;color:#0891b2 !important;
+}
+
+.overview-card:nth-child(7){border-top:3px solid #10b981 !important;}
+.overview-card:nth-child(7) .overview-icon{
+    background:#ddf9ee !important;color:#059669 !important;
+}
+
+.overview-card:nth-child(8){border-top:3px solid #ec4899 !important;}
+.overview-card:nth-child(8) .overview-icon{
+    background:#ffe6f2 !important;color:#db2777 !important;
+}
+
+/* ===== REMOVE DUPLICATE BANNER ICONS ===== */
+
+.dashboard-welcome .welcome-icon{
+    display:none !important;
+}
+
+/* keep banner content clean */
+.dashboard-welcome > .welcome-content{
+    flex:1 !important;
+    min-width:0 !important;
+}
+
+</style>
+
+
+<style id="suvi-dashboard-final-layout">
+/* =====================================================
+   SUVI INFOTECH - FINAL DASHBOARD LAYOUT
+   Targeted layout fix only
+   ===================================================== */
+
+html, body {
+    width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+.dashboard-page {
+    display: block !important;
+    width: calc(100% - 245px) !important;
+    min-width: 0 !important;
+    margin-left: 245px !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* Keep every main section on the same left/right line */
+.dashboard-global-search,
+.dashboard-section-header,
+.overview-grid,
+.updates-section,
+.quick-actions-grid,
+.dashboard-bottom {
+    box-sizing: border-box !important;
+}
+
+.dashboard-global-search {
+    width: calc(100% - 56px) !important;
+    margin-left: 28px !important;
+    margin-right: 28px !important;
+}
+
+.dashboard-section-header {
+    width: calc(100% - 56px) !important;
+    margin-left: 28px !important;
+    margin-right: 28px !important;
+}
+
+/* OVERVIEW - 4 equal columns */
+#overviewGrid {
+    width: calc(100% - 56px) !important;
+    margin-left: 28px !important;
+    margin-right: 28px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    align-content: start !important;
+}
+
+#overviewGrid .overview-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 74px !important;
+    min-height: 74px !important;
+    max-height: 74px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* UPDATES - exactly 3 equal cards */
+.updates-section {
+    width: calc(100% - 56px) !important;
+    margin: 18px 28px 22px !important;
+    padding: 0 !important;
+}
+
+.updates-grid {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+}
+
+.updates-grid .update-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 95px !important;
+    min-height: 95px !important;
+    max-height: 95px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* QUICK ACTIONS - 4 equal columns */
+.quick-section {
+    width: calc(100% - 56px) !important;
+    margin-left: 28px !important;
+    margin-right: 28px !important;
+}
+
+#quickActionsGrid {
+    width: calc(100% - 56px) !important;
+    margin-left: 28px !important;
+    margin-right: 28px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+}
+
+#quickActionsGrid .quick-action {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 74px !important;
+    min-height: 74px !important;
+    max-height: 74px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+}
+
+@media (max-width: 1200px) {
+    #overviewGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+    #quickActionsGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+@media (max-width: 760px) {
+    .dashboard-page {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .dashboard-global-search,
+    .dashboard-section-header,
+    #overviewGrid,
+    .updates-section,
+    .quick-section,
+    #quickActionsGrid {
+        width: calc(100% - 34px) !important;
+        margin-left: 17px !important;
+        margin-right: 17px !important;
+    }
+
+    #overviewGrid,
+    #quickActionsGrid,
+    .updates-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+
+/* =================================================
+   RIGHT SIDE ICON BOX
+   ================================================= */
+
+.dashboard-welcome .welcome-icon {
+    background: rgba(255,255,255,.88) !important;
+
+    border: 1px solid #b9def3 !important;
+    border-radius: 18px !important;
+
+    box-shadow: 0 6px 18px rgba(22,131,216,.12) !important;
+}
+
+/* ALL ICONS BOLD */
+.dashboard-welcome .welcome-icon i {
+    color: #006fc9 !important;
+
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+
+    font-size: 24px !important;
+
+    text-shadow: 0 1px 1px rgba(0,0,0,.10) !important;
+}
+
+/* If tech-item icons are present */
+.dashboard-welcome .tech-item i {
+    color: #006fc9 !important;
+    background: #e2f4ff !important;
+
+    border: 1px solid #b8def5 !important;
+    border-radius: 11px !important;
+
+    font-size: 21px !important;
+    font-weight: 900 !important;
+
+    box-shadow: 0 4px 10px rgba(0,100,180,.14) !important;
+}
+
+.dashboard-welcome .tech-item span {
+    color: #244b66 !important;
+    font-weight: 900 !important;
+}
+
+/* Remove any old dark pseudo decoration */
+.dashboard-welcome::before,
+.dashboard-welcome::after {
+    opacity: 0 !important;
+}
+
+
+/* LEFT CONTENT */
+
+.dashboard-welcome .welcome-content{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    justify-content:center !important;
+}
+
+
+/* WELCOME TEXT */
+
+.dashboard-welcome .welcome-label{
+    display:block !important;
+    margin:0 0 5px !important;
+
+    color:#8FDBFF !important;
+    opacity:1 !important;
+
+    font-size:11px !important;
+    font-weight:900 !important;
+    letter-spacing:2px !important;
+}
+
+.dashboard-welcome h1{
+    margin:4px 0 4px !important;
+
+    color:#ffffff !important;
+    opacity:1 !important;
+
+    font-size:30px !important;
+    line-height:1.15 !important;
+    font-weight:900 !important;
+}
+
+.dashboard-welcome p{
+    margin:0 !important;
+
+    color:#D9F4FF !important;
+    opacity:1 !important;
+
+    font-size:14px !important;
+    font-weight:700 !important;
+}
+
+.dashboard-welcome small{
+    display:block !important;
+    margin:9px 0 12px !important;
+
+    color:#8FDBFF !important;
+    opacity:1 !important;
+
+    font-size:10px !important;
+    font-weight:900 !important;
+    letter-spacing:1.5px !important;
+}
+
+
+/* BUSINESS INFORMATION ROW */
+
+.dashboard-welcome .welcome-business-info{
+    width:100% !important;
+
+    display:grid !important;
+    grid-template-columns:repeat(4,minmax(120px,1fr)) !important;
+    gap:8px !important;
+
+    margin-top:3px !important;
+}
+
+
+/* EACH INFORMATION BOX */
+
+.dashboard-welcome .welcome-info-item{
+    min-height:42px !important;
+    padding:7px 9px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    gap:8px !important;
+
+    border:1px solid rgba(255,255,255,.28) !important;
+    border-radius:10px !important;
+
+    background:rgba(255,255,255,.10) !important;
+
+    color:#ffffff !important;
+}
+
+
+/* INFORMATION ICON */
+
+.dashboard-welcome .welcome-info-item i{
+    width:30px !important;
+    height:30px !important;
+    flex:0 0 30px !important;
+
+    display:grid !important;
+    place-items:center !important;
+
+    border-radius:8px !important;
+
+    background:#E7F7FF !important;
+    color:#087EA4 !important;
+
+    font-size:13px !important;
+    font-weight:900 !important;
+}
+
+
+/* INFORMATION TEXT */
+
+.dashboard-welcome .welcome-info-item span{
+    min-width:0 !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+
+    color:#ffffff !important;
+    font-size:9px !important;
+    font-weight:600 !important;
+}
+
+.dashboard-welcome .welcome-info-item strong{
+    margin-bottom:2px !important;
+
+    color:#8FDBFF !important;
+    font-size:9px !important;
+    font-weight:900 !important;
+}
+
+
+/* ADDRESS - FULL WIDTH */
+
+.dashboard-welcome .welcome-address{
+    grid-column:1 / -1 !important;
+}
+
+
+/* RIGHT SIDE ICON */
+
+.dashboard-welcome .welcome-icon{
+    width:82px !important;
+    height:82px !important;
+    min-width:82px !important;
+
+    flex:0 0 82px !important;
+
+    display:grid !important;
+    place-items:center !important;
+
+    border-radius:20px !important;
+
+    background:#E7F7FF !important;
+    border:3px solid rgba(255,255,255,.35) !important;
+
+    color:#087EA4 !important;
+
+    font-size:32px !important;
+    font-weight:900 !important;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.18) !important;
+}
+
+.dashboard-welcome .welcome-icon i{
+    color:#087EA4 !important;
+    font-weight:900 !important;
+}
+
+
+/* EVERY ICON IN BANNER BOLD */
+
+.dashboard-welcome i{
+    font-weight:900 !important;
+}
+
+
+/* TABLET */
+
+@media(max-width:1100px){
+
+    .dashboard-welcome{
+        min-height:220px !important;
+    }
+
+    .dashboard-welcome .welcome-business-info{
+        grid-template-columns:repeat(2,minmax(140px,1fr)) !important;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .dashboard-welcome{
+        margin:16px !important;
+        padding:20px !important;
+
+        min-height:auto !important;
+
+        flex-direction:column !important;
+        align-items:stretch !important;
+        gap:15px !important;
+    }
+
+    .dashboard-welcome h1{
+        font-size:24px !important;
+    }
+
+    .dashboard-welcome .welcome-business-info{
+        grid-template-columns:1fr !important;
+    }
+
+    .dashboard-welcome .welcome-address{
+        grid-column:auto !important;
+    }
+
+    .dashboard-welcome .welcome-icon{
+        align-self:center !important;
+        width:64px !important;
+        height:64px !important;
+        min-width:64px !important;
+        flex-basis:64px !important;
+        font-size:26px !important;
+    }
+
+}
+/* Banner text */
+.dashboard-welcome h1,
+.dashboard-welcome p,
+.dashboard-welcome small,
+.dashboard-welcome .welcome-label{
+    color:#ffffff !important;
+    opacity:1 !important;
+}
+
+/* ALL banner icons - bold */
+.dashboard-welcome i,
+.dashboard-welcome .fa-solid,
+.dashboard-welcome .fa-regular{
+    font-weight:900 !important;
+}
+
+/* Icon boxes */
+.dashboard-welcome .welcome-icon,
+.dashboard-welcome .module-action i{
+    font-weight:900 !important;
+}
+
+/* Banner small information boxes */
+.dashboard-welcome .welcome-info,
+.dashboard-welcome .info-item,
+.dashboard-welcome .welcome-card{
+    color:#ffffff !important;
+}
+
+/* Force every icon inside banner */
+.dashboard-welcome i::before{
+    font-weight:900 !important;
+}
+</style>
+<style>
+.admin-lock-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 25, 50, 0.62);
+    backdrop-filter: blur(7px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.admin-lock-box {
+    width: 430px;
+    max-width: calc(100% - 30px);
+    background: #fff;
+    border-radius: 22px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,.30);
+    animation: adminPopup .2s ease;
+}
+
+@keyframes adminPopup {
+    from {
+        transform: scale(.92);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.admin-lock-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#0d6efd,#084298);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.admin-lock-box h2 {
+    margin: 5px 0;
+    color: #142b55;
+    font-size: 25px;
+}
+
+.admin-lock-box p {
+    margin: 5px 0 22px;
+    color: #6b7280;
+}
+
+.admin-pin-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.admin-pin {
+    width: 58px;
+    height: 62px;
+    border: 2px solid #d8dee9;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    outline: none;
+}
+
+.admin-pin:focus {
+    border-color: #1769ff;
+    box-shadow: 0 0 0 3px rgba(23,105,255,.12);
+}
+
+.admin-error {
+    display: none;
+    background: #fff0f0;
+    color: #d62828;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+.admin-unlock-btn {
+    width: 100%;
+    border: 0;
+    border-radius: 12px;
+    padding: 14px;
+    background: linear-gradient(135deg,#1265f3,#0848bd);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.admin-cancel-btn {
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px;
+    background: #f5f6f8;
+    color: #333;
+    cursor: pointer;
+}
+
+.admin-verify {
+    display: none;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid #eee;
+}
+
+.admin-verify-title {
+    font-weight: 700;
+    color: #142b55;
+    margin-bottom: 12px;
+}
+
+.admin-verify-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-verify-buttons button {
+    flex: 1;
+    border: 0;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.email-code-btn {
+    background: #eaf2ff;
+    color: #0759c9;
+}
+
+.mobile-code-btn {
+    background: #e8f9f0;
+    color: #078044;
+}
+
+.admin-otp-section {
+    display: none;
+    margin-top: 15px;
+}
+
+.admin-otp-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 2px solid #d8dee9;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 6px;
+    outline: none;
+}
+
+.admin-otp-confirm {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: 0;
+    border-radius: 10px;
+    background: #142b55;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     SUVI INFOTECH SIDEBAR
+===================================================== -->
+
+<aside class="suvi-sidebar">
+
+   <div class="sidebar-logo">
+
+    <button
+        type="button"
+        class="sidebar-menu-toggle"
+        id="sidebarMenuToggle"
+        aria-label="Toggle menu"
+        title="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <img
+    id="companyLogo"
+    src="assets/suvi_logo.png"
+    alt="Company Logo">
+   <strong id="menuCompanyName">SUVI INFOTECH</strong>
+    
+
+</div>
+    </div>
+
+
+   <nav class="sidebar-menu">
+
+    <!-- DASHBOARD -->
+    <a
+        href="dashboard.html"
+        class="menu-item active">
+
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Dashboard</span>
+
+    </a>
+
+
+    <!-- CALL REGISTER -->
+    <a
+        href="modules/call-register/call-register.html"
+        class="menu-item">
+
+        <i class="fa-solid fa-phone"></i>
+        <span>Call Register</span>
+
+    </a>
+<!-- DAILY DIARY -->
+<a
+    href="daily-diary.html"
+    class="menu-item">
+
+    <i class="fa-solid fa-book"></i>
+
+    <span>Daily Diary</span>
+
+</a>
+
+
+    <!-- CLIENT MASTER -->
+    <a
+        href="modules/client-master/client-master.html"
+        class="menu-item">
+
+        <i class="fa-solid fa-users"></i>
+        <span>Client Master</span>
+
+    </a>
+
+
+    <!-- FIELD VISIT -->
+    <a
+        href="modules/field-visit/field-visit.html"
+        class="menu-item">
+
+        <i class="fa-solid fa-car-side"></i>
+        <span>Field Visit</span>
+
+    </a>
+<!-- TICKET -->
+<a
+    href="modules/ticket-raise/ticket-raise.html"
+    class="menu-item">
+
+    <i class="fa-solid fa-ticket"></i>
+    <span>Ticket</span>
+
+</a>
+
+<!-- FIRM MANAGEMENT -->
+<a
+    href="firm-managment.html"
+    class="menu-item">
+
+    <i class="fa-solid fa-building"></i>
+    <span>Firm Management</span>
+
+</a>
+    <!-- =========================================
+         SERVICE MODULES
+    ========================================== -->
+
+    <div class="service-menu">
+
+        <button
+            type="button"
+            class="menu-item service-toggle"
+            onclick="toggleServiceMenu()">
+
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            <span>Service Modules</span>
+
+            <i class="fa-solid fa-chevron-down service-arrow"></i>
+
+        </button>
+
+
+        <div
+            id="serviceSubMenu"
+            class="service-submenu">
+
+
+            <!-- PRINTER SERVICE -->
+            <a
+                href="modules/service-modules/printer-service/printer-service.html"
+                class="service-item service-printer">
+
+                <i class="fa-solid fa-print"></i>
+                <span>Printer Service</span>
+
+            </a>
+
+
+            <!-- CARTRIDGE REFILLING -->
+            <a
+                href="modules/service-modules/cartridge-refilling/cartridge-refilling.html"
+                class="service-item service-cartridge">
+
+                <i class="fa-solid fa-fill-drip"></i>
+                <span>Cartridge Refilling</span>
+
+            </a>
+
+
+            <!-- LAPTOP & DESKTOP -->
+            <a
+                href="modules/service-modules/desktop-laptop-service/desktop-laptop-service.html"
+                class="service-item service-computer">
+
+                <i class="fa-solid fa-laptop"></i>
+                <span>Laptop &amp; Desktop Service</span>
+
+            </a>
+
+
+            <!-- NETWORKING / WIFI -->
+            <a
+                href="modules/service-modules/networking-wifi-service/networking-wifi-service.html"
+                class="service-item service-network">
+
+                <i class="fa-solid fa-network-wired"></i>
+                <span>Networking / WiFi Service</span>
+
+            </a>
+
+
+            <!-- CAMERA / SOLAR -->
+            <a
+                href="modules/service-modules/camera-solar-service/camera-solar-service.html"
+                class="service-item service-camera">
+
+                <i class="fa-solid fa-video"></i>
+                <span>Camera / Solar Service</span>
+
+            </a>
+
+
+            <!-- AMC -->
+            <a
+                href="modules/service-modules/amc-service/amc-service.html"
+                class="service-item service-amc">
+
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>AMC Service</span>
+
+            </a>
+
+
+            <!-- WARRANTY -->
+            <a
+                href="modules/service-modules/warranty-service/warranty-service.html"
+                class="service-item service-warranty">
+
+                <i class="fa-solid fa-award"></i>
+                <span>Warranty Service</span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- INVENTORY -->
+    <a
+        href="modules/inventory/inventory.html"
+        class="menu-item">
+
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <span>Inventory</span>
+
+    </a>
+
+
+    <!-- QUOTATION -->
+    <a href="modules/quotation/quotation.html" class="menu-item">
+    <i class="fas fa-file-invoice"></i>
+    <span>Quotation</span>
+</a>
+    <!-- CASH BILL -->
+    <a
+        href="modules/billing/billing.html"
+        class="menu-item">
+
+        <i class="fa-solid fa-money-bill-wave"></i>
+        <span>Cash Bill</span>
+
+    </a>
+    
+    
+        <!-- GST -->
+<a
+    href="modules/gst/gst.html"
+    class="menu-item">
+
+    <i class="fa-solid fa-chart-pie"></i>
+    <span>GST</span>
+
+</a>
+<!-- EXPENSE MANAGEMENT -->
+<a
+    href="modules/expense/expense.html"
+    class="menu-item">
+
+    <i class="fa-solid fa-wallet"></i>
+    <span>Expense Management</span>
+
+</a>
+<!-- PAYMENT & COLLECTION -->
+<a
+    href="modules/payment/payment.html"
+    class="menu-item">
+
+    <i class="fa-solid fa-hand-holding-dollar"></i>
+    <span>Payment & Collection</span>
+
+</a>
+<!-- CLIENT REMINDER -->
+<a href="modules/client-reminder/client-reminder.html" class="menu-item">
+    <i class="fa-solid fa-bell"></i>
+    <span>Client Reminder</span>
+</a>
+<!-- LICENSE -->
+
+<a
+    href="modules/license/license.html"
+    class="menu-item">
+
+    <i class="fa-solid fa-key"></i>
+
+    <span>License</span>
+<!-- ADMIN PANEL -->
+<a
+    href="#"
+    class="menu-item"
+    onclick="openAdminPanel(event)">
+
+    <i class="fa-solid fa-user-shield"></i>
+    <span>Admin Panel</span>
+
+</a>
+<!-- RECYCLE BIN -->
+<a
+    href="modules/recycle-bin/recycle-bin.html"
+    class="menu-item">
+
+    <i class="fa-solid fa-recycle"></i>
+
+    <span>Recycle Bin</span>
+
+</a>
+
+    <!-- DATA SYNC -->
+    <a
+        href="modules/data-sync/data-sync.html"
+        class="menu-item">
+
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span>Data Sync</span>
+
+    </a>
+
+</nav>
+
+
+<!-- SIDEBAR BOTTOM -->
+
+<div class="sidebar-bottom">
+<button
+    type="button"
+    id="logoutButton"
+    class="menu-item logout-menu"
+>
+    <i class="fa-solid fa-right-from-bracket"></i>
+    <span>Logout</span>
+</button>
+
+<script>
+    document
+        .getElementById("logoutButton")
+        .addEventListener("click", function () {
+            window.location.href = "logout.html";
+        });
+</script>
+    
+</div>
+
+</aside>
+
+
+<div class="dashboard-page active-page">
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <div class="dashboard-header">
+
+    <div class="dashboard-heading">
+        <h2>
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+        </h2>
+
+        <p>
+            SUVI INFOTECH SERVICE PRO
+        </p>
+    </div>
+
+    <div class="dashboard-user-info">
+    <div class="dashboard-date-time">
+        <strong id="dashboardDate"></strong>
+        <span id="dashboardTime"></span>
+    </div>
+
+    <div class="dashboard-user">
+        <div class="dashboar<d-user-icon">
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <div>
+            <strong id="dashboardUserName">Admin</strong>
+            <small>Administrator</small>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<div class="dashboard-welcome" id="welcomeBackCard">
+
+    <div class="welcome-content">
+
+        <span class="welcome-label" id="welcomeGreeting"></span>
+
+<h1 id="dashboardCompanyName">SUVI INFOTECH</h1>
+
+<p>Manage | Track | Service | Grow</p>
+
+<small>
+    <i class="fa-solid fa-chart-line"></i>
+    Nothing Is Impossible
+</small>
+
+        <div class="welcome-business-info">
+
+            <div class="welcome-info-item">
+                <i class="fa-solid fa-user-tie"></i>
+                <span>
+                   <strong>Proprietor</strong>
+<span id="dashboardFirmContact">Vinay Kumar Prakash</span>
+                </span>
+            </div>
+
+            <div class="welcome-info-item">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>
+                    <strong>Mobile</strong>
+<span id="dashboardFirmMobile">9738413450</span>
+                </span>
+            </div>
+
+            <div class="welcome-info-item">
+                <i class="fa-solid fa-phone"></i>
+                <span>
+                    <strong>Landline</strong>
+<span id="dashboardFirmLandline">080-23902363</span>
+                </span>
+            </div>
+
+            <div class="welcome-info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <span>
+                    <strong>Email</strong>
+<span id="dashboardFirmEmail">suviinfotech450@gmail.com</span>
+                </span>
+            </div>
+
+            <div class="welcome-info-item welcome-address">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>
+                    <strong>Address</strong>
+<span id="dashboardFirmAddress">
+    #1793, 4th Division, 16th Ward, Ashwini Layout,
+    Gundlupet, Chamaraja Nagar Dist - 571111
+</span>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+<div class="welcome-services">
+    <div class="welcome-service-icon">
+        <i class="fa-solid fa-computer"></i>
+        <span>Computer</span>
+    </div>
+
+    <div class="welcome-service-icon">
+        <i class="fa-solid fa-print"></i>
+        <span>Printer</span>
+    </div>
+
+    <div class="welcome-service-icon">
+        <i class="fa-solid fa-network-wired"></i>
+        <span>Network</span>
+    </div>
+
+    <div class="welcome-service-icon">
+        <i class="fa-solid fa-video"></i>
+        <span>CCTV</span>
+    </div>
+
+    <div class="welcome-service-icon">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <span>Service</span>
+    </div>
+</div>
+
+</div>
+   
+<!-- GLOBAL SEARCH -->
+
+<div class="dashboard-global-search">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+        type="text"
+        id="globalSearch"
+        placeholder="Search Client, Mobile, Call ID, Ticket ID, Quotation ID..."
+        autocomplete="off">
+     <div id="globalSearchResults"></div>
+</div>
+
+    <!-- =================================================
+         OVERVIEW
+    ================================================== -->
+
+    <div class="dashboard-section-header">
+
+        <div>
+
+            <h3>
+
+                <i class="fa-solid fa-gauge-high"></i>
+
+                Overview
+
+            </h3>
+
+            <span>
+                Drag cards to arrange your dashboard
+            </span>
+
+        </div>
+
+    </div>
+
+<!-- GLOBAL SEARCH RESULTS -->
+
+<div id="globalSearchResults" class="global-search-results"></div>
+
+
+    <!-- =================================================
+         OVERVIEW CARDS
+    ================================================== -->
+
+    <div
+        id="overviewGrid"
+        class="overview-grid">
+
+
+        <!-- TOTAL CLIENTS -->
+
+        <div
+            class="overview-card"
+            draggable="true"
+            data-card="clients">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+            <div class="overview-info">
+
+                <span>
+                    Total Clients
+                </span>
+
+                <strong id="totalClients">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+        <!-- OPEN TICKETS -->
+
+<div
+    class="overview-card"
+    draggable="true"
+    data-card="tickets">
+
+    <div class="overview-icon">
+        <i class="fa-solid fa-ticket"></i>
+    </div>
+
+    <div class="overview-info">
+        <span>
+             Tickets
+        </span>
+
+        <strong id="openTickets">
+            0
+        </strong>
+    </div>
+
+</div>
+
+        <!-- OPEN CALLS -->
+
+        <div
+            class="overview-card"
+            draggable="true"
+            data-card="calls">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-phone"></i>
+
+            </div>
+
+            <div class="overview-info">
+
+                <span>
+                    Open Calls
+                </span>
+
+                <strong id="openCalls">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+<!-- CALL REGISTER -->
+
+<div
+    class="overview-card"
+    draggable="true"
+    data-card="call-register"
+    onclick="window.location.href='modules/call-register/call-register-list.html';"
+    style="cursor:pointer;">
+
+    <div class="overview-icon">
+
+        <i class="fa-solid fa-phone-volume"></i>
+
+    </div>
+
+    <div class="overview-info">
+
+        <span>
+            Call Register
+        </span>
+
+        <strong id="dashboardCallRegisterCount">
+            0
+        </strong>
+
+        
+
+    </div>
+
+</div>
+<!-- QUOTATIONS -->
+
+<div
+    class="overview-card"
+    draggable="true"
+    data-card="quotations">
+
+    <div class="overview-icon">
+        <i class="fa-solid fa-file-invoice"></i>
+    </div>
+
+    <div class="overview-info">
+
+        <span>
+            Quotations
+        </span>
+
+        <strong id="totalQuotations">
+            0
+        </strong>
+
+        <small>
+            Quotation History
+        </small>
+
+    </div>
+
+</div>
+
+        <!-- PENDING SERVICES -->
+
+        <div
+            class="overview-card"
+            draggable="true"
+            data-card="services">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+
+            </div>
+
+            <div class="overview-info">
+
+                <span>
+                    Pending Services
+                </span>
+
+                <strong id="pendingServices">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TODAY VISITS -->
+
+        <div
+            class="overview-card"
+            draggable="true"
+            data-card="visits">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-car-side"></i>
+
+            </div>
+
+            <div class="overview-info">
+
+                <span>
+                    Today's Visits
+                </span>
+
+                <strong id="todayVisits">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PENDING PAYMENTS -->
+
+        <div
+            class="overview-card"
+            draggable="true"
+            data-card="payments">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+            </div>
+
+            <div class="overview-info">
+
+                <span>
+                    Pending Payments
+                </span>
+
+                <strong id="pendingPayments">
+                    ₹0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- LOW STOCK -->
+
+        <div
+            class="overview-card"
+            draggable="true"
+            data-card="stock">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-boxes-stacked"></i>
+
+            </div>
+
+            <div class="overview-info">
+
+                <span>
+                    Low Stock
+                </span>
+
+                <strong id="lowStock">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ACTIVE AMC -->
+
+        <div
+            class="overview-card"
+            draggable="true"
+            data-card="amc">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div class="overview-info">
+
+                <span>
+                    Active AMC
+                </span>
+
+                <strong id="activeAmc">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- WARRANTY -->
+
+        <div
+            class="overview-card"
+            draggable="true"
+            data-card="warranty">
+
+            <div class="overview-icon">
+
+                <i class="fa-solid fa-certificate"></i>
+
+            </div>
+
+            <div class="overview-info">
+                <span>Warranty Expiring</span>
+                <strong id="warrantyExpiring">0</strong>
+            </div>
+
+        </div>
+
+<!-- LICENSE STATUS -->
+
+<div
+    class="overview-card"
+    draggable="true"
+    data-card="license">
+
+    <div class="overview-icon">
+        <i class="fa-solid fa-key"></i>
+    </div>
+
+    <div class="overview-info">
+
+        <span>
+            License
+        </span>
+
+        <strong id="dashboardLicenseStatus">
+            Not Activated
+        </strong>
+
+        <small id="dashboardLicenseDays">
+            -
+        </small>
+
+    </div>
+
+</div>
+
+    </div>
+<!-- =====================================================
+     UPDATES
+     ===================================================== -->
+<section class="updates-section">
+
+    <div class="section-heading">
+        <h3>🔄 Updates</h3>
+        <p>Work, feature and bug tracking</p>
+    </div>
+
+    <div class="updates-grid">
+
+        <!-- Work Updates -->
+        <div class="update-card work-update"
+             onclick="location.href='assets/updates.html'">
+
+            <div class="update-icon">🛠️</div>
+
+            <div>
+                <h4>Work Updates</h4>
+                <p>Track today's completed and ongoing work</p>
+            </div>
+
+        </div>
+
+
+        <!-- Feature Updates -->
+        <div class="update-card feature-update"
+             onclick="location.href='assets/updates.html'">
+
+            <div class="update-icon">✨</div>
+
+            <div>
+                <h4>Feature Updates</h4>
+                <p>Track new features and improvements</p>
+            </div>
+
+        </div>
+
+
+        <!-- Bug Tracker -->
+        <div class="update-card bug-update"
+             onclick="location.href='assets/updates.html'">
+
+            <div class="update-icon">🐛</div>
+
+            <div>
+                <h4>Bug Tracker</h4>
+                <p>Record bugs, fixes and pending issues</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+ <!-- =================================================
+     QUICK ACTIONS TITLE
+================================================== -->
+
+<div class="dashboard-section-header quick-section">
+
+    <div>
+
+        <h3>
+            <i class="fa-solid fa-bolt"></i>
+            Quick Actions
+        </h3>
+
+        <span>
+            Frequently used actions
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- =================================================
+     QUICK ACTIONS
+================================================== -->
+
+<div
+    id="quickActionsGrid"
+    class="quick-actions-grid">
+
+
+    <!-- NEW CLIENT -->
+
+    <div
+        class="quick-action"
+        draggable="true"
+        data-action="client">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-user-plus"></i>
+        </div>
+
+        <span>
+            New Client
+        </span>
+
+    </div>
+
+
+    <!-- NEW CALL -->
+
+    <div
+        class="quick-action"
+        draggable="true"
+        data-action="call">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-phone-volume"></i>
+        </div>
+
+        <span>
+            New Call
+        </span>
+
+    </div>
+
+
+    <!-- FIELD VISIT -->
+
+    <div
+        class="quick-action"
+        draggable="true"
+        data-action="visit">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-car-side"></i>
+        </div>
+
+        <span>
+            Field Visit
+        </span>
+
+    </div>
+
+
+    <!-- NEW INVOICE -->
+
+    <div
+        class="quick-action"
+        draggable="true"
+        data-action="invoice">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+        </div>
+
+        <span>
+            New Invoice
+        </span>
+
+    </div>
+
+
+    <!-- INVENTORY -->
+
+    <div
+        class="quick-action"
+        draggable="true"
+        data-action="inventory">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-box-open"></i>
+        </div>
+
+        <span>
+            Inventory
+        </span>
+
+    </div>
+
+
+    <!-- AMC -->
+
+    <div
+        class="quick-action"
+        draggable="true"
+        data-action="amc">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <span>
+            AMC
+        </span>
+
+    </div>
+
+<!-- TICKET RAISE -->
+
+<div
+    class="quick-action"
+    draggable="true"
+    data-action="ticket">
+
+    <div class="quick-icon">
+        <i class="fa-solid fa-ticket"></i>
+    </div>
+
+    <span>Ticket Raise</span>
+
+</div>
+
+</div>
+
+<!-- =================================================
+     QUICK ACTION MODULES
+================================================== -->
+
+</div>
+
+
+
+    <!-- =================================================
+         BOTTOM SECTION
+    ================================================== -->
+
+    <div class="dashboard-bottom">
+
+
+        <!-- RECENT CLIENTS -->
+
+        <div class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <h3>
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Recent Clients
+
+                </h3>
+
+            </div>
+
+
+            <div
+                id="recentClients"
+                class="recent-list">
+
+                <div class="empty-state">
+
+                    No recent clients
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PENDING ITEMS -->
+
+        <div class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <h3>
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    Pending Items
+
+                </h3>
+
+            </div>
+
+
+            <div
+                id="pendingItems"
+                class="recent-list">
+
+                <div class="empty-state">
+
+                    No pending items
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- =================================================
+     COMMON JS
+================================================== -->
+
+
+
+<!-- =================================================
+     DASHBOARD JS
+================================================== -->
+
+<script
+    type="module"
+    src="js/dashboard.js">
+</script>
+<script
+    type="module"
+    src="js/dashboard-license.js">
+</script>
+<script>
+
+function toggleServiceMenu() {
+
+    const menu =
+        document.getElementById(
+            "serviceSubMenu"
+        );
+
+    const parent =
+        document.querySelector(
+            ".service-menu"
+        );
+
+
+    if (!menu || !parent) {
+        return;
+    }
+
+
+    menu.classList.toggle("show");
+
+    parent.classList.toggle("open");
+
+}
+
+</script>
+
+
+
+
+
+<script id="suvi-dashboard-clock">
+(function(){
+    function updateDashboardDateTime(){
+        const now = new Date();
+
+        const dateEl = document.getElementById("dashboardDate");
+        const timeEl = document.getElementById("dashboardTime");
+
+        if(dateEl){
+            const day = String(now.getDate()).padStart(2,"0");
+            const month = now.toLocaleString("en-US",{month:"short"});
+            const year = now.getFullYear();
+            dateEl.textContent = `${day}-${month}-${year}`;
+        }
+
+        if(timeEl){
+            timeEl.textContent = now.toLocaleTimeString("en-US",{
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit",
+                hour12:true
+            });
+        }
+    }
+
+    updateDashboardDateTime();
+    setInterval(updateDashboardDateTime,1000);
+})();
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+    });
+}
+</script>
+<script>
+/* =========================================================
+   ADMIN MODULE CONTROL → DASHBOARD MENU
+========================================================= */
+
+function applyAdminModuleControl() {
+
+    let settings = {};
+
+    try {
+
+        settings = JSON.parse(
+            localStorage.getItem(
+                "suviInfotechModuleControl"
+            ) || "{}"
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Module control read error:",
+            error
+        );
+
+        return;
+    }
+     
+
+    /* ---------------------------------------------------------
+       NORMAL SIDEBAR MODULES
+    --------------------------------------------------------- */
+
+    const moduleLinks = {
+
+        moduleCallRegister:
+            'a[href="modules/call-register/call-register.html"]',
+
+        moduleClientMaster:
+            'a[href="modules/client-master/client-master.html"]',
+
+        moduleFieldVisit:
+            'a[href="modules/field-visit/field-visit.html"]',
+
+        moduleInventory:
+            'a[href="modules/inventory/inventory.html"]',
+
+        moduleQuotation:
+            'a[href="modules/quotation/quotation.html"]',
+
+        moduleCashBill:
+            'a[href="modules/cash-bill/cash-bill.html"]',
+
+        moduleDataSync:
+            'a[href="modules/data-sync/data-sync.html"]',
+
+        moduleAdminPanel:
+            'a[href="modules/admin-panel/admin-panel.html"]'
+
+    };
+
+
+    Object.entries(moduleLinks).forEach(
+        ([settingKey, selector]) => {
+
+            const menu =
+                document.querySelector(selector);
+
+            if (!menu) return;
+
+
+            /* Default = ON */
+
+            if (
+                Object.prototype.hasOwnProperty.call(
+                    settings,
+                    settingKey
+                )
+            ) {
+
+                menu.style.display =
+                    settings[settingKey]
+                        ? ""
+                        : "none";
+
+            } else {
+
+                menu.style.display = "";
+
+            }
+
+        }
+    );
+
+
+    /* ---------------------------------------------------------
+       SERVICE MODULES
+       --------------------------------------------------------- */
+
+    const serviceMenu =
+        document.querySelector(".service-menu");
+
+
+    if (serviceMenu) {
+
+        if (
+            Object.prototype.hasOwnProperty.call(
+                settings,
+                "moduleServices"
+            )
+        ) {
+
+            serviceMenu.style.display =
+                settings.moduleServices
+                    ? ""
+                    : "none";
+
+        } else {
+
+            serviceMenu.style.display = "";
+
+        }
+
+    }
+
+}
+
+
+/* Run after Dashboard loads */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    applyAdminModuleControl
+);
+const sidebarToggle = document.getElementById("sidebarMenuToggle");
+
+if (sidebarToggle) {
+    sidebarToggle.addEventListener("click", function () {
+        document.querySelector(".suvi-sidebar").classList.toggle("sidebar-collapsed");
+    });
+}
+</script>
+<script type="module" src="js/license-guard.js"></script>
+<script src="firebase-config.js"></script><script src="js/firebase-sync.js"></script>
+<script src="company-context.js"></script>
+<script src="js/dashboard-call-register-sync.js"></script>
+<script src="firm-active.js"></script>
+<script>
+function openAdminPanel(event) {
+
+    event.preventDefault();
+
+    let attempts = 0;
+    const maxAttempts = 3;
+
+    const overlay = document.createElement("div");
+    overlay.className = "admin-lock-overlay";
+
+    overlay.innerHTML = `
+        <div class="admin-lock-box">
+
+            <div class="admin-lock-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <h2>Admin Panel</h2>
+            <p>Enter 4-digit passcode to continue</p>
+
+            <div class="admin-pin-row">
+                <input class="admin-pin" maxlength="1" inputmode="numeric">
+                <input class="admin-pin" maxlength="1" inputmode="numeric">
+                <input class="admin-pin" maxlength="1" inputmode="numeric">
+                <input class="admin-pin" maxlength="1" inputmode="numeric">
+            </div>
+
+            <div class="admin-error" id="adminLockError"></div>
+
+            <button class="admin-unlock-btn" id="adminUnlockBtn">
+                <i class="fa-solid fa-unlock"></i>
+                Unlock Admin Panel
+            </button>
+
+            <button class="admin-cancel-btn" id="adminCancelBtn">
+                Cancel
+            </button>
+
+            <div class="admin-verify" id="adminVerify">
+
+                <div class="admin-verify-title">
+                    Verification Required
+                </div>
+
+                <p>
+                    3 incorrect attempts detected.<br>
+                    Get a verification code:
+                </p>
+
+                <div class="admin-verify-buttons">
+
+                    <button class="email-code-btn"
+                            id="sendEmailCode">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email
+                    </button>
+
+                    <button class="mobile-code-btn"
+                            id="sendMobileCode">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        Mobile
+                    </button>
+
+                </div>
+
+                <div class="admin-otp-section" id="adminOtpSection">
+
+                    <input
+                        id="adminOtpInput"
+                        class="admin-otp-input"
+                        maxlength="6"
+                        inputmode="numeric"
+                        placeholder="Enter 6-digit code">
+
+                    <button
+                        class="admin-otp-confirm"
+                        id="verifyAdminOtp">
+                        Verify Code
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const pins = overlay.querySelectorAll(".admin-pin");
+    const error = overlay.querySelector("#adminLockError");
+    const verifyBox = overlay.querySelector("#adminVerify");
+
+    pins[0].focus();
+
+    /* Move automatically to next box */
+    pins.forEach((input, index) => {
+
+        input.addEventListener("input", () => {
+
+            input.value = input.value.replace(/\D/g, "");
+
+            if (input.value && index < 3) {
+                pins[index + 1].focus();
+            }
+        });
+
+        input.addEventListener("keydown", (e) => {
+
+            if (
+                e.key === "Backspace" &&
+                !input.value &&
+                index > 0
+            ) {
+                pins[index - 1].focus();
+            }
+        });
+    });
+
+    /* Unlock */
+    overlay.querySelector("#adminUnlockBtn")
+        .addEventListener("click", () => {
+
+            const enteredCode =
+                Array.from(pins)
+                    .map(input => input.value)
+                    .join("");
+
+            if (enteredCode === "2580") {
+
+                window.location.href =
+                    "modules/admin-panel/admin-panel.html";
+
+                return;
+            }
+
+            attempts++;
+
+            pins.forEach(input => input.value = "");
+
+            pins[0].focus();
+
+            const remaining = maxAttempts - attempts;
+
+            if (attempts >= maxAttempts) {
+
+                error.style.display = "block";
+                error.innerHTML =
+                    `<i class="fa-solid fa-triangle-exclamation"></i>
+                     3 incorrect attempts. Verification required.`;
+
+                verifyBox.style.display = "block";
+
+            } else {
+
+                error.style.display = "block";
+                error.innerHTML =
+                    `Incorrect passcode. ${remaining} attempt${remaining === 1 ? "" : "s"} remaining.`;
+            }
+        });
+
+    /* Cancel */
+    overlay.querySelector("#adminCancelBtn")
+        .addEventListener("click", () => {
+            overlay.remove();
+        });
+
+    /*
+     * Verification code
+     */
+    let verificationCode = "";
+
+    function generateVerificationCode() {
+
+        verificationCode =
+            Math.floor(100000 + Math.random() * 900000).toString();
+
+        console.log(
+            "Admin verification code:",
+            verificationCode
+        );
+
+        overlay.querySelector("#adminOtpSection")
+            .style.display = "block";
+    }
+
+    /* Email */
+    overlay.querySelector("#sendEmailCode")
+        .addEventListener("click", () => {
+
+            generateVerificationCode();
+
+            alert(
+                "Verification code request created for registered email."
+            );
+        });
+
+    /* Mobile */
+    overlay.querySelector("#sendMobileCode")
+    .addEventListener("click", () => {
+
+        const firms = JSON.parse(
+            localStorage.getItem("SUVI_INFOTECH_FIRMS") || "[]"
+        );
+
+        const selectedFirm =
+            localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM");
+
+        const firm = firms.find(
+            f => f.firmName === selectedFirm
+        );
+
+        if (!firm) {
+            alert("No selected firm found.");
+            return;
+        }
+
+        const registeredMobile =
+            String(firm.mobile || "").trim();
+
+        if (!registeredMobile) {
+            alert(
+                "Mobile number is not registered for this firm."
+            );
+            return;
+        }
+
+        if (!/^[6-9]\d{9}$/.test(registeredMobile)) {
+            alert(
+                "Registered mobile number is invalid."
+            );
+            return;
+        }
+
+        const maskedMobile =
+            "******" + registeredMobile.slice(-4);
+
+        generateVerificationCode();
+
+        alert(
+            "Verification code will be sent to:\n" +
+            maskedMobile
+        );
+    });
+
+    /* Verify OTP */
+    overlay.querySelector("#verifyAdminOtp")
+        .addEventListener("click", () => {
+
+            const enteredOtp =
+                overlay.querySelector("#adminOtpInput").value;
+
+            if (enteredOtp === verificationCode) {
+
+                window.location.href =
+                    "modules/admin-panel/admin-panel.html";
+
+            } else {
+
+                alert("Invalid verification code.");
+            }
+        });
+}
+</script>
+</body>
+
+</html>

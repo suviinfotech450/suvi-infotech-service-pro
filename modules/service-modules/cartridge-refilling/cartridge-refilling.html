@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cartridge Refilling | SUVI INFOTECH</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    color: #172033;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fce7f3 0%,
+            #ddd6fe 50%,
+            #bfdbfe 100%
+        );
+
+    background-attachment: fixed;
+}
+
+.cartridge-page {
+    width: 100%;
+    max-width: 1180px;
+    margin: auto;
+    padding: 25px 20px 50px;
+}
+
+/* LOCKED SERVICE NAVIGATION */
+.service-navigation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.service-back-button,
+.dashboard-back-button {
+    border: none;
+    background: linear-gradient(135deg,#ede9fe,#dbeafe);
+    color: #3730a3;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(79,70,229,.12);
+}
+
+.service-back-button {
+    width: 50px;
+    min-width: 50px;
+    height: 44px;
+    padding: 8px;
+}
+
+.dashboard-back-button {
+    padding: 12px 18px;
+    white-space: nowrap;
+    margin-left: auto;
+}
+
+/* HEADER */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.brand {
+    color: #7c3aed;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.page-header h1 {
+    color: #312e81;
+    font-size: 29px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.page-header p {
+    color: #475569;
+    font-size: 14px;
+}
+
+.back-button {
+    border: none;
+    background: linear-gradient(135deg,#ede9fe,#dbeafe);
+    color: #3730a3;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(79,70,229,.12);
+}
+
+/* MAIN CARD */
+
+.main-card {
+    background: linear-gradient(
+        145deg,
+        #fdf4ff,
+        #e0f2fe
+    );
+
+    border: 1px solid #c4b5fd;
+    border-radius: 24px;
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 55px rgba(124,58,237,.14),
+        0 3px 12px rgba(37,99,235,.10);
+}
+
+.card-header {
+    padding: 24px 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5d0fe,
+            #bfdbfe
+        );
+
+    border-bottom: 1px solid #c4b5fd;
+}
+
+.card-header h2 {
+    font-size: 20px;
+    color: #312e81;
+}
+
+.card-header p {
+    margin-top: 5px;
+    color: #475569;
+    font-size: 13px;
+}
+
+.form-area {
+    padding: 28px;
+}
+
+/* FORM */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 19px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.field label {
+    color: #3730a3;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.required {
+    color: #dc2626;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+
+    border: 1px solid #c4b5fd;
+    background: #f8fafc;
+    color: #172033;
+
+    border-radius: 12px;
+    padding: 12px 14px;
+
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+.field input,
+.field select {
+    height: 48px;
+}
+
+.field textarea {
+    min-height: 95px;
+    resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: #7c3aed;
+
+    box-shadow:
+        0 0 0 4px rgba(124,58,237,.10);
+}
+
+.auto-field {
+    background: #eef2ff !important;
+    color: #3730a3 !important;
+    font-weight: 700;
+}
+
+/* CLIENT SEARCH */
+
+.client-search {
+    position: relative;
+}
+
+.client-search input {
+    width: 100%;
+}
+
+.client-results {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 76px;
+
+    z-index: 50;
+
+    background: #f8fafc;
+
+    border: 1px solid #c4b5fd;
+    border-radius: 12px;
+
+    box-shadow:
+        0 12px 30px rgba(79,70,229,.15);
+
+    max-height: 220px;
+    overflow-y: auto;
+
+    display: none;
+}
+
+.client-result {
+    padding: 12px 14px;
+    cursor: pointer;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.client-result:hover {
+    background: #ede9fe;
+}
+
+.client-result strong {
+    display: block;
+    color: #312e81;
+    font-size: 13px;
+}
+
+.client-result small {
+    color: #64748b;
+    font-size: 11px;
+}
+
+/* SAVE */
+
+.save-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 28px;
+    padding-top: 24px;
+
+    border-top: 1px solid #c4b5fd;
+}
+
+.save-info strong {
+    display: block;
+    color: #3730a3;
+    font-size: 13px;
+}
+
+.save-info span {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.save-button {
+    min-width: 175px;
+    height: 50px;
+
+    border: none;
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #2563eb
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 22px rgba(79,70,229,.25);
+}
+
+/* HISTORY */
+
+.history-card {
+    margin-top: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fdf4ff,
+            #e0f2fe
+        );
+
+    border: 1px solid #c4b5fd;
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 35px rgba(79,70,229,.10);
+}
+
+.history-header {
+    padding: 20px 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ddd6fe,
+            #bfdbfe
+        );
+
+    border-bottom: 1px solid #c4b5fd;
+}
+
+.history-header h2 {
+    color: #312e81;
+    font-size: 18px;
+}
+
+.history-header p {
+    color: #475569;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.history-table-wrap {
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+    padding: 13px 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd6fe;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.history-table th {
+    background: #eef2ff;
+    color: #3730a3;
+    font-weight: 800;
+}
+
+.history-table td {
+    color: #475569;
+}
+
+.empty-history {
+    padding: 35px;
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* LOCKED NAVIGATION */
+
+.navigation-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.navigation-row .back-button {
+    width: auto;
+    margin: 0;
+}
+
+.navigation-row .service-back {
+    min-width: 52px;
+}
+
+.navigation-row .dashboard-back {
+    margin-left: auto;
+}
+
+/* MOBILE */
+
+@media (max-width:700px) {
+
+    .cartridge-page {
+        padding: 18px 12px 35px;
+    }
+
+    .navigation-row {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .navigation-row .dashboard-back {
+        width: auto;
+        margin-left: auto;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .service-navigation {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .service-back-button {
+        flex: 0 0 50px;
+    }
+
+    .dashboard-back-button {
+        margin-left: auto;
+    }
+
+    .form-area {
+        padding: 20px 17px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .full {
+        grid-column: auto;
+    }
+
+    .save-area {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .save-button {
+        width: 100%;
+    }
+}
+
+/* NEW CLIENT MODAL */
+.modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(15,23,42,.55);align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal-box{width:100%;max-width:620px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 25px 80px rgba(15,23,42,.28)}.modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:linear-gradient(135deg,#f5d0fe,#bfdbfe);border-bottom:1px solid #c4b5fd}.modal-header h3{color:#312e81;font-size:20px}.close-modal{border:0;background:#fff;color:#312e81;width:36px;height:36px;border-radius:10px;font-size:20px;cursor:pointer}.modal-body{padding:24px}.modal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}.cancel-btn,.modal-save-btn{border:0;border-radius:11px;padding:12px 18px;font-weight:800;cursor:pointer}.cancel-btn{background:#e2e8f0;color:#334155}.modal-save-btn{background:#7c3aed;color:#fff}.client-select-row{display:flex;gap:9px}.client-select-row select{flex:1}.new-client-btn{border:0;border-radius:11px;padding:0 15px;background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;font-weight:800;cursor:pointer;white-space:nowrap}@media(max-width:700px){.modal-grid{grid-template-columns:1fr}.client-select-row{flex-direction:column}.new-client-btn{height:46px}}
+
+/* =========================================
+   CARTRIDGE REFILLING - FIT + BIG FONT
+   ========================================= */
+
+html,
+body{
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden !important;
+}
+
+.page,
+.cartridge-page,
+.refilling-page{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:10px 14px 18px !important;
+}
+
+/* HEADER */
+.header,
+.page-header{
+    width:100% !important;
+    margin-bottom:9px !important;
+}
+
+.brand{
+    font-size:30px !important;
+    font-weight:900 !important;
+}
+
+.header h1,
+.page-header h1{
+    font-size:28px !important;
+    font-weight:900 !important;
+}
+
+.header p,
+.page-header p{
+    font-size:15px !important;
+}
+
+/* NAVIGATION */
+.navigation,
+.service-navigation{
+    width:100% !important;
+    margin-bottom:7px !important;
+}
+
+/* MAIN CARDS */
+.main-card,
+.service-card,
+.refilling-card,
+.history-card{
+    width:100% !important;
+}
+
+.card-header,
+.section-header{
+    padding:11px 16px !important;
+}
+
+.card-header h2,
+.section-header h2{
+    font-size:21px !important;
+    font-weight:900 !important;
+}
+
+.card-header p,
+.section-header p{
+    font-size:14px !important;
+}
+
+/* FORM */
+.form-area{
+    padding:12px 16px !important;
+}
+
+.form-grid{
+    width:100% !important;
+    gap:9px 12px !important;
+}
+
+.field label,
+.form-group label{
+    font-size:15px !important;
+    font-weight:800 !important;
+}
+
+.field input,
+.field select,
+.field textarea,
+.form-group input,
+.form-group select,
+.form-group textarea{
+    min-height:40px !important;
+    height:40px !important;
+    padding:7px 10px !important;
+    font-size:17px !important;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+}
+
+.field textarea,
+.form-group textarea{
+    min-height:70px !important;
+    height:70px !important;
+}
+
+input::placeholder,
+textarea::placeholder{
+    font-size:15px !important;
+}
+
+/* BUTTONS */
+button{
+    font-family:"Segoe UI",Arial,sans-serif !important;
+    font-size:15px !important;
+    font-weight:800 !important;
+}
+
+/* TABLE */
+.table-wrapper,
+.history-table-wrapper{
+    width:100% !important;
+    overflow-x:auto !important;
+}
+
+table{
+    width:100% !important;
+}
+
+table th{
+    font-size:14px !important;
+    font-weight:900 !important;
+    padding:8px 7px !important;
+}
+
+table td{
+    font-size:14px !important;
+    font-weight:600 !important;
+    padding:8px 7px !important;
+}
+
+/* SAVE AREA */
+.save-area{
+    margin-top:10px !important;
+    padding-top:9px !important;
+}
+
+/* HISTORY */
+.history-card{
+    margin-top:9px !important;
+}
+
+.history-header{
+    padding:11px 16px !important;
+}
+
+.history-header h2{
+    font-size:21px !important;
+    font-weight:900 !important;
+}
+
+.history-header p{
+    font-size:14px !important;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .page,
+    .cartridge-page,
+    .refilling-page{
+        padding:7px !important;
+    }
+
+    .brand{
+        font-size:26px !important;
+    }
+
+    .header h1,
+    .page-header h1{
+        font-size:24px !important;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+        font-size:17px !important;
+    }
+
+    table th{
+        font-size:13px !important;
+    }
+
+    table td{
+        font-size:14px !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cartridge-page">
+
+
+<div class="navigation-row">
+
+    <button
+        type="button"
+        class="back-button service-back"
+        id="serviceBackButton">
+        ←
+    </button>
+
+    <button
+        type="button"
+        class="back-button dashboard-back"
+        id="backToDashboard">
+        ← Back to Dashboard
+    </button>
+
+</div>
+
+<header class="page-header">
+<div class="brand" id="cartridgeRefillingFirmName">
+    SUVI INFOTECH
+</div>
+        <h1>🧴 Cartridge Refilling</h1>
+
+        <p>
+            Cartridge refilling and cartridge service
+        </p>
+    </div>
+
+</header>
+
+
+<section class="main-card">
+
+    <div class="card-header">
+
+        <h2>Cartridge Refilling Entry</h2>
+
+        <p>
+            Client and printer details will be auto-filled when available.
+        </p>
+
+    </div>
+
+
+    <div class="form-area">
+
+        <form id="cartridgeForm">
+<div class="form-grid">
+<div class="field"><label>Refilling Code</label><input type="text" id="refillCode" class="auto-field" readonly placeholder="Auto"></div>
+<div class="field"><label>Date <span class="required">*</span></label><input type="date" id="serviceDate" required></div>
+<div class="field"><label>Client Name <span class="required">*</span></label><div class="client-select-row"><select id="clientName" required><option value="">Select Client Name</option></select><button type="button" class="new-client-btn" id="newClientButton">+ New Client</button></div></div>
+<div class="field"><label>Mobile No.</label><input type="text" id="mobile" class="auto-field" readonly placeholder="Auto from Client Master"></div>
+<div class="field"><label>Cartridge Name <span class="required">*</span></label><select id="cartridgeName" required><option value="">Select Cartridge</option><option>12A</option><option>15A</option><option>17A</option><option>26A</option><option>35A</option><option>36A</option><option>49A</option><option>53A</option><option>78A</option><option>79A</option><option>80A</option><option>81A</option><option>82A</option><option>83A</option><option>85A</option><option>87A</option><option>88A</option><option>89A</option><option>90A</option><option>92A</option><option>103A</option><option>105A</option><option>110A</option><option>111A</option><option>125A</option><option>130A</option><option>203A</option><option>210A</option><option>303A</option><option>304A</option><option>305A</option><option>310A</option><option>315A</option><option>325A</option><option>328A</option><option>337A</option><option>703</option><option>704</option><option>705</option><option>706</option><option>707</option><option>710</option><option>728</option><option>745</option><option>802</option><option>803</option><option>805</option><option>810</option><option>901</option><option>902</option><option>903</option><option>904</option><option>905</option><option>906</option><option>912</option><option>915</option><option>925</option><option>955</option><option>680</option><option>680XL</option><option>678</option><option>664</option><option>003</option><option>004</option><option>001</option><option>002</option><option>Other</option></select></div>
+<div class="field">
+    <label>Powder Name / No.</label>
+    <select id="powderName">
+        <option value="">Select Powder</option>
+    </select>
+</div>
+<div class="field"><label>Problem <span class="required">*</span></label><select id="problem" required><option value="">Select Problem</option><option>Low Print</option><option>No Print</option><option>Light Print</option><option>Lines on Print</option><option>Leakage</option><option>Cartridge Empty</option><option>Drum Problem</option><option>Chip Problem</option><option>Powder Problem</option><option>Cleaning Required</option><option>General Service</option><option>Other</option></select></div>
+<div class="field"><label>Parts Name</label><select id="partsName"><option value="">Select Parts</option><option>Refilling</option><option>Drum</option><option>Doctor Blade</option><option>Wiper Blade</option><option>Magnetic Roller</option><option>PCR Roller</option><option>Chip</option><option>Gear Set</option><option>Spring</option><option>Seal</option><option>Developer</option><option>Cleaning Blade</option><option>Other</option></select></div>
+<div class="field"><label>Quantity Used <span class="required">*</span></label><input type="number" id="qty" min="1" step="1" value="1" required></div>
+<div class="field"><label>Amount <span class="required">*</span></label><input type="number" id="amount" min="0" step="0.01" placeholder="₹ 0.00" required></div>
+<div class="field full"><label>Remarks</label><textarea id="remarks" placeholder="Enter remarks..."></textarea></div>
+</div>
+<div class="save-area"><div class="save-info"><strong>Client Master Sync</strong><span>Saved service record will be added to the selected client's service history.</span></div><button type="submit" class="save-button">💾 Save &amp; Sync to Client Master</button></div>
+</form>
+
+    </div>
+
+</section>
+
+
+<section class="history-card">
+
+    <div class="history-header">
+
+        <h2>Cartridge Service History</h2>
+
+        <p>
+            Previous cartridge refilling and service records
+        </p>
+
+    </div>
+
+    <div class="history-table-wrap">
+
+        <table class="history-table">
+
+            <thead><tr><th>Refilling Code</th><th>Date</th><th>Client</th><th>Mobile</th><th>Cartridge Name</th><th>Powder Name / No.</th><th>Problem</th><th>Parts Name</th><th>Qty</th><th>Remarks</th><th>Amount</th></tr></thead>
+
+            <tbody id="historyBody"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</div>
+
+<script src="service-modules.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+const STORAGE_KEY="suviInfotechCartridgeServices";const CLIENT_KEY="suviInfotechClients";
+const form=document.getElementById("cartridgeForm"),refillCode=document.getElementById("refillCode"),serviceDate=document.getElementById("serviceDate"),clientName=document.getElementById("clientName"),mobile=document.getElementById("mobile"),cartridgeName=document.getElementById("cartridgeName"),powderName=document.getElementById("powderName"),problem=document.getElementById("problem"),partsName=document.getElementById("partsName"),qty=document.getElementById("qty"),amount=document.getElementById("amount"),remarks=document.getElementById("remarks"),historyBody=document.getElementById("historyBody"),newClientModal=document.getElementById("newClientModal"),newClientForm=document.getElementById("newClientForm");
+function getClients(){try{const d=JSON.parse(localStorage.getItem(CLIENT_KEY)||"[]");return Array.isArray(d)?d:[]}catch(e){return[]}}
+function saveClients(c){localStorage.setItem(CLIENT_KEY,JSON.stringify(c))}
+function getRecords(){try{const d=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");return Array.isArray(d)?d:[]}catch(e){return[]}}
+function saveRecords(r){localStorage.setItem(STORAGE_KEY,JSON.stringify(r))}
+function generateRefillCode(){
+    let max=0;
+    getRecords().forEach(r=>{
+        const m=String(r.refillCode||"").match(/^CRF(\\d+)$/i);
+        if(m) max=Math.max(max,Number(m[1]));
+    });
+    return `CRF${String(max+1).padStart(3,"0")}`;
+}
+function setToday(){
+    const d=new Date();
+    serviceDate.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    refillCode.value=generateRefillCode();
+}
+const powderMap={
+    "12A":["12A / 49A / 53A / 303 / FX9 / 308"],
+    "15A":["303 / 15A","15A Universal","12A / 15A"],
+    "17A":["17A Universal","17A / 26A"],
+    "26A":["26A Universal","17A / 26A"],
+    "35A":["35A / 85A","85A / 35A"],
+    "36A":["36A / 436A","436A / 36A"],
+    "49A":["49A / 53A","49A Universal","12A / 49A"],
+    "53A":["49A / 53A","53A Universal","12A / 53A"],
+    "78A":["78A Universal","78A / 79A"],
+    "79A":["79A Universal","78A / 79A"],
+    "80A":["80A Universal","80A / 83A"],
+    "81A":["81A Universal"],
+    "82A":["82A Universal"],
+    "83A":["83A Universal","80A / 83A"],
+    "85A":["35A / 85A","85A Universal"],
+    "87A":["87A Universal"],
+    "88A":["88A / 388A","388A / 88A","88A Universal"],
+    "89A":["89A Universal"],
+    "90A":["90A Universal"],
+    "92A":["92A Universal"],
+    "103A":["103A Universal"],
+    "105A":["105A Universal"],
+    "110A":["110A Universal"],
+    "111A":["111A Universal"],
+    "125A":["125A Universal"],
+    "130A":["130A Universal"],
+    "203A":["203A Universal"],
+    "210A":["210A Universal"],
+    "303A":["303A Universal"],
+    "304A":["304A Universal"],
+    "305A":["305A Universal"],
+    "310A":["310A Universal","310A / 12A"],
+    "315A":["315A Universal","315A / 12A"],
+    "325A":["325 / 303","325 Universal"],
+    "328A":["328 / 303","328 Universal"],
+    "337A":["337 / 303","337 Universal"],
+    "703":["703 / 303","703 Universal"],
+    "704":["704 Universal"],
+    "705":["705 Universal"],
+    "706":["706 Universal"],
+    "707":["707 Universal"],
+    "710":["710 Universal"],
+    "728":["728 / 303","728 Universal"],
+    "745":["745 Universal"],
+    "802":["802 Universal"],
+    "803":["803 Universal"],
+    "805":["805 Universal"],
+    "810":["810 Universal"],
+    "901":["901 Universal"],
+    "902":["902 Universal"],
+    "903":["903 Universal"],
+    "904":["904 Universal"],
+    "905":["905 Universal"],
+    "906":["906 Universal"],
+    "912":["912 / 925","912 Universal"],
+    "915":["915 Universal"],
+    "925":["925 / 912","925 Universal"],
+    "955":["955 Universal"],
+    "680":["680 Universal"],
+    "680XL":["680XL Universal"],
+    "678":["678 Universal"],
+    "664":["664 Universal"],
+    "003":["003 Universal"],
+    "004":["004 Universal"],
+    "001":["001 Universal"],
+    "002":["002 Universal"],
+    "Other":["Universal Black","Universal Colour Black","Other"]
+};
+function loadPowderOptions(){
+    const selected=cartridgeName.value;
+    const powders=powderMap[selected]||[];
+    powderName.innerHTML='<option value="">Select Powder</option>';
+    powders.forEach(p=>{const o=document.createElement('option');o.value=p;o.textContent=p;powderName.appendChild(o)});
+    if(powders.length) powderName.value=powders[0];
+}
+cartridgeName.addEventListener('change',loadPowderOptions);
+
+function displayDate(v){if(!v)return"";const p=v.split("-");const m=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];return p.length===3?`${Number(p[2])}-${m[Number(p[1])-1]}-${p[0]}`:v}
+function cid(c){return c.clientId||c.id||""}function cname(c){return c.contactPerson||c.name||c.clientName||""}function cphone(c){return c.mobileNumber||c.mobile||c.phone||""}
+function loadClients(){
+
+    clientName.innerHTML =
+        '<option value="">Select Client Name</option>';
+
+    getClients().forEach(c => {
+
+        const id = cid(c);
+        const n = cname(c);
+
+        if (!id && !n) {
+            return;
+        }
+
+        const o =
+            document.createElement("option");
+
+        o.value = id || n;
+
+        o.textContent =
+            id
+                ? `${String(id).toUpperCase()} - ${n}`
+                : n;
+
+        clientName.appendChild(o);
+
+    });
+
+}
+function selectedClient(){const v=String(clientName.value||"").toLowerCase();return getClients().find(c=>String(cid(c)).toLowerCase()===v||String(cname(c)).toLowerCase()===v)||null}
+clientName.addEventListener("change",()=>{const c=selectedClient();mobile.value=c?cphone(c):""});
+function nextCode(){let max=0;getClients().forEach(c=>{const m=String(cid(c)).match(/^CLI(\d+)$/i);if(m)max=Math.max(max,Number(m[1]))});return`CLI${String(max+1).padStart(3,"0")}`}
+function closeModal(){newClientModal.classList.remove("show");newClientForm.reset()}
+document.getElementById("newClientButton").addEventListener("click",()=>{document.getElementById("newClientCode").value=nextCode();newClientModal.classList.add("show");document.getElementById("newClientName").focus()});document.getElementById("closeModal").addEventListener("click",closeModal);document.getElementById("cancelModal").addEventListener("click",closeModal);
+newClientForm.addEventListener("submit",e=>{e.preventDefault();const code=document.getElementById("newClientCode").value.trim(),name=document.getElementById("newClientName").value.trim(),phone=document.getElementById("newClientMobile").value.trim(),dept=document.getElementById("newClientDepartment").value.trim();if(!name){alert("Please enter Client Name.");return}if(!/^[6-9]\d{9}$/.test(phone)){alert("Mobile Number must be exactly 10 digits.");return}const clients=getClients();clients.push({date:displayDate(serviceDate.value),clientId:code,contactPerson:name,mobileNumber:phone,departmentName:dept,serviceHistory:[],createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()});saveClients(clients);loadClients();clientName.value=code;mobile.value=phone;closeModal()});
+form.addEventListener("submit",e=>{e.preventDefault();const c=selectedClient();if(!c){alert("Please select Client Name.");return}if(!cartridgeName.value){alert("Please select Cartridge Name.");return}if(!problem.value){alert("Please select Problem.");return}if(!qty.value||Number(qty.value)<1){alert("Please enter Qty.");return}if(amount.value===""){alert("Please enter Amount.");return}const r={id:"CR"+Date.now(),refillCode:refillCode.value,date:displayDate(serviceDate.value),clientCode:cid(c),clientName:cname(c),mobile:cphone(c),cartridgeName:cartridgeName.value,powderName:powderName.value.trim(),problem:problem.value,partsName:partsName.value,qty:Number(qty.value),remarks:remarks.value.trim(),amount:Number(amount.value),service:"Cartridge Refilling",createdAt:new Date().toISOString()};let powderStockOut = {
+    success: true
+};
+
+if (powderName.value.trim()) {
+
+    powderStockOut = serviceStockOut({
+
+        partName: powderName.value.trim(),
+
+        quantity: Number(qty.value) || 1,
+
+        serviceId: r.id,
+
+        service: r.service,
+
+        clientId: r.clientCode,
+
+        clientName: r.clientName,
+
+        remarks: r.remarks
+    });
+
+    if (!powderStockOut.success) {
+
+        alert(powderStockOut.message);
+
+        return;
+    }
+}
+
+
+let partStockOut = {
+    success: true
+};
+
+if (
+    partsName.value &&
+    partsName.value.toLowerCase() !== "refilling"
+) {
+
+    partStockOut = serviceStockOut({
+
+        partName: partsName.value,
+
+        quantity: Number(qty.value) || 1,
+
+        serviceId: r.id,
+
+        service: r.service,
+
+        clientId: r.clientCode,
+
+        clientName: r.clientName,
+
+        remarks: r.remarks
+    });
+
+    if (!partStockOut.success) {
+
+        alert(partStockOut.message);
+
+        return;
+    }
+}
+
+
+const records = getRecords();
+
+records.push(r);
+
+saveRecords(records);;if(!Array.isArray(c.serviceHistory))c.serviceHistory=[];c.serviceHistory.push({serviceId:r.id,refillCode:r.refillCode,service:r.service,date:r.date,clientCode:r.clientCode,cartridgeName:r.cartridgeName,powderName:r.powderName,problem:r.problem,partsName:r.partsName,qty:r.qty,remarks:r.remarks,amount:r.amount,createdAt:r.createdAt});c.updatedAt=new Date().toISOString();const clients=getClients(),i=clients.findIndex(x=>String(cid(x))===String(cid(c)));if(i>=0){clients[i]=c;saveClients(clients)}alert("Cartridge service saved and synced to Client Master successfully.");form.reset();setToday();qty.value=1;loadClients();loadHistory()});
+function esc(v){return String(v??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}
+function loadHistory(){let stockOutResult = {
+    success: true
+};
+
+if (partsName.value) {
+
+    stockOutResult = serviceStockOut({
+
+        partName: partsName.value,
+        quantity: Number(qty.value) || 1,
+        serviceId: r.id,
+        service: r.service,
+        clientId: r.clientCode,
+        clientName: r.clientName,
+        remarks: r.remarks
+
+    });
+
+    if (!stockOutResult.success) {
+        alert(stockOutResult.message);
+        return;
+    }
+}
+/* =========================================
+   POWDER STOCK OUT
+   ========================================= */
+
+if (powderName.value.trim()) {
+
+    const powderStockOut =
+        serviceStockOut({
+
+            partName:
+                powderName.value.trim(),
+
+            quantity:
+                Number(qty.value) || 1,
+
+            serviceId:
+                r.id,
+
+            service:
+                r.service,
+
+            clientId:
+                r.clientCode,
+
+            clientName:
+                r.clientName,
+
+            remarks:
+                r.remarks
+
+        });
+
+    if (!powderStockOut.success) {
+
+        alert(
+            powderStockOut.message
+        );
+
+        return;
+    }
+}
+
+
+/* =========================================
+   PART STOCK OUT
+   ========================================= */
+
+if (
+    partsName.value &&
+    partsName.value.toLowerCase() !== "refilling"
+) {
+
+    const partStockOut =
+        serviceStockOut({
+
+            partName:
+                partsName.value,
+
+            quantity:
+                Number(qty.value) || 1,
+
+            serviceId:
+                r.id,
+
+            service:
+                r.service,
+
+            clientId:
+                r.clientCode,
+
+            clientName:
+                r.clientName,
+
+            remarks:
+                r.remarks
+
+        });
+
+    if (!partStockOut.success) {
+
+        alert(
+            partStockOut.message
+        );
+
+        return;
+    }
+}
+const records = getRecords();
+records.push(r);
+saveRecords(records);;historyBody.innerHTML="";if(!records.length){historyBody.innerHTML='<tr><td colspan="11" class="empty-history">No cartridge service records yet.</td></tr>';return}records.slice().reverse().forEach(r=>{const row=document.createElement("tr");row.innerHTML=`<td>${esc(r.refillCode||"")}</td><td>${esc(r.date)}</td><td>${esc(r.clientName)}</td><td>${esc(r.mobile)}</td><td>${esc(r.cartridgeName)}</td><td>${esc(r.powderName)}</td><td>${esc(r.problem)}</td><td>${esc(r.partsName)}</td><td>${esc(r.qty)}</td><td>${esc(r.remarks)}</td><td>₹${Number(r.amount||0).toFixed(2)}</td>`;historyBody.appendChild(row)})}
+const serviceBackButton=document.getElementById("serviceBackButton");
+if(serviceBackButton){
+    serviceBackButton.addEventListener("click",()=>{
+        window.location.href="../../../dashboard.html?page=service-modules";
+    });
+}
+
+const backToDashboard=document.getElementById("backToDashboard");
+if(backToDashboard){
+    backToDashboard.addEventListener("click",()=>{
+        window.location.href="../../../dashboard.html";
+    });
+}
+/* =====================================================
+   DYNAMIC FIRM NAME
+   ===================================================== */
+
+const cartridgeRefillingFirmName =
+    document.getElementById("cartridgeRefillingFirmName");
+
+if (cartridgeRefillingFirmName) {
+
+    const selectedFirm =
+        localStorage.getItem(
+            "SUVI_INFOTECH_SELECTED_FIRM"
+        );
+
+    if (selectedFirm) {
+        cartridgeRefillingFirmName.textContent =
+            selectedFirm.trim();
+    }
+}
+/* INITIALIZE PAGE */
+
+setToday();
+loadClients();
+
+/* TICKET → CARTRIDGE REFILLING AUTO FILL */
+
+const ticketParams =
+    new URLSearchParams(window.location.search);
+
+const ticketClientName =
+    (ticketParams.get("clientName") || "").trim();
+
+const ticketMobile =
+    (ticketParams.get("mobileNumber") || "").trim();
+
+setToday();
+
+/* FIRST LOAD CLIENT DROPDOWN */
+loadClients();
+
+/* THEN SELECT TICKET CLIENT */
+if (ticketClientName || ticketMobile) {
+
+    const ticketClient = getClients().find(function (c) {
+
+        const name =
+            String(c.contactPerson || "")
+                .trim()
+                .toLowerCase();
+
+        const phone =
+            String(c.mobileNumber || "")
+                .trim();
+
+        return (
+            phone === ticketMobile ||
+            name === ticketClientName.toLowerCase()
+        );
+
+    });
+
+    if (ticketClient) {
+
+        const clientId =
+            ticketClient.clientId ||
+            ticketClient.id ||
+            "";
+
+        /* dropdown select */
+        clientName.value = clientId;
+
+        /* mobile auto fill */
+        mobile.value =
+            ticketClient.mobileNumber || "";
+
+        /* trigger existing change */
+        clientName.dispatchEvent(
+            new Event("change", {
+                bubbles: true
+            })
+        );
+
+    }
+}
+
+loadHistory();
+
+loadHistory();
+});
+</script>
+
+<div class="modal" id="newClientModal"><div class="modal-box"><div class="modal-header"><h3>New Client</h3><button type="button" class="close-modal" id="closeModal">×</button></div><div class="modal-body"><form id="newClientForm"><div class="modal-grid"><div class="field"><label>Client Code</label><input type="text" id="newClientCode" class="auto-field" readonly></div><div class="field"><label>Client Name <span class="required">*</span></label><input type="text" id="newClientName" required placeholder="Enter client name"></div><div class="field"><label>Mobile Number <span class="required">*</span></label><input type="tel" id="newClientMobile" maxlength="10" required placeholder="10 digit mobile number"></div><div class="field"><label>Department Name</label><input type="text" id="newClientDepartment" placeholder="Department name"></div></div><div class="modal-actions"><button type="button" class="cancel-btn" id="cancelModal">Cancel</button><button type="submit" class="modal-save-btn">Save Client</button></div></form></div></div></div></body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Field Visit | SUVI INFOTECH SERVICE PRO</title>
+
+    <link rel="stylesheet" href="field-visit.css">
+</head>
+
+<body>
+
+    <div class="field-visit-page">
+
+        <!-- HEADER -->
+        <div class="field-header">
+
+            <div>
+                <h1>Field Visit</h1>
+
+                <p>
+                    Manage technician field visits
+                </p>
+            </div>
+
+           <button
+    type="button"
+    class="back-dashboard"
+    onclick="window.top.location.href='../../dashboard.html'">
+
+    <span class="back-icon">←</span>
+    <span>Back to Dashboard</span>
+
+</button>
+        </div>
+
+
+        <!-- FORM CARD -->
+        <div class="field-form-card">
+
+            <div class="form-title">
+
+                <h2>New Field Visit</h2>
+
+                <span>
+                    Visit Details
+                </span>
+
+            </div>
+
+
+            <form id="fieldVisitForm">
+
+
+                <!-- ROW 1 -->
+                <div class="form-grid">
+
+
+                    <!-- VISIT DATE -->
+                    <div class="form-group">
+
+                        <label for="visitDate">
+                            Visit Date
+                        </label>
+
+                        <input
+                            type="text"
+                            id="visitDate"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- VISIT ID -->
+                    <div class="form-group">
+
+                        <label for="visitId">
+                            Visit ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="visitId"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- CLIENT ID -->
+                    <div class="form-group">
+
+                        <label for="clientId">
+                            Client ID
+                        </label>
+
+                        <select id="clientId">
+
+                            <option value="">
+                                Select Client
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- CLIENT NAME -->
+                    <div class="form-group">
+
+                        <label for="clientName">
+                            Client Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clientName" placeholder="Auto-filled / Manual Entry" readonly>
+
+                    </div>
+                
+                 <!-- CONTACT PERSON -->
+<div class="form-group">
+
+    <label for="contactPerson">
+        Contact Person
+    </label>
+
+    <input
+        type="text"
+        id="contactPerson" placeholder="Auto-filled / Manual Entry" readonly>
+
+</div>
+
+
+<!-- DEPARTMENT NAME -->
+<div class="form-group">
+
+    <label for="departmentName">
+        Department Name
+    </label>
+
+    <input
+        type="text"
+        id="departmentName" placeholder="Auto-filled / Manual Entry" readonly>
+
+</div>   
+
+                    <!-- MOBILE -->
+                    <div class="form-group">
+
+                        <label for="mobileNumber">
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="mobileNumber" placeholder="Auto-filled / Manual Entry" readonly>
+
+                    </div>
+
+
+                    <!-- SERVICE / PURPOSE -->
+                    <div class="form-group">
+
+                        <label for="servicePurpose">
+                            Service / Purpose
+                        </label>
+
+                        <input
+                            type="text"
+                            id="servicePurpose"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- TECHNICIAN -->
+                    <div class="form-group">
+
+                        <label for="technicianName">
+                            Technician Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="technicianName"
+                            placeholder="Enter technician name">
+
+                    </div>
+
+
+                    <!-- VISIT TYPE -->
+                    <div class="form-group">
+
+                        <label for="visitType">
+                            Visit Type
+                        </label>
+
+                        <select id="visitType">
+
+                            <option value="">
+                                Select Visit Type
+                            </option>
+
+                            <option value="Installation">
+                                Installation
+                            </option>
+
+                            <option value="Service">
+                                Service
+                            </option>
+
+                            <option value="Inspection">
+                                Inspection
+                            </option>
+
+                            <option value="AMC">
+                                AMC
+                            </option>
+
+                            <option value="Complaint">
+                                Complaint
+                            </option>
+
+                            <option value="Follow Up">
+                                Follow Up
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- STATUS -->
+                    <div class="form-group">
+
+                        <label for="visitStatus">
+                            Visit Status
+                        </label>
+
+                        <select id="visitStatus">
+
+                            <option value="">
+                                Select Status
+                            </option>
+
+                            <option value="Scheduled">
+                                Scheduled
+                            </option>
+
+                            <option value="Assigned">
+                                Assigned
+                            </option>
+
+                            <option value="In Progress">
+                                In Progress
+                            </option>
+
+                            <option value="Completed">
+                                Completed
+                            </option>
+
+                            <option value="Cancelled">
+                                Cancelled
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- PROBLEM -->
+                <div class="form-group full-width">
+
+                    <label for="problem">
+                        Problem / Complaint
+                    </label>
+
+                    <textarea
+                        id="problem"
+                        rows="3"
+                        placeholder="Enter problem or complaint">
+                    </textarea>
+
+                </div>
+
+
+                <!-- WORK DONE -->
+                <div class="form-group full-width">
+
+                    <label for="workDone">
+                        Work Done
+                    </label>
+
+                    <textarea
+                        id="workDone"
+                        rows="3"
+                        placeholder="Enter work completed">
+                    </textarea>
+
+                </div>
+
+
+                <!-- SPARE PARTS -->
+                <div class="form-group full-width">
+
+                    <label for="spareParts">
+                        Spare Parts Used
+                    </label>
+
+                    <textarea
+                        id="spareParts"
+                        rows="2"
+                        placeholder="Enter spare parts used">
+                    </textarea>
+
+                </div>
+
+
+                <!-- REMARKS -->
+                <div class="form-group full-width">
+
+                    <label for="remarks">
+                        Remarks
+                    </label>
+
+                    <textarea
+                        id="remarks"
+                        rows="2"
+                        placeholder="Enter remarks">
+                    </textarea>
+
+                </div>
+
+
+                <!-- NEXT VISIT -->
+                <div class="form-group">
+
+                    <label for="nextVisitDate">
+                        Next Visit Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="nextVisitDate">
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="clear-button">
+
+                        Clear
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="save-button">
+
+                        Save Visit
+
+                    </button>
+
+                </div>
+
+
+            </form>
+            <!-- =====================================================
+     VISIT HISTORY
+     ===================================================== -->
+
+<div class="visit-history-card">
+
+    <div class="visit-history-header">
+
+        <div>
+            <h2>Visit History</h2>
+            <p>Saved field visit records</p>
+        </div>
+
+        <span id="visitCount">
+            0 Visits
+        </span>
+
+    </div>
+
+
+    <div class="visit-history-table-wrapper">
+
+        <table class="visit-history-table">
+
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Visit ID</th>
+                    <th>Client ID</th>
+                    <th>Client Name</th>
+                    <th>Mobile</th>
+                    <th>Service</th>
+                    <th>Technician</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="visitHistoryBody">
+
+                <tr>
+                    <td colspan="8" class="empty-visit-history">
+                        No field visits found.
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+        </div>
+
+    </div>
+
+
+   <script src="../../firebase-config.js"></script>
+<script src="../../js/firebase-sync.js"></script>
+
+<script src="field-visit.js"></script>
+</body>
+
+</html>

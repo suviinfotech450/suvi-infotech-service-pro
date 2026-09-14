@@ -1,0 +1,1041 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eaf4ff;
+    color: #172033;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.gst-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(135deg, #ffffff, #dff1ff);
+    border-bottom: 1px solid #b9d8f5;
+    padding: 14px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 3px 12px rgba(25, 90, 150, 0.10);
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: 800;
+    color: #073b78;
+    letter-spacing: .2px;
+}
+
+.module-name {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #35658e;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.dashboard-btn {
+    background: #1267d8;
+    color: #ffffff;
+    border: 1px solid #1267d8;
+    padding: 10px 17px;
+    border-radius: 9px;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(18, 103, 216, 0.20);
+}
+
+.dashboard-btn:hover {
+    background: #0b55b7;
+    border-color: #0b55b7;
+    color: #ffffff;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    border: 1px solid #c7d7e8;
+    background: #ffffff;
+    color: #17324d;
+    padding: 9px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .2s ease;
+}
+
+button:hover {
+    border-color: #1267d8;
+    color: #1267d8;
+}
+
+.primary {
+    background: #1267d8;
+    color: #ffffff;
+    border-color: #1267d8;
+}
+
+.primary:hover {
+    background: #0b55b7;
+    color: #ffffff;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.gst-container {
+    max-width: 1550px;
+    margin: auto;
+    padding: 22px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: #ffffff;
+    border: 1px solid #c8def2;
+    border-radius: 15px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 5px 18px rgba(25, 90, 150, 0.08);
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 16px;
+}
+
+.section-title h2 {
+    margin: 0 0 4px;
+    font-size: 19px;
+    color: #103e70;
+}
+
+.section-title p {
+    margin: 0;
+    color: #60788e;
+    font-size: 13px;
+}
+
+/* =========================
+   GST SETTINGS
+========================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns:
+        minmax(180px, 1.1fr)
+        minmax(180px, 1fr)
+        minmax(180px, 1fr)
+        minmax(220px, 1.2fr);
+    gap: 16px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #38556e;
+}
+
+input,
+select {
+    width: 100%;
+    height: 42px;
+    border: 1px solid #bfd3e7;
+    border-radius: 9px;
+    padding: 0 11px;
+    background: #fbfdff;
+    color: #172033;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #1267d8;
+    box-shadow: 0 0 0 3px rgba(18, 103, 216, .10);
+}
+
+/* =========================
+   PERIOD
+========================= */
+
+.period-grid {
+    display: grid;
+    grid-template-columns:
+        1.1fr
+        1fr
+        1fr
+        1fr
+        auto;
+    gap: 14px;
+    align-items: end;
+}
+
+.apply-button {
+    height: 42px;
+    min-width: 95px;
+}
+
+/* =========================
+   SUMMARY CARDS
+========================= */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(5, minmax(170px, 1fr));
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.summary-card {
+    background: linear-gradient(145deg, #ffffff, #f1f8ff);
+    border: 1px solid #c4dcf2;
+    border-radius: 14px;
+    padding: 17px;
+    min-height: 92px;
+    box-shadow: 0 4px 14px rgba(25, 90, 150, .07);
+    position: relative;
+    overflow: hidden;
+}
+
+.summary-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: #1267d8;
+}
+
+.summary-card:nth-child(2)::before {
+    background: #08a56c;
+}
+
+.summary-card:nth-child(3)::before {
+    background: #f29a16;
+}
+
+.summary-card:nth-child(4)::before {
+    background: #7347df;
+}
+
+.summary-card:nth-child(5)::before {
+    background: #e83e73;
+}
+
+.summary-card span,
+.report-card span {
+    display: block;
+    color: #63798d;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.summary-card strong,
+.report-card strong {
+    font-size: 21px;
+    color: #123b68;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.tabs {
+    display: flex;
+    gap: 3px;
+    border-bottom: 1px solid #c8def2;
+    margin: -18px -18px 18px;
+    padding: 9px 10px 0;
+    background: #f2f8ff;
+    border-radius: 15px 15px 0 0;
+}
+
+.tab {
+    border: 0;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+    border-radius: 9px 9px 0 0;
+    padding: 11px 18px;
+    color: #36516b;
+}
+
+.tab:hover {
+    color: #1267d8;
+    background: #ffffff;
+}
+
+.tab.active {
+    color: #ffffff;
+    border-bottom-color: #1267d8;
+    background: #1267d8;
+}
+
+/* =========================
+   TAB CONTENT
+========================= */
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice {
+    background: #edf6ff;
+    border: 1px solid #c6def7;
+    color: #315a83;
+    padding: 12px 14px;
+    border-radius: 9px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #c7dced;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1050px;
+}
+
+th,
+td {
+    padding: 11px 12px;
+    border-bottom: 1px solid #e0eaf3;
+    font-size: 12px;
+    white-space: nowrap;
+    text-align: left;
+}
+
+th {
+    background: #1267d8;
+    color: #ffffff;
+    font-weight: 800;
+    border-bottom: 0;
+}
+
+tbody tr:nth-child(even) {
+    background: #f8fbff;
+}
+
+tbody tr:hover {
+    background: #edf6ff;
+}
+
+td {
+    color: #30475d;
+}
+
+/* =========================
+   REPORT CARDS
+========================= */
+
+.report-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 17px;
+}
+
+.report-card {
+    background: #f7fbff;
+    border: 1px solid #c8def2;
+    border-radius: 12px;
+    padding: 17px;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.action-buttons {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.action-buttons button:first-child {
+    border-color: #1267d8;
+    color: #1267d8;
+}
+
+.action-buttons button:last-child {
+    background: #1267d8;
+    color: #ffffff;
+    border-color: #1267d8;
+}
+
+/* =========================
+   TABLE EMPTY MESSAGE
+========================= */
+
+tbody td[colspan] {
+    text-align: center;
+    padding: 22px;
+    color: #71869a;
+    background: #fbfdff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1150px) {
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .period-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .report-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .gst-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-buttons {
+        width: 100%;
+    }
+
+    .dashboard-btn {
+        width: 100%;
+    }
+
+    .gst-container {
+        padding: 10px;
+    }
+
+    .form-grid,
+    .period-grid,
+    .summary-grid,
+    .report-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tabs {
+        overflow-x: auto;
+    }
+
+    .tab {
+        white-space: nowrap;
+    }
+
+    .action-buttons {
+        width: 100%;
+    }
+}
+
+/* =========================
+   PRINT
+========================= */
+
+@media print {
+
+    .gst-header,
+    .card:first-child,
+    .period-grid,
+    .tabs,
+    .action-buttons {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff;
+    }
+
+    .gst-container {
+        padding: 0;
+    }
+
+    .card {
+        border: 0;
+        box-shadow: none;
+    }
+
+    th {
+        background: #eeeeee !important;
+        color: #000000 !important;
+    }
+}
+/* =========================================
+   GST NEW CANVAS DESIGN
+   ADD AT THE END OF gst.css
+========================================= */
+
+body {
+    background: linear-gradient(135deg, #dceeff 0%, #eef8ff 45%, #d8f3ee 100%) !important;
+}
+
+/* Main page */
+.gst-container {
+    max-width: 1600px !important;
+    padding: 24px 28px !important;
+}
+
+/* All major cards */
+.card {
+    background: rgba(255, 255, 255, 0.96) !important;
+    border: 1px solid #b8d8ee !important;
+    border-radius: 18px !important;
+    box-shadow: 0 8px 25px rgba(34, 91, 135, 0.12) !important;
+    padding: 22px !important;
+}
+
+/* GST Settings heading area */
+.card:first-child .section-title {
+    background: linear-gradient(90deg, #e5f3ff, #f7fcff);
+    margin: -22px -22px 20px !important;
+    padding: 16px 22px !important;
+    border-bottom: 1px solid #c5dfef;
+    border-radius: 18px 18px 0 0;
+}
+
+/* Settings columns */
+.form-grid {
+    grid-template-columns:
+        1.25fr
+        1.25fr
+        1fr
+        1.35fr !important;
+    gap: 20px !important;
+}
+
+.form-grid label {
+    background: #f5faff;
+    border: 1px solid #d2e5f4;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.form-grid input,
+.form-grid select {
+    background: #ffffff;
+    border-color: #b8d3e8;
+}
+
+/* Period section */
+.period-grid {
+    grid-template-columns:
+        1.2fr
+        1fr
+        1fr
+        1fr
+        110px !important;
+    gap: 18px !important;
+}
+
+.period-grid label {
+    background: #f4fffb;
+    border: 1px solid #c5e8dd;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+/* Apply button */
+.apply-button {
+    border-radius: 11px !important;
+    font-size: 14px;
+}
+
+/* Summary cards */
+.summary-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 18px !important;
+}
+
+.summary-card {
+    min-height: 115px !important;
+    padding: 20px !important;
+    border-radius: 17px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #c5dced !important;
+    box-shadow: 0 7px 20px rgba(40, 100, 150, .10) !important;
+}
+
+.summary-card span {
+    font-size: 13px !important;
+    margin-bottom: 10px !important;
+}
+
+.summary-card strong {
+    font-size: 25px !important;
+}
+
+/* Different summary backgrounds */
+.summary-card:nth-child(1) {
+    background: linear-gradient(135deg, #edf7ff, #ffffff) !important;
+}
+
+.summary-card:nth-child(2) {
+    background: linear-gradient(135deg, #eafff7, #ffffff) !important;
+}
+
+.summary-card:nth-child(3) {
+    background: linear-gradient(135deg, #fff6e8, #ffffff) !important;
+}
+
+.summary-card:nth-child(4) {
+    background: linear-gradient(135deg, #f3edff, #ffffff) !important;
+}
+
+.summary-card:nth-child(5) {
+    background: linear-gradient(135deg, #fff0f5, #ffffff) !important;
+}
+
+/* Tabs container */
+.tabs {
+    margin: -22px -22px 22px !important;
+    padding: 12px 15px 0 !important;
+    background: linear-gradient(90deg, #eaf5ff, #f8fcff) !important;
+    border-radius: 18px 18px 0 0 !important;
+}
+
+/* Tabs */
+.tab {
+    padding: 13px 23px !important;
+    border-radius: 11px 11px 0 0 !important;
+    font-size: 13px !important;
+}
+
+.tab.active {
+    background: #1267d8 !important;
+    color: #ffffff !important;
+}
+
+/* GSTR heading */
+.tab-content .section-title {
+    padding: 5px 2px 12px;
+}
+
+/* Notice */
+.notice {
+    background: linear-gradient(90deg, #e5f2ff, #f5fbff) !important;
+    border: 1px solid #bddaf2 !important;
+    border-radius: 11px !important;
+    padding: 14px 16px !important;
+}
+
+/* Table outer box */
+.table-container {
+    border: 1px solid #b9d5e9 !important;
+    border-radius: 13px !important;
+    box-shadow: 0 4px 15px rgba(40, 90, 130, .07);
+}
+
+/* Table */
+table {
+    min-width: 1150px !important;
+}
+
+th {
+    background: linear-gradient(90deg, #075ebd, #1679df) !important;
+    color: white !important;
+    padding: 13px 12px !important;
+    font-size: 12px !important;
+}
+
+td {
+    padding: 12px !important;
+    font-size: 12px !important;
+}
+
+tbody tr:nth-child(even) {
+    background: #f3f9ff !important;
+}
+
+tbody tr:hover {
+    background: #e4f2ff !important;
+}
+
+/* Action buttons */
+.action-buttons button {
+    padding: 10px 16px !important;
+    border-radius: 10px !important;
+}
+
+/* Report cards */
+.report-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 18px !important;
+}
+
+.report-card {
+    background: linear-gradient(135deg, #f1f8ff, #ffffff) !important;
+    border: 1px solid #c4dced !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+}
+
+/* Header */
+.gst-header {
+    background: linear-gradient(90deg, #ffffff, #d9efff) !important;
+    border-bottom: 1px solid #acd1eb !important;
+    box-shadow: 0 5px 18px rgba(40, 100, 150, .12) !important;
+}
+
+/* Mobile */
+@media (max-width: 1100px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .gst-container {
+        padding: 12px !important;
+    }
+
+    .form-grid,
+    .period-grid,
+    .summary-grid,
+    .report-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .card {
+        padding: 15px !important;
+    }
+
+}
+/* Hide GST Settings section */
+.gst-container > .card:first-child {
+    display: none !important;
+}/* GST SUMMARY CARDS - DIFFERENT COLORS ONLY */
+
+.summary-card:nth-child(1){
+  border-left:5px solid #1976d2 !important;
+  background:#eaf3ff !important;
+}
+
+.summary-card:nth-child(2){
+  border-left:5px solid #00897b !important;
+  background:#e9fbf7 !important;
+}
+
+.summary-card:nth-child(3){
+  border-left:5px solid #f39c12 !important;
+  background:#fff7e8 !important;
+}
+
+.summary-card:nth-child(4){
+  border-left:5px solid #7b1fa2 !important;
+  background:#f7edff !important;
+}
+
+.summary-card:nth-child(5){
+  border-left:5px solid #e91e63 !important;
+  background:#fff0f5 !important;
+}
+/* GST - FULL PAGE WIDTH */
+.gst-container{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:22px 24px 40px !important;
+}
+
+.gst-container > .card{
+    width:100% !important;
+}
+
+.summary-grid{
+    width:100% !important;
+}
+
+.table-container{
+    width:100% !important;
+}
+/* GST - CLEAR & BIG FONT */
+.brand{
+    font-size:26px !important;
+}
+
+.module-name{
+    font-size:16px !important;
+}
+
+.section-title h2{
+    font-size:22px !important;
+}
+
+.section-title p{
+    font-size:15px !important;
+}
+
+label{
+    font-size:14px !important;
+}
+
+input,
+select{
+    font-size:16px !important;
+}
+
+.dashboard-btn,
+button{
+    font-size:14px !important;
+}
+
+.summary-card span{
+    font-size:15px !important;
+}
+
+.summary-card strong{
+    font-size:27px !important;
+}
+
+.notice{
+    font-size:14px !important;
+}
+
+.tab{
+    font-size:15px !important;
+    font-weight:700 !important;
+}
+
+th{
+    font-size:14px !important;
+}
+
+td{
+    font-size:14px !important;
+}
+
+.report-card span{
+    font-size:14px !important;
+}
+
+.report-card strong{
+    font-size:23px !important;
+}
+/* GST - FINAL CLEAR FONT SIZE */
+
+.gst-container{
+    font-size:16px !important;
+}
+
+/* Header */
+.brand{
+    font-size:28px !important;
+}
+
+.module-name{
+    font-size:16px !important;
+}
+
+/* Buttons */
+.dashboard-btn,
+button{
+    font-size:15px !important;
+}
+
+/* Labels */
+label{
+    font-size:15px !important;
+    font-weight:800 !important;
+}
+
+/* Input / Select */
+input,
+select{
+    font-size:16px !important;
+}
+
+/* Summary cards */
+.summary-card span{
+    font-size:16px !important;
+    font-weight:800 !important;
+}
+
+.summary-card strong{
+    font-size:28px !important;
+    font-weight:900 !important;
+}
+
+/* Tabs */
+.tab{
+    font-size:16px !important;
+    font-weight:800 !important;
+}
+
+/* Section headings */
+.section-title h2{
+    font-size:23px !important;
+}
+
+.section-title p{
+    font-size:15px !important;
+}
+
+/* Notice */
+.notice{
+    font-size:15px !important;
+}
+
+/* Table */
+th{
+    font-size:15px !important;
+    font-weight:900 !important;
+}
+
+td{
+    font-size:15px !important;
+}
+
+/* Report cards */
+.report-card span{
+    font-size:15px !important;
+}
+
+.report-card strong{
+    font-size:25px !important;
+}
+/* GST - EXTRA LARGE & CLEAR TEXT */
+
+.brand{
+    font-size:30px !important;
+}
+
+.module-name{
+    font-size:18px !important;
+}
+
+.dashboard-btn,
+button{
+    font-size:16px !important;
+}
+
+label{
+    font-size:17px !important;
+}
+
+input,
+select{
+    font-size:18px !important;
+}
+
+.summary-card span{
+    font-size:17px !important;
+}
+
+.summary-card strong{
+    font-size:30px !important;
+}
+
+.tab{
+    font-size:17px !important;
+    font-weight:800 !important;
+}
+
+.section-title h2{
+    font-size:25px !important;
+}
+
+.section-title p{
+    font-size:16px !important;
+}
+
+.notice{
+    font-size:16px !important;
+}
+
+th{
+    font-size:17px !important;
+    font-weight:900 !important;
+}
+
+td{
+    font-size:17px !important;
+    font-weight:600 !important;
+}
+
+.report-card span{
+    font-size:16px !important;
+}
+
+.report-card strong{
+    font-size:26px !important;
+}

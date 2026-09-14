@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Reminder - SUVI INFOTECH</title>
+    <link rel="stylesheet" href="client-reminder.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <header class="page-header">
+        <div>
+            <div class="brand-name" id="reminderFirmName">SUVI INFOTECH</div>
+            <div class="page-title">
+                <i class="fa-solid fa-bell"></i>
+                Client Reminder
+            </div>
+        </div>
+
+        <div class="header-buttons">
+            <button class="back-btn" onclick="goBack()">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back
+            </button>
+
+            <button class="dashboard-btn" onclick="goDashboard()">
+                <i class="fa-solid fa-gauge-high"></i>
+                Back to Dashboard
+            </button>
+        </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section class="summary-grid">
+
+        <div class="summary-card today">
+            <div class="summary-icon">
+                <i class="fa-solid fa-calendar-day"></i>
+            </div>
+            <div>
+                <span>Today</span>
+                <strong id="todayCount">0</strong>
+            </div>
+        </div>
+
+        <div class="summary-card upcoming">
+            <div class="summary-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div>
+                <span>Upcoming</span>
+                <strong id="upcomingCount">0</strong>
+            </div>
+        </div>
+
+        <div class="summary-card overdue">
+            <div class="summary-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div>
+                <span>Overdue</span>
+                <strong id="overdueCount">0</strong>
+            </div>
+        </div>
+
+        <div class="summary-card completed">
+            <div class="summary-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div>
+                <span>Completed</span>
+                <strong id="completedCount">0</strong>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- REMINDER ENTRY -->
+    <section class="card">
+
+        <div class="section-title">
+            <i class="fa-solid fa-plus-circle"></i>
+            Add Client Reminder
+        </div>
+
+        <form id="reminderForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Reminder ID</label>
+                    <input type="text" id="reminderId" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Reminder Date</label>
+                    <input type="date" id="reminderDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Client Name</label>
+                    <input type="text"
+                           id="clientName"
+                           placeholder="Enter client name"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel"
+                           id="mobile"
+                           maxlength="10"
+                           placeholder="10 digit mobile number"
+                           required>
+                </div>
+                <div class="form-group">
+    <label>Invoice / Bill No.</label>
+    <input type="text"
+           id="invoiceNo"
+           placeholder="Enter invoice / bill number">
+</div>
+
+<div class="form-group">
+    <label>Total Amount</label>
+    <input type="number"
+           id="totalAmount"
+           placeholder="₹ Total amount"
+           min="0"
+           step="0.01">
+</div>
+
+<div class="form-group">
+    <label>Paid Amount</label>
+    <input type="number"
+           id="paidAmount"
+           placeholder="₹ Paid amount"
+           min="0"
+           step="0.01">
+</div>
+
+<div class="form-group">
+    <label>Pending Amount</label>
+    <input type="number"
+           id="pendingAmount"
+           placeholder="₹ Pending amount"
+           readonly>
+</div>
+
+                <div class="form-group">
+                    <label>Reminder Type</label>
+                    <select id="reminderType" required>
+                        <option value="">Select Type</option>
+                        <option value="AMC Renewal">AMC Renewal</option>
+                        <option value="Service Due">Service Due</option>
+                        <option value="Payment Due">Payment Due</option>
+                        <option value="Warranty Expiry">Warranty Expiry</option>
+                        <option value="Follow Up">Follow Up</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Priority</label>
+                    <select id="priority">
+                        <option value="Normal">Normal</option>
+                        <option value="High">High</option>
+                        <option value="Urgent">Urgent</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Reminder Message</label>
+                    <textarea id="message"
+                              rows="3"
+                              placeholder="Enter reminder details"></textarea>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-btn">
+                    <i class="fa-solid fa-save"></i>
+                    Save Reminder
+                </button>
+
+                <button type="button" class="clear-btn" onclick="clearForm()">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Clear
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+    <!-- FILTER -->
+    <section class="card">
+
+        <div class="section-title">
+            <i class="fa-solid fa-filter"></i>
+            Search & Filter
+        </div>
+
+        <div class="filter-grid">
+
+            <div class="form-group">
+                <label>Search Client</label>
+                <input type="text"
+                       id="searchInput"
+                       placeholder="Search client / mobile / reminder ID"
+                       oninput="renderReminders()">
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+                <select id="statusFilter" onchange="renderReminders()">
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Reminder Type</label>
+                <select id="typeFilter" onchange="renderReminders()">
+                    <option value="All">All</option>
+                    <option value="AMC Renewal">AMC Renewal</option>
+                    <option value="Service Due">Service Due</option>
+                    <option value="Payment Due">Payment Due</option>
+                    <option value="Warranty Expiry">Warranty Expiry</option>
+                    <option value="Follow Up">Follow Up</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date"
+                       id="dateFilter"
+                       onchange="renderReminders()">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- REMINDER HISTORY -->
+    <section class="card">
+
+        <div class="section-title">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            Reminder History
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reminder ID</th>
+                        <th>Date</th>
+                        <th>Client Name</th>
+                        <th>Mobile</th>
+                        <th>Type</th>
+                        <th>Priority</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="reminderTableBody"></tbody>
+
+            </table>
+
+        </div>
+
+        <div id="emptyMessage" class="empty-message">
+            No reminders found.
+        </div>
+
+    </section>
+
+</div>
+
+<script src="client-reminder.js"></script>
+<script>
+    const selectedFirm =
+        localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM")
+        || "SUVI INFOTECH";
+
+    document.getElementById("reminderFirmName").textContent =
+        selectedFirm;
+
+    document.title =
+        selectedFirm + " - Client Reminder";
+</script>
+</body>
+</html>

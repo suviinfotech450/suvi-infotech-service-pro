@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Networking & Wi-Fi Configure | SUVI INFOTECH</title>
+
+<style>
+/* =========================================================
+   PAGE COLOR CODE
+   Primary   : #1D4ED8
+   Secondary : #06B6D4
+   Accent    : #7C3AED
+   Light     : #EFF6FF
+   ========================================================= */
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    min-height:100vh;
+    color:#172033;
+    background:linear-gradient(135deg,#EFF6FF 0%,#E0F2FE 50%,#F5F3FF 100%);
+    background-attachment:fixed;
+}
+
+.page{
+    width:100%;
+    max-width:1180px;
+    margin:auto;
+    padding:25px 20px 50px;
+}
+
+.navigation{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:15px;
+    box-sizing:border-box;
+}
+
+.back-btn,
+.dashboard-btn{
+    border:none;
+    background:#fff;
+    color:#334155;
+    border-radius:12px;
+    padding:12px 18px;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(15,23,42,.08);
+}
+
+.back-btn{
+    width:42px;
+    height:42px;
+    padding:0;
+    font-size:27px;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:22px;
+}
+
+.brand{
+    color:#1D4ED8;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    margin-bottom:5px;
+}
+
+.header h1{
+    color:#1E3A8A;
+    font-size:29px;
+    margin-bottom:5px;
+}
+
+.header p{
+    color:#64748B;
+    font-size:14px;
+}
+
+.service-card,
+.history-card{
+    background:rgba(255,255,255,.97);
+    border:1px solid #BFDBFE;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 20px 55px rgba(29,78,216,.13);
+}
+
+.card-header,
+.history-header{
+    padding:24px 28px;
+    background:linear-gradient(135deg,#DBEAFE,#E0F2FE,#EDE9FE);
+    border-bottom:1px solid #93C5FD;
+}
+
+.card-header h2,
+.history-header h2{
+    color:#1E3A8A;
+    font-size:20px;
+}
+
+.card-header p,
+.history-header p{
+    margin-top:5px;
+    color:#64748B;
+    font-size:13px;
+}
+
+.form-area{
+    padding:28px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:19px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    color:#334155;
+    font-size:13px;
+    font-weight:700;
+}
+
+.required{
+    color:#EF4444;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:1px solid #D9E1EC;
+    background:#fff;
+    color:#172033;
+    border-radius:12px;
+    padding:12px 14px;
+    font:14px "Segoe UI",Arial,sans-serif;
+    outline:none;
+}
+
+input,
+select{
+    height:48px;
+}
+
+textarea{
+    min-height:95px;
+    resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#1D4ED8;
+    box-shadow:0 0 0 4px rgba(29,78,216,.10);
+}
+
+.auto-field{
+    background:#F8FAFC!important;
+    color:#475569!important;
+    font-weight:700;
+}
+
+.barcode-row{
+    display:flex;
+    gap:9px;
+}
+
+.barcode-row input{
+    flex:1;
+}
+
+.scan-btn{
+    min-width:115px;
+    border:none;
+    border-radius:11px;
+    background:linear-gradient(135deg,#1D4ED8,#06B6D4);
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.device-status{
+    display:none;
+    padding:13px 15px;
+    margin-top:18px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.device-status.success{
+    display:block;
+    background:#ECFDF5;
+    color:#047857;
+    border:1px solid #BBF7D0;
+}
+
+.device-status.warning{
+    display:block;
+    background:#FFF7ED;
+    color:#C2410C;
+    border:1px solid #FED7AA;
+}
+
+.save-area{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid #E2E8F0;
+}
+
+.save-info strong{
+    display:block;
+    color:#334155;
+    font-size:13px;
+}
+
+.save-info span{
+    color:#64748B;
+    font-size:12px;
+}
+
+.save-btn{
+    min-width:170px;
+    height:50px;
+    border:none;
+    border-radius:13px;
+    background:linear-gradient(135deg,#1D4ED8,#7C3AED);
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 9px 22px rgba(29,78,216,.18);
+}
+
+.history-card{
+    margin-top:25px;
+}
+
+.history-header{
+    padding:20px 24px;
+}
+
+.table-wrapper{
+    overflow-x:auto;
+}
+
+.history-table{
+    width:100%;
+    min-width:1150px;
+    border-collapse:collapse;
+}
+
+.history-table th,
+.history-table td{
+    padding:13px 14px;
+    text-align:left;
+    border-bottom:1px solid #EDF1F6;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+.history-table th{
+    background:#EFF6FF;
+    color:#1E3A8A;
+    font-weight:800;
+}
+
+.history-table td{
+    color:#475569;
+}
+
+.empty-history{
+    text-align:center;
+    padding:35px;
+    color:#94A3B8;
+}
+
+@media(max-width:700px){
+    .page{padding:18px 12px 35px}
+    .header{flex-direction:column;align-items:flex-start}
+    .header h1{font-size:24px}
+    .navigation{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .dashboard-btn{margin-left:auto}
+    .form-area{padding:20px 17px}
+    .form-grid{grid-template-columns:1fr}
+    .full{grid-column:auto}
+    .barcode-row{flex-direction:column}
+    .scan-btn{height:46px}
+    .save-area{flex-direction:column;align-items:stretch}
+    .save-btn{width:100%}
+}
+/* =========================================
+   NETWORKING / WIFI SERVICE
+   FIT TO PAGE + BIG FONT
+   ========================================= */
+
+html,
+body{
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    overflow-x:hidden !important;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif !important;
+}
+
+/* FULL PAGE */
+.page,
+.network-page,
+.networking-page,
+.service-page{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:10px 14px 20px !important;
+}
+
+/* HEADER */
+.brand{
+    font-size:30px !important;
+    font-weight:900 !important;
+}
+
+.header h1,
+.page-header h1{
+    font-size:28px !important;
+    font-weight:900 !important;
+}
+
+.header p,
+.page-header p{
+    font-size:15px !important;
+}
+
+/* NAVIGATION */
+.navigation,
+.service-navigation{
+    width:100% !important;
+    margin-bottom:8px !important;
+}
+
+.back-btn,
+.dashboard-btn,
+.back-button{
+    font-size:15px !important;
+    font-weight:900 !important;
+}
+
+/* CARDS */
+.service-card,
+.main-card,
+.form-card,
+.history-card{
+    width:100% !important;
+}
+
+/* CARD HEADER */
+.card-header,
+.section-header{
+    padding:12px 16px !important;
+}
+
+.card-header h2,
+.section-header h2{
+    font-size:22px !important;
+    font-weight:900 !important;
+}
+
+.card-header p,
+.section-header p{
+    font-size:14px !important;
+}
+
+/* FORM */
+.form-area{
+    padding:14px 16px !important;
+}
+
+.form-grid{
+    width:100% !important;
+    gap:10px 12px !important;
+}
+
+.field label,
+.form-group label{
+    font-size:15px !important;
+    font-weight:800 !important;
+}
+
+.field input,
+.field select,
+.field textarea,
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100% !important;
+    min-height:42px !important;
+    padding:8px 11px !important;
+    font-size:17px !important;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+}
+
+textarea{
+    min-height:75px !important;
+}
+
+input::placeholder,
+textarea::placeholder{
+    font-size:15px !important;
+}
+
+/* BUTTONS */
+button{
+    font-family:"Segoe UI",Arial,sans-serif !important;
+    font-size:15px !important;
+    font-weight:900 !important;
+}
+
+/* TABLE */
+.table-wrapper,
+.history-table-wrapper{
+    width:100% !important;
+    overflow-x:auto !important;
+}
+
+.history-table,
+.service-history-table{
+    width:100% !important;
+}
+
+.history-table th,
+.service-history-table th{
+    font-size:14px !important;
+    font-weight:900 !important;
+    padding:8px !important;
+}
+
+.history-table td,
+.service-history-table td{
+    font-size:14px !important;
+    font-weight:600 !important;
+    padding:8px !important;
+}
+
+/* SAVE AREA */
+.save-area{
+    margin-top:10px !important;
+    padding-top:10px !important;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .page,
+    .network-page,
+    .networking-page,
+    .service-page{
+        padding:7px !important;
+    }
+
+    .brand{
+        font-size:26px !important;
+    }
+
+    .header h1,
+    .page-header h1{
+        font-size:24px !important;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+        font-size:17px !important;
+    }
+
+    .history-table th,
+    .service-history-table th{
+        font-size:13px !important;
+    }
+
+    .history-table td,
+    .service-history-table td{
+        font-size:14px !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="navigation">
+        <button type="button" class="back-btn" id="serviceBackButton">←</button>
+        <button type="button" class="dashboard-btn" id="backToDashboard">← Back to Dashboard</button>
+    </div>
+
+    <header class="header">
+        <div>
+            <div class="brand" id="networkingFirmName">
+    SUVI INFOTECH
+</div>
+            <h1>🌐 Networking & Wi-Fi Configure</h1>
+            <p>Network installation, configuration and service</p>
+        </div>
+    </header>
+
+    <section class="service-card">
+
+        <div class="card-header">
+            <h2>Networking & Wi-Fi Service Entry</h2>
+            <p>Enter network service details and save the service history.</p>
+        </div>
+
+        <div class="form-area">
+
+            <form id="networkServiceForm">
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Date</label>
+                        <input type="text" id="serviceDate" class="auto-field" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label>Barcode / Serial No.</label>
+
+                        <div class="barcode-row">
+                            <input type="text" id="barcode" placeholder="Scan or enter barcode">
+
+                            <button type="button" class="scan-btn" id="scanButton">
+                                📷 Scan
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Sl. No. <span class="required">*</span></label>
+                        <input type="text" id="serialNumber" class="auto-field" placeholder="Auto from barcode">
+                    </div>
+
+                    <div class="field">
+                        <label>Service Type <span class="required">*</span></label>
+
+                        <select id="serviceType">
+                            <option value="">Select Service Type</option>
+                            <option>Wi-Fi Installation</option>
+                            <option>Router Configuration</option>
+                            <option>Network Installation</option>
+                            <option>LAN Cable Installation</option>
+                            <option>Switch Configuration</option>
+                            <option>Access Point Installation</option>
+                            <option>Wi-Fi Extender Installation</option>
+                            <option>Internet Setup</option>
+                            <option>Network Troubleshooting</option>
+                            <option>IP Configuration</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Make</label>
+
+                        <select id="make">
+                            <option value="">Select Make</option>
+                            <option>TP-Link</option>
+                            <option>D-Link</option>
+                            <option>Netgear</option>
+                            <option>Tenda</option>
+                            <option>Ubiquiti</option>
+                            <option>Cisco</option>
+                            <option>Hikvision</option>
+                            <option>Dahua</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Model Name</label>
+
+                        <input
+                            type="text"
+                            id="modelName"
+                            class="auto-field"
+                            placeholder="Auto from barcode">
+                    </div>
+
+                    <div class="field">
+                        <label>Problem <span class="required">*</span></label>
+
+                        <select id="problem">
+                            <option value="">Select Problem</option>
+                            <option>No Internet</option>
+                            <option>Wi-Fi Not Working</option>
+                            <option>Slow Internet</option>
+                            <option>Router Problem</option>
+                            <option>Switch Problem</option>
+                            <option>Access Point Problem</option>
+                            <option>Wi-Fi Range Problem</option>
+                            <option>LAN Cable Problem</option>
+                            <option>IP Conflict</option>
+                            <option>Network Disconnection</option>
+                            <option>Configuration Problem</option>
+                            <option>General Service</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Parts Name</label>
+
+                        <select id="partsName">
+                            <option value="">Select Parts</option>
+                            <option>Router</option>
+                            <option>Wi-Fi Router</option>
+                            <option>Switch</option>
+                            <option>Access Point</option>
+                            <option>Wi-Fi Extender</option>
+                            <option>LAN Cable</option>
+                            <option>RJ45 Connector</option>
+                            <option>Patch Cord</option>
+                            <option>Network Adapter</option>
+                            <option>Power Adapter</option>
+                            <option>PoE Switch</option>
+                            <option>PoE Injector</option>
+                            <option>Rack</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>IP Address</label>
+                        <input type="text" id="ipAddress" placeholder="Example: 192.168.1.1">
+                    </div>
+
+                    <div class="field">
+                        <label>Network Type</label>
+
+                        <select id="networkType">
+                            <option value="">Select Network Type</option>
+                            <option>LAN</option>
+                            <option>Wi-Fi</option>
+                            <option>LAN + Wi-Fi</option>
+                            <option>Fiber</option>
+                            <option>Wireless Point-to-Point</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label>Remarks</label>
+
+                        <textarea
+                            id="remarks"
+                            placeholder="Enter service remarks..."></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label>Amount <span class="required">*</span></label>
+
+                        <input
+                            type="number"
+                            id="amount"
+                            min="0"
+                            step="0.01"
+                            placeholder="₹ 0.00">
+                    </div>
+
+                </div>
+
+
+                <div id="deviceStatus" class="device-status"></div>
+
+
+                <div class="save-area">
+
+                    <div class="save-info">
+                        <strong>Service History</strong>
+                        <span>Saved records will appear below.</span>
+                    </div>
+
+                    <button type="submit" class="save-btn">
+                        💾 Save Service
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <section class="history-card">
+
+        <div class="history-header">
+            <h2>Service History</h2>
+            <p>Previous networking and Wi-Fi service records</p>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table class="history-table">
+
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Sl. No.</th>
+                        <th>Service Type</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Problem</th>
+                        <th>Parts</th>
+                        <th>IP Address</th>
+                        <th>Network Type</th>
+                        <th>Remarks</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+const SERVICE_KEY = "suviInfotechNetworkingServices";
+const DEVICE_KEY = "suviInfotechDeviceMaster";
+
+const form = document.getElementById("networkServiceForm");
+const serviceDate = document.getElementById("serviceDate");
+const barcode = document.getElementById("barcode");
+const serialNumber = document.getElementById("serialNumber");
+const serviceType = document.getElementById("serviceType");
+const make = document.getElementById("make");
+const modelName = document.getElementById("modelName");
+const problem = document.getElementById("problem");
+const partsName = document.getElementById("partsName");
+const ipAddress = document.getElementById("ipAddress");
+const networkType = document.getElementById("networkType");
+const remarks = document.getElementById("remarks");
+const amount = document.getElementById("amount");
+const historyBody = document.getElementById("historyBody");
+const deviceStatus = document.getElementById("deviceStatus");
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+function setToday() {
+
+    const now = new Date();
+
+    const months = [
+        "Jan","Feb","Mar","Apr","May","Jun",
+        "Jul","Aug","Sep","Oct","Nov","Dec"
+    ];
+
+    serviceDate.value =
+        `${now.getDate()}-${months[now.getMonth()]}-${now.getFullYear()}`;
+}
+
+
+/* =========================================================
+   DEVICE MASTER
+   ========================================================= */
+
+function getDevices() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(DEVICE_KEY)
+        ) || [];
+
+    } catch (error) {
+
+        return [];
+
+    }
+}
+
+
+function lookupDevice() {
+
+    const code =
+        barcode.value.trim().toLowerCase();
+
+    if (!code) return;
+
+    const device =
+        getDevices().find(function(item) {
+
+            return (
+                String(item.barcode || "").toLowerCase() === code ||
+                String(item.serialNumber || "").toLowerCase() === code
+            );
+
+        });
+
+
+    if (device) {
+
+        serialNumber.value =
+            device.serialNumber || "";
+
+        make.value =
+            device.make || "";
+
+        modelName.value =
+            device.modelName || "";
+
+
+        deviceStatus.className =
+            "device-status success";
+
+        deviceStatus.textContent =
+            "✓ Device found. Sl. No., Make and Model auto-filled.";
+
+    } else {
+
+        serialNumber.value =
+            barcode.value.trim();
+
+        deviceStatus.className =
+            "device-status warning";
+
+        deviceStatus.textContent =
+            "Device not found in Device Master. Please verify the details.";
+
+    }
+}
+
+
+barcode.addEventListener("change", lookupDevice);
+barcode.addEventListener("blur", lookupDevice);
+
+
+/* =========================================================
+   BARCODE SCAN
+   ========================================================= */
+
+document
+    .getElementById("scanButton")
+    .addEventListener("click", async function() {
+
+        if ("BarcodeDetector" in window) {
+
+            try {
+
+                const detector =
+                    new BarcodeDetector({
+                        formats: [
+                            "code_128",
+                            "code_39",
+                            "ean_13",
+                            "ean_8",
+                            "qr_code"
+                        ]
+                    });
+
+                const stream =
+                    await navigator.mediaDevices.getUserMedia({
+                        video: {
+                            facingMode: "environment"
+                        }
+                    });
+
+                const video =
+                    document.createElement("video");
+
+                Object.assign(
+                    video.style,
+                    {
+                        position:"fixed",
+                        left:"50%",
+                        top:"50%",
+                        transform:"translate(-50%,-50%)",
+                        width:"90%",
+                        maxWidth:"500px",
+                        zIndex:"99999"
+                    }
+                );
+
+                video.autoplay = true;
+                video.playsInline = true;
+                video.srcObject = stream;
+
+                document.body.appendChild(video);
+
+
+                const scanLoop = async function() {
+
+                    try {
+
+                        const codes =
+                            await detector.detect(video);
+
+                        if (codes.length) {
+
+                            barcode.value =
+                                codes[0].rawValue;
+
+                            lookupDevice();
+
+                            stream
+                                .getTracks()
+                                .forEach(function(track) {
+                                    track.stop();
+                                });
+
+                            video.remove();
+
+                            return;
+                        }
+
+                    } catch (error) {
+
+                        console.log(
+                            "Barcode scan error",
+                            error
+                        );
+
+                    }
+
+                    requestAnimationFrame(scanLoop);
+                };
+
+                scanLoop();
+
+                return;
+
+            } catch (error) {
+
+                console.log(
+                    "Camera scanner unavailable",
+                    error
+                );
+
+            }
+        }
+
+
+        const enteredCode =
+            prompt("Enter / scan barcode value:");
+
+        if (enteredCode) {
+
+            barcode.value =
+                enteredCode.trim();
+
+            lookupDevice();
+
+        }
+
+    });
+
+
+/* =========================================================
+   RECORDS
+   ========================================================= */
+
+function getRecords() {
+
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(SERVICE_KEY)
+        ) || [];
+
+    } catch (error) {
+
+        return [];
+
+    }
+}
+
+
+/* =========================================================
+   SAVE
+   ========================================================= */
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    if (!serialNumber.value.trim()) {
+
+        alert("Please enter or scan Sl. No.");
+        serialNumber.focus();
+        return;
+
+    }
+
+
+    if (!serviceType.value) {
+
+        alert("Please select Service Type.");
+        serviceType.focus();
+        return;
+
+    }
+
+
+    if (!problem.value) {
+
+        alert("Please select Problem.");
+        problem.focus();
+        return;
+
+    }
+
+
+    if (amount.value === "") {
+
+        alert("Please enter Amount.");
+        amount.focus();
+        return;
+
+    }
+
+
+    const records =
+        getRecords();
+
+
+    records.push({
+
+        id:
+            "NET" + Date.now(),
+
+        date:
+            serviceDate.value,
+
+        barcode:
+            barcode.value.trim(),
+
+        serialNumber:
+            serialNumber.value.trim(),
+
+        serviceType:
+            serviceType.value,
+
+        make:
+            make.value,
+
+        modelName:
+            modelName.value.trim(),
+
+        problem:
+            problem.value,
+
+        partsName:
+            partsName.value,
+
+        ipAddress:
+            ipAddress.value.trim(),
+
+        networkType:
+            networkType.value,
+
+        remarks:
+            remarks.value.trim(),
+
+        amount:
+            Number(amount.value)
+
+    });
+
+
+    localStorage.setItem(
+        SERVICE_KEY,
+        JSON.stringify(records)
+    );
+
+
+    alert(
+        "Networking service saved successfully."
+    );
+
+
+    form.reset();
+
+    setToday();
+
+    deviceStatus.className =
+        "device-status";
+
+    deviceStatus.textContent =
+        "";
+
+    loadHistory();
+
+});
+
+
+/* =========================================================
+   SAFE TEXT
+   ========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+function loadHistory() {
+
+    const records =
+        getRecords();
+
+    historyBody.innerHTML = "";
+
+
+    if (!records.length) {
+
+        historyBody.innerHTML = `
+            <tr>
+                <td colspan="11" class="empty-history">
+                    No networking service records yet.
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+
+    records
+        .slice()
+        .reverse()
+        .forEach(function(record) {
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>${escapeHtml(record.date)}</td>
+
+                <td>${escapeHtml(record.serialNumber)}</td>
+
+                <td>${escapeHtml(record.serviceType)}</td>
+
+                <td>${escapeHtml(record.make)}</td>
+
+                <td>${escapeHtml(record.modelName)}</td>
+
+                <td>${escapeHtml(record.problem)}</td>
+
+                <td>${escapeHtml(record.partsName)}</td>
+
+                <td>${escapeHtml(record.ipAddress)}</td>
+
+                <td>${escapeHtml(record.networkType)}</td>
+
+                <td>${escapeHtml(record.remarks)}</td>
+
+                <td>
+                    ₹${Number(record.amount || 0).toFixed(2)}
+                </td>
+
+            `;
+
+            historyBody.appendChild(row);
+
+        });
+
+}
+/* =========================================================
+   DYNAMIC FIRM NAME
+   ========================================================= */
+
+const networkingFirmName =
+    document.getElementById("networkingFirmName");
+
+if (networkingFirmName) {
+
+    const selectedFirm =
+        localStorage.getItem(
+            "SUVI_INFOTECH_SELECTED_FIRM"
+        );
+
+    if (selectedFirm) {
+        networkingFirmName.textContent =
+            selectedFirm.trim();
+    }
+}
+
+/* =========================================================
+   BACK TO SERVICE MODULES
+   ========================================================= */
+
+document
+    .getElementById("serviceBackButton")
+    .addEventListener("click", function() {
+
+        window.location.href =
+            "../../../dashboard.html?page=service-modules";
+
+    });
+
+
+/* =========================================================
+   BACK TO DASHBOARD
+   ========================================================= */
+
+document
+    .getElementById("backToDashboard")
+    .addEventListener("click", function() {
+
+        window.location.href =
+            "../../../dashboard.html";
+
+    });
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+setToday();
+loadHistory();
+
+</script>
+
+</body>
+</html>

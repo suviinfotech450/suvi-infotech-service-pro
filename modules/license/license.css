@@ -1,0 +1,1466 @@
+/* =========================================================
+   SUVI INFOTECH SERVICE PRO
+   LICENSE PAGE
+   MODERN CARD BASED UI
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3f7fc 0%,
+            #eef4fa 50%,
+            #f8fbff 100%
+        );
+
+    color: #193653;
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.license-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.license-header {
+
+    width: 100%;
+
+    min-height: 76px;
+
+    padding: 12px 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #dce6f0;
+
+    box-shadow:
+        0 4px 18px rgba(27, 64, 100, 0.06);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+.brand-area {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.brand-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8f1ff,
+            #dff5ef
+        );
+
+    font-size: 20px;
+
+    border: 1px solid #d6e5f4;
+}
+
+
+.license-header h1 {
+
+    font-size: 23px;
+
+    line-height: 26px;
+
+    font-weight: 850;
+
+    color: #154477;
+
+    letter-spacing: -0.5px;
+}
+
+
+.license-header p {
+
+    margin-top: 2px;
+
+    font-size: 11px;
+
+    color: #7b8ca0;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.back-btn {
+
+    height: 38px;
+
+    padding: 0 17px;
+
+    border: 1px solid #d5e1ed;
+
+    border-radius: 10px;
+
+    background: #f6f9fc;
+
+    color: #355575;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+
+.back-btn:hover {
+
+    background: #edf4fb;
+
+    border-color: #c5d6e7;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.license-container {
+
+    width: 100%;
+
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 25px 24px 35px;
+
+    flex: 1;
+}
+
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.license-form-card {
+
+    width: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #dce6ef;
+
+    border-radius: 18px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 10px 35px rgba(29, 68, 108, 0.08);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 19px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #edf1f5;
+}
+
+
+.section-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #edf5ff;
+
+    border: 1px solid #d9e7f7;
+
+    font-size: 19px;
+}
+
+
+.section-header h2,
+.section-title-row h2 {
+
+    font-size: 18px;
+
+    line-height: 23px;
+
+    font-weight: 800;
+
+    color: #174a78;
+}
+
+
+.section-header p,
+.section-title-row p {
+
+    margin-top: 2px;
+
+    font-size: 11px;
+
+    color: #8291a3;
+}
+
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.license-form-grid {
+
+    width: 100%;
+
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 17px 20px !important;
+}
+
+
+/* =========================================================
+   FORM GROUP
+========================================================= */
+
+.license-form-grid .form-group {
+
+    width: 100% !important;
+
+    min-width: 0;
+
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    border: 0 !important;
+
+    box-shadow: none !important;
+}
+
+
+.license-form-grid .form-group.full-width {
+
+    grid-column: 1 / -1 !important;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.form-group label {
+
+    margin-bottom: 7px;
+
+    padding-left: 1px;
+
+    font-size: 11px;
+
+    line-height: 16px;
+
+    font-weight: 750;
+
+    color: #3c5874;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100% !important;
+
+    border: 1px solid #d5e0eb !important;
+
+    border-radius: 10px !important;
+
+    background: #fbfdff !important;
+
+    color: #1d3a57 !important;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+
+.form-group input,
+.form-group select {
+
+    height: 43px !important;
+
+    padding: 0 12px !important;
+}
+
+
+.form-group textarea {
+
+    min-height: 78px;
+
+    padding: 10px 12px !important;
+
+    resize: vertical;
+}
+
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+    color: #a1afbd;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #4388d4 !important;
+
+    background: #ffffff !important;
+
+    box-shadow:
+        0 0 0 3px rgba(67, 136, 212, .09) !important;
+}
+
+
+.form-group input[readonly] {
+
+    background: #f2f5f8 !important;
+
+    color: #708298 !important;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   ACTIVATE
+========================================================= */
+
+#activateBtn {
+
+    width: 100%;
+
+    height: 46px;
+
+    margin-top: 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #159660,
+            #0d7f50
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px rgba(21, 150, 96, .18);
+
+    transition: .2s ease;
+}
+
+
+#activateBtn:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 23px rgba(21, 150, 96, .25);
+}
+
+
+/* =========================================================
+   YEARLY PAYMENT
+========================================================= */
+
+#yearlyPaymentSection {
+
+    width: 100%;
+
+    margin-top: 20px !important;
+}
+
+
+.payment-plan-card {
+
+    width: 100%;
+
+    padding: 22px 24px;
+
+    border-radius: 16px;
+
+    border: 1px solid #cce6d8;
+
+    background:
+        linear-gradient(
+            135deg,
+            #effaf4,
+            #ffffff 55%,
+            #f2fbf6
+        );
+
+    box-shadow:
+        0 8px 25px rgba(24, 130, 78, .07);
+}
+
+
+.payment-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.plan-badge {
+
+    display: inline-flex;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background: #dff5e8;
+
+    color: #17764b;
+
+    font-size: 9px;
+
+    font-weight: 850;
+
+    letter-spacing: .5px;
+}
+
+
+.payment-plan-card h3 {
+
+    margin-top: 7px;
+
+    font-size: 20px;
+
+    color: #174d79;
+
+    font-weight: 850;
+}
+
+
+.payment-plan-card p {
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    color: #71849a;
+}
+
+
+.payment-price {
+
+    font-size: 30px;
+
+    font-weight: 850;
+
+    color: #148f5b;
+
+    white-space: nowrap;
+}
+
+
+.payment-price span {
+
+    margin-left: 3px;
+}
+
+
+.payment-bottom {
+
+    margin-top: 18px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #dceee4;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.payment-validity {
+
+    color: #21724d;
+
+    font-size: 11px;
+
+    font-weight: 750;
+}
+
+
+.pay-yearly-btn {
+
+    min-height: 40px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #168f5c,
+            #0b7b4e
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   MANAGEMENT
+========================================================= */
+
+.license-management {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 21px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce6ef;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 8px 28px rgba(29, 68, 108, .06);
+}
+
+
+.section-title-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 17px;
+}
+
+
+.management-icon,
+.info-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #edf5ff;
+
+    border: 1px solid #dce9f7;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.license-search {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+
+.search-input-wrap {
+
+    flex: 1;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 12px;
+
+    border: 1px solid #d5e0eb;
+
+    border-radius: 10px;
+
+    background: #fbfdff;
+}
+
+
+.search-input-wrap span {
+
+    font-size: 14px;
+}
+
+
+.search-input-wrap input {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    color: #1d3a57;
+}
+
+
+.search-btn,
+.new-btn {
+
+    height: 42px;
+
+    padding: 0 17px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+}
+
+
+.search-btn {
+
+    border: none;
+
+    background: #347ed2;
+
+    color: #ffffff;
+}
+
+
+.new-btn {
+
+    border: 1px solid #d4e0eb;
+
+    background: #f6f9fc;
+
+    color: #365675;
+}
+
+
+/* =========================================================
+   SAVE
+========================================================= */
+
+.save-license-btn {
+
+    width: 100%;
+
+    height: 43px;
+
+    margin-top: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #15965f,
+            #0c8050
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 16px rgba(21, 150, 95, .15);
+}
+
+
+/* =========================================================
+   LICENSE LIST
+========================================================= */
+
+.license-list-section {
+
+    margin-top: 18px;
+
+    padding: 17px;
+
+    border-radius: 13px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e9f0;
+}
+
+
+.list-title-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 13px;
+}
+
+
+.list-title-row h3 {
+
+    font-size: 15px;
+
+    color: #174a78;
+
+    font-weight: 800;
+}
+
+
+.license-count {
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background: #eaf3fc;
+
+    color: #3e668c;
+
+    font-size: 9px;
+
+    font-weight: 750;
+}
+
+
+.license-list {
+
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+/* =========================================================
+   DYNAMIC LICENSE TABLE
+========================================================= */
+
+.license-list-header,
+.license-list-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1.45fr
+        1.35fr
+        .8fr
+        1fr
+        .9fr
+        1.2fr;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 900px;
+}
+
+
+.license-list-header {
+
+    padding: 11px 12px;
+
+    border-radius: 9px;
+
+    background: #eaf3fc;
+
+    color: #496780;
+
+    font-size: 9px;
+
+    font-weight: 850;
+
+    text-transform: uppercase;
+}
+
+
+.license-list-row {
+
+    margin-top: 7px;
+
+    padding: 12px;
+
+    border: 1px solid #e0e7ee;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #304b66;
+
+    font-size: 11px;
+
+    transition: .2s ease;
+}
+
+
+.license-list-row:hover {
+
+    border-color: #cbdbea;
+
+    box-shadow:
+        0 5px 15px rgba(30, 70, 110, .06);
+}
+
+
+.license-list-row small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8a9aac;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   DYNAMIC ACTION BUTTONS
+========================================================= */
+
+.edit-license-btn,
+.delete-license-btn {
+
+    border-radius: 7px;
+
+    padding: 6px 9px;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 750;
+
+    cursor: pointer;
+}
+
+
+.edit-license-btn {
+
+    border: 1px solid #f0dda7;
+
+    background: #fff5d8;
+
+    color: #956800;
+}
+
+
+.delete-license-btn {
+
+    border: 1px solid #efcdd1;
+
+    background: #fff0f1;
+
+    color: #bd2e3d;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.license-message {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 11px 14px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    font-weight: 650;
+}
+
+
+.license-message:empty {
+
+    display: none;
+}
+
+
+.license-message.success {
+
+    background: #e8f8ef;
+
+    border: 1px solid #cbe9d8;
+
+    color: #147448;
+}
+
+
+.license-message.error {
+
+    background: #fff0f1;
+
+    border: 1px solid #efced2;
+
+    color: #bb2d3c;
+}
+
+
+/* =========================================================
+   CURRENT LICENSE DETAILS
+========================================================= */
+
+.license-details {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 21px;
+
+    border: 1px solid #dce6ef;
+
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 28px rgba(29, 68, 108, .06);
+}
+
+
+.details-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+.detail-card {
+
+    min-height: 65px;
+
+    padding: 13px 14px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    border: 1px solid #e1e8ef;
+
+    border-radius: 11px;
+
+    background: #f8fafc;
+}
+
+
+.detail-card span {
+
+    font-size: 10px;
+
+    color: #7c8d9f;
+
+    font-weight: 600;
+}
+
+
+.detail-card strong {
+
+    color: #1d405f;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    word-break: break-word;
+}
+
+
+.status-value {
+
+    color: #138b57 !important;
+}
+
+
+/* =========================================================
+   DEACTIVATE
+========================================================= */
+
+.deactivate-btn {
+
+    width: 100%;
+
+    height: 42px;
+
+    margin-top: 15px;
+
+    border: 1px solid #efcdd1;
+
+    border-radius: 9px;
+
+    background: #fff0f1;
+
+    color: #bd2d3b;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty-license {
+
+    padding: 22px;
+
+    text-align: center;
+
+    color: #8b9aaa;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+    width: 100%;
+
+    padding: 13px 20px;
+
+    border-top: 1px solid #dce5ee;
+
+    background: #ffffff;
+
+    color: #8190a1;
+
+    text-align: center;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .license-container {
+
+        padding: 18px 14px 25px;
+    }
+
+    .license-form-card {
+
+        padding: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 680px) {
+
+    .license-header {
+
+        min-height: 64px;
+
+        padding: 9px 12px;
+    }
+
+
+    .brand-icon {
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 17px;
+    }
+
+
+    .license-header h1 {
+
+        font-size: 18px;
+    }
+
+
+    .license-header p {
+
+        font-size: 9px;
+    }
+
+
+    .back-btn {
+
+        height: 35px;
+
+        padding: 0 12px;
+
+        font-size: 10px;
+    }
+
+
+    .license-container {
+
+        padding: 12px 8px 20px;
+    }
+
+
+    .license-form-card,
+    .license-management,
+    .license-details {
+
+        padding: 15px 12px;
+
+        border-radius: 14px;
+    }
+
+
+    .license-form-grid {
+
+        grid-template-columns: 1fr !important;
+
+        gap: 14px !important;
+    }
+
+
+    .license-form-grid .form-group.full-width {
+
+        grid-column: auto !important;
+    }
+
+
+    .payment-top {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .payment-price {
+
+        font-size: 27px;
+    }
+
+
+    .payment-bottom {
+
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+
+    .pay-yearly-btn {
+
+        width: 100%;
+    }
+
+
+    .license-search {
+
+        flex-wrap: wrap;
+    }
+
+
+    .search-input-wrap {
+
+        flex-basis: 100%;
+
+        width: 100%;
+    }
+
+
+    .search-btn,
+    .new-btn {
+
+        flex: 1;
+    }
+
+
+    .details-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .section-title-row {
+
+        gap: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .license-header h1 {
+
+        font-size: 16px;
+    }
+
+
+    .license-header p {
+
+        display: none;
+    }
+
+
+    .license-header {
+
+        padding: 9px 9px;
+    }
+
+
+    .license-form-card {
+
+        padding: 13px 10px;
+    }
+
+
+    .section-header {
+
+        padding-bottom: 14px;
+
+        margin-bottom: 16px;
+    }
+
+
+    .section-header h2,
+    .section-title-row h2 {
+
+        font-size: 16px;
+    }
+
+
+    .section-header p,
+    .section-title-row p {
+
+        font-size: 9px;
+    }
+
+
+    .section-icon,
+    .management-icon,
+    .info-icon {
+
+        width: 35px;
+
+        height: 35px;
+
+        font-size: 15px;
+    }
+
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUVI INFOTECH | Call Register</title>
+    <link rel="stylesheet" href="call-register.css">
+</head>
+
+<body>
+<main class="call-register-page">
+
+    <header class="call-header">
+        <div>
+           <div class="brand-small" id="callRegisterFirmName">SUVI INFOTECH</div>
+            <h1>📞 Call Register</h1>
+            <p>Register new service calls</p>
+        </div>
+
+        <button type="button" id="backToDashboard" class="back-button">
+            ← Dashboard
+        </button>
+    </header>
+
+    <section class="call-card">
+        <div class="card-title"></div>
+
+        <form id="callForm" autocomplete="off">
+
+            <!-- 01 CALL INFORMATION -->
+            <div class="form-section">
+                <div class="section-label">
+                    <span>01</span>
+                    Call Information
+                </div>
+
+                <div class="form-grid">
+                    <div class="field-group">
+                        <label for="callDate">Date</label>
+                        <input type="text" id="callDate" readonly>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="callTime">Time</label>
+                        <input type="text" id="callTime" readonly>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="callId">Call ID</label>
+                        <input type="text" id="callId" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 02 CALLER DETAILS -->
+            <div class="form-section">
+                <div class="section-label">
+                    <span>02</span>
+                    Caller Details
+                </div>
+
+                <div class="form-grid">
+                    <div class="field-group">
+                        <label for="callerName">Caller Name <span>*</span></label>
+                        <input type="text" id="callerName" name="callerName"
+                               placeholder="Enter caller name" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="mobileNumber">Mobile Number <span>*</span></label>
+                        <input type="text" id="mobileNumber" name="mobileNumber"
+                               placeholder="10 digit mobile number"
+                               inputmode="numeric" maxlength="10" required>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="emailId">Email ID</label>
+                        <input type="text" id="emailId" name="emailId"
+                               placeholder="example@email.com">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="gstNumber">GST Number</label>
+                        <input type="text" id="gstNumber" name="gstNumber"
+                               placeholder="GST Number" maxlength="15">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="departmentName">Department Name</label>
+                        <input type="text" id="departmentName" name="departmentName"
+                               placeholder="Enter department name">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="state">State</label>
+                        <select id="state" name="state">
+                            <option value="">Select State</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="pincode">Pincode</label>
+                        <input type="text" id="pincode" name="pincode"
+                               placeholder="6 digit pincode"
+                               inputmode="numeric" maxlength="6">
+                    </div>
+
+                    <!-- ADDRESS SEARCH -->
+                    <div class="field-group">
+                        <label for="address">Village / Locality</label>
+                        <input type="text"
+                               id="address"
+                               name="address"
+                               list="localityList"
+                               placeholder="Type village / locality">
+                        <datalist id="localityList">
+                            <option value="Gundlupet">
+                            <option value="Begur">
+                            <option value="Terakanambi">
+                            <option value="Nanjangud">
+                            <option value="Mysuru">
+                            <option value="Chamarajanagar">
+                            <option value="Bengaluru">
+                            <option value="Mandya">
+                            <option value="Hassan">
+                            <option value="Kodagu">
+                            <option value="Kollegal">
+                            <option value="Yelandur">
+                            <option value="Hanur">
+                            <option value="T. Narasipura">
+                            <option value="Hunsur">
+                            <option value="Suttur">
+                            <option value="Other">
+                        </datalist>
+                    </div>
+
+                    <!-- COMPLETE ADDRESS -->
+                    <div class="field-group full-width">
+                        <label for="completeAddress">Complete Address</label>
+                        <textarea id="completeAddress" name="completeAddress"
+                                  rows="3"
+                                  placeholder="Enter house / street / area / landmark"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 03 SERVICE DETAILS -->
+            <div class="form-section">
+                <div class="section-label">
+                    <span>03</span>
+                    Service Details
+                </div>
+
+                <div class="form-grid">
+                    <div class="field-group">
+                        <label for="purpose">
+                            Purpose of Calling <span>*</span>
+                        </label>
+                        <select id="purpose" name="purpose" required>
+                            <option value="">Select purpose</option>
+                            <option value="Computer Service">Computer Service</option>
+                            <option value="Laptop Service">Laptop Service</option>
+                            <option value="Printer Service">Printer Service</option>
+                            <option value="Cartridge Refilling">Cartridge Refilling</option>
+                            <option value="Desktop Upgrade">Desktop Upgrade</option>
+                            <option value="CCTV Camera">CCTV Camera</option>
+                            <option value="Solar Camera">Solar Camera</option>
+                            <option value="Networking">Networking</option>
+                            <option value="Software Upgrade">Software Upgrade</option>
+                            <option value="Computer Accessories">Computer Accessories</option>
+                            <option value="AMC">AMC</option>
+                            <option value="Field Visit">Field Visit</option>
+                            <option value="Warranty">Warranty</option>
+                            <option value="Installation">Installation</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group" id="otherPurposeGroup" style="display:none;">
+                        <label for="otherPurpose">Specify Purpose <span>*</span></label>
+                        <input type="text" id="otherPurpose" name="otherPurpose"
+                               placeholder="Enter other purpose">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="status">Status <span>*</span></label>
+                        <select id="status" name="status" required>
+                            <option value="">Select status</option>
+                            <option value="Open">Open</option>
+                            <option value="Process">Process</option>
+                            <option value="Complete">Complete</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Hold">Hold</option>
+                            <option value="Cancel">Cancel</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group full-width reason-box" id="processReasonBox" hidden>
+                        <label for="processReason">Process Reason <span>*</span></label>
+                        <textarea id="processReason" rows="3"
+                                  placeholder="Enter reason for process"></textarea>
+                    </div>
+
+                    <div class="field-group full-width reason-box" id="pendingReasonBox" hidden>
+                        <label for="pendingReason">Pending Reason <span>*</span></label>
+                        <textarea id="pendingReason" rows="3"
+                                  placeholder="Enter reason for pending"></textarea>
+                    </div>
+
+                    <div class="field-group full-width reason-box" id="holdReasonBox" hidden>
+                        <label for="holdReason">Hold Reason <span>*</span></label>
+                        <textarea id="holdReason" rows="3"
+                                  placeholder="Enter reason for hold"></textarea>
+                    </div>
+
+                    <div class="field-group full-width reason-box" id="cancelReasonBox" hidden>
+                        <label for="cancelReason">Cancel Reason <span>*</span></label>
+                        <textarea id="cancelReason" rows="3"
+                                  placeholder="Enter reason for cancellation"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAVE -->
+            <div class="save-area">
+                <div class="save-info">
+                    <strong>🔄 Automatic Sync</strong>
+                    <span>Saved call will be available in Client Master.</span>
+                </div>
+
+                <button type="submit" id="saveCallButton" class="save-button">
+                    💾 Save Call
+                </button>
+            </div>
+
+        </form>
+        <!-- CALL HISTORY CARD -->
+<div class="call-history-card" onclick="window.location.href='call-register-list.html'">
+    <div class="call-history-icon">📋</div>
+
+    <div class="call-history-content">
+        <h3>Call History</h3>
+        <p>View saved Call Register history</p>
+    </div>
+
+    <div class="call-history-arrow">→</div>
+</div>
+    </section>
+</main>
+
+<script src="call-register.js"></script>
+<script src="../../firebase-config.js"></script>
+<script type="module" src="call-register-firebase.js"></script>
+</body>
+</html>

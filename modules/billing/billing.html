@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cash Bill | SUVI INFOTECH</title>
+<link rel="stylesheet" href="billing.css">
+</head>
+<body>
+
+<div class="billing-page">
+
+    <header class="billing-header">
+        <div>
+            <div class="eyebrow" id="cashBillFirmName">SUVI INFOTECH</div>
+            <h1>Billing</h1>
+            <p>Cash Billing</p>
+        </div>
+
+        <button type="button" class="back-btn"
+            onclick="window.top.location.href='../../dashboard.html'">
+            ← Back to Dashboard
+        </button>
+    </header>
+
+    <section class="billing-card">
+
+        <div class="billing-title">
+            <span>💵</span>
+            <strong>CASH BILL</strong>
+        </div>
+
+        <form id="billingForm">
+
+            <div class="bill-meta-grid">
+
+                <div class="meta-card">
+                    <span>Bill Number</span>
+                    <strong id="billNumber">CBNO01</strong>
+                </div>
+
+                <div class="meta-card">
+                    <span>Date</span>
+                    <strong id="billDate">-</strong>
+                </div>
+
+            </div>
+
+            <div class="section-title">Client Details</div>
+
+            <div class="client-grid">
+
+                <div class="field client-code-field">
+                    <label>Client Code </label>
+                    <input id="clientCode"
+                        placeholder="CLI001"
+                        autocomplete="off">
+                    <small>Automatically generated for this bill</small>
+                </div>
+
+                <div class="field">
+                    <label>Client Name</label>
+                    <input id="clientName"
+                        placeholder="Enter client name">
+                </div>
+
+                <div class="field">
+                    <label>Mobile Number</label>
+                    <input id="mobile"
+                        inputmode="numeric"
+                        maxlength="10"
+                        placeholder="10 digit mobile number">
+                </div>
+
+                <div class="field field-wide">
+                    <label>Address</label>
+                    <input id="address"
+                        placeholder="Client address">
+                </div>
+
+            </div>
+
+            <div class="section-title item-title-row">
+                <span>Items / Services</span>
+
+                <button type="button"
+                    class="add-btn"
+                    onclick="addItem()">
+                    + Add Item
+                </button>
+            </div>
+
+            <div class="table-wrap">
+
+                <table class="items-table">
+
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Item / Particular</th>
+                            <th>Qty</th>
+                            <th>Price Per Unit</th>
+                            <th>Rate</th>
+                            <th>Total Amount</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="itemsBody"></tbody>
+
+                </table>
+
+            </div>
+
+            <div class="billing-bottom">
+
+                <div class="payment-card">
+
+                    <div class="field">
+                        <label>Mode of Payment</label>
+
+                        <select id="paymentMode">
+                            <option value="">Select Payment Mode</option>
+                            <option>Cash</option>
+                            <option>UPI</option>
+                            <option>Card</option>
+                            <option>Bank Transfer</option>
+                            <option>Cheque</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Remarks</label>
+
+                        <textarea id="remarks"
+                            rows="4"
+                            placeholder="Optional remarks"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="totals-card">
+
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <strong id="subtotal">₹0.00</strong>
+                    </div>
+
+                    <div class="total-row discount-row">
+                        <span>Discount</span>
+
+                        <input id="discount"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            value="0">
+                    </div>
+
+                    <div class="grand-total">
+                        <span>Total Amount</span>
+                        <strong id="grandTotal">₹0.00</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="signature-section">
+
+                <div class="signature-box">
+                    <div class="signature-space"></div>
+                    <div class="signature-line"></div>
+                    <strong>Authorized Signature</strong>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+
+                <button type="button"
+                    class="secondary-btn"
+                    onclick="clearBill()">
+                    Clear
+                </button>
+
+                <button type="button"
+                    class="secondary-btn"
+                    onclick="printCurrentBill()">
+                    Print Preview
+                </button>
+
+                <button type="submit"
+                    class="save-btn">
+                    Save Bill
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+    <section class="history-card">
+
+        <div class="history-header">
+            <div>
+                <h2>Cash Bill History</h2>
+                <p>Saved cash bills and client records</p>
+            </div>
+
+            <span id="billCount">0 Bills</span>
+        </div>
+
+        <div class="history-table-wrap">
+
+            <table class="history-table">
+
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Bill No</th>
+                        <th>Client Code</th>
+                        <th>Client Name</th>
+                        <th>Mobile</th>
+                        <th>Total</th>
+                        <th>Payment</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="billing.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const firmName =
+        localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM")
+        || "SUVI INFOTECH";
+
+    const firmElement =
+        document.getElementById("cashBillFirmName");
+
+    if (firmElement) {
+        firmElement.textContent = firmName.trim();
+    }
+
+});
+</script>
+</body>
+</html>

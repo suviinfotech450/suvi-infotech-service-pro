@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUVI INFOTECH - Inventory Management</title>
+<link rel="stylesheet" href="inventory.css">
+<!-- Bill OCR: Tesseract + PDF.js (global browser builds; works without ES module worker errors) -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+<header class="top-header"><div><div class="brand" id="inventoryFirmName">◆ SUVI INFOTECH</div><div class="module-title">Inventory Management</div></div></header>
+<div class="navigation"><button class="back-btn" onclick="goBack()">← Back</button><button class="dashboard-btn" onclick="goDashboard()">← Back to Dashboard</button></div>
+<main class="container">
+<section class="summary-grid">
+<div class="summary-card"><div class="summary-icon">▦</div><div><span>Total Items</span><strong id="totalItems">0</strong></div></div>
+<div class="summary-card"><div class="summary-icon">📦</div><div><span>Total Stock</span><strong id="totalStock">0</strong></div></div>
+<div class="summary-card"><div class="summary-icon">⚠</div><div><span>Low Stock</span><strong id="lowStock">0</strong></div></div>
+<div class="summary-card"><div class="summary-icon">₹</div><div><span>Stock Value</span><strong id="stockValue">₹0.00</strong></div></div>
+</section>
+
+<nav class="tabs">
+<button class="tab-btn active" data-tab="itemMasterTab">Item Master</button>
+<button class="tab-btn" data-tab="purchaseTab">Purchase</button>
+<button class="tab-btn" data-tab="purchaseHistoryTab">Purchase History</button>
+<button class="tab-btn" data-tab="salesTab">New Sales Invoice</button>
+<button class="tab-btn" data-tab="salesHistoryTab">Sales History</button>
+<button class="tab-btn" data-tab="stockTab">Stock</button>
+<button class="tab-btn" data-tab="supplierTab">Supplier</button>
+<button class="tab-btn" data-tab="adjustmentTab">Stock Adjustment</button>
+</nav>
+
+<!-- ITEM MASTER -->
+<section id="itemMasterTab" class="tab-content active">
+<div class="section-header"><h2>Item Master</h2><button class="primary-btn" onclick="openItemForm()">＋ Add Item</button><button class="secondary-btn" onclick="importItems()">
+    📥 Import  Items
+</button>
+
+<button class="secondary-btn" onclick="importClients()">
+    👥 Import  Clients
+</button>
+
+<input
+    type="file"
+    id="ItemFile"
+    accept=".xlsx,.xls,.csv"
+    hidden
+>
+
+<input
+    type="file"
+    id="ClientFile"
+    accept=".xlsx,.xls,.csv"
+    hidden
+></div>
+<div class="barcode-tools">
+<div class="search-box"><label>Search Item / Barcode</label><input id="itemSearch" placeholder="Search item, code or barcode..." oninput="renderItems()"></div>
+<div class="search-box"><label>Barcode Scanner</label><input id="barcodeSearch" placeholder="Scan barcode and press Enter..." onkeydown="barcodeKeyDown(event)"></div>
+<label class="check-option"><input type="checkbox" id="barcodeAutoAdd"> Sales Barcode → Auto Add</label>
+</div>
+<div class="table-wrapper"><table id="itemTable"><thead><tr><th>Code</th><th>Item Name</th><th>HSN</th><th>Unit</th><th>Purchase Rate</th><th>Sale Rate</th><th>Stock</th><th>Min</th><th>Barcode</th><th>Actions</th></tr></thead><tbody id="itemBody"></tbody></table></div>
+</section>
+
+<!-- PURCHASE -->
+<section id="purchaseTab" class="tab-content">
+  <div class="page-title-row">
+    <div>
+      <div class="eyebrow">INVENTORY • PURCHASE</div>
+      <h2>Purchase Entry</h2>
+      <p>Upload the vendor bill. Review the extracted details and bill items before saving stock.</p>
+    </div>
+  </div>
+
+  <form id="purchaseForm" onsubmit="savePurchase(event)">
+    <div class="purchase-layout">
+      <div class="purchase-card">
+        <div class="card-heading"><span class="card-icon">01</span><div><h3>Invoice & Vendor</h3><small>Purchase document details</small></div></div>
+        <div class="form-grid">
+          <div class="form-group"><label>Purchase Date *</label><input id="purchaseDate" type="date" readonly required></div>
+          <div class="form-group"><label>Vendor Name / Supplier *</label><select id="vendorName" required onchange="fillPurchaseVendorDetails()"><option value="">Select Supplier</option></select></div>
+          <div class="form-group"><label>Mobile No</label><input id="vendorMobile" readonly placeholder="Auto from supplier / bill"></div>
+          <div class="form-group"><label>GST No</label><input id="vendorGSTIN" readonly placeholder="Auto from supplier / bill"></div>
+          <div class="form-group full-width"><label>Address</label><textarea id="vendorAddress" readonly rows="3" placeholder="Auto from supplier / bill"></textarea></div>
+          <div class="form-group"><label>Vendor Invoice No *</label><input id="purchaseBillNo" required placeholder="Auto from bill / enter manually"></div>
+        </div>
+      </div>
+
+      <div class="upload-card">
+        <div class="card-heading"><span class="card-icon">02</span><div><h3>Purchase Bill OCR</h3><small>PDF or image • automatic extraction</small></div></div>
+        <label class="upload-drop" for="purchaseBillFile">
+          <span class="upload-symbol">↑</span>
+          <strong>Choose Vendor Bill</strong>
+          <span>PDF, JPG, JPEG, PNG or WEBP • Max 10 MB</span>
+          <input id="purchaseBillFile" type="file" accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp" onchange="showPurchaseBillName();autoExtractPurchaseBill()">
+        </label>
+        <div id="purchaseBillName" class="file-name">No bill selected</div>
+        <button type="button" id="viewBillPreviewBtn" class="secondary-btn" hidden onclick="viewUploadedBillPreview()">View Bill Preview</button>
+        <div id="billOcrStatus" class="ocr-status idle">Upload a bill to start automatic extraction.</div>
+        <div id="billOcrProgress" class="ocr-progress"><span></span></div>
+      </div>
+    </div>
+
+    <div class="ocr-result-card" id="ocrResultCard" hidden>
+      <div class="card-heading"><span class="card-icon">03</span><div><h3>Extracted Bill Data</h3><small>Review OCR values before saving</small></div></div>
+      <div class="ocr-fields">
+        <div><label>Extracted Vendor</label><input id="ocrVendorName" readonly></div>
+        <div><label>Extracted Invoice No</label><input id="ocrVendorInvoice" readonly></div>
+        <div><label>Extracted GSTIN</label><input id="ocrGSTIN" readonly></div>
+        <div><label>Extracted Mobile</label><input id="ocrMobile" readonly></div>
+        <div class="full-width"><label>Extracted Address</label><textarea id="ocrAddress" readonly rows="3"></textarea></div>
+      </div>
+      <div class="ocr-note" id="ocrNote">Upload a bill to extract vendor and item details.</div>
+      <div class="table-wrapper purchase-table"><table><thead><tr><th>SL.No.</th><th>Item Name / Description</th><th>HSN</th><th>Qty</th><th>Unit</th><th>Rate</th><th>Amount</th><th>Item Master</th></tr></thead><tbody id="ocrItemsBody"></tbody></table></div>
+    </div>
+
+    <div class="purchase-bottom">
+      <div class="purchase-reminder"><strong>Stock flow</strong><span>Save Purchase → Stock IN → Purchase History → Current Stock</span></div>
+      <div class="totals purchase-totals"><div><span>Subtotal</span><b id="purchaseSubtotal">₹0.00</b></div><div><span>CGST (9%)</span><b id="purchaseCGST">₹0.00</b></div><div><span>SGST (9%)</span><b id="purchaseSGST">₹0.00</b></div><div class="grand"><span>Total Amount GST</span><b id="purchaseGrandTotal">₹0.00</b></div></div>
+    </div>
+    <button class="primary-btn wide save-purchase-btn" type="submit">Save Purchase & Stock IN</button>
+  </form>
+
+  <div id="billPreviewModal" class="modal" hidden>
+    <div class="modal-card" style="width:min(1100px,96vw);height:min(92vh,900px);display:flex;flex-direction:column">
+      <div class="modal-head"><h2>Vendor Bill Preview</h2><button type="button" onclick="closeBillPreview()">×</button></div>
+      <div id="billPreviewContent" style="flex:1;min-height:0;overflow:auto"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PURCHASE HISTORY -->
+<section id="purchaseHistoryTab" class="tab-content">
+<div class="section-header"><h2>Purchase History</h2><button class="secondary-btn" onclick="printTable('purchaseHistoryTable','Purchase History')">Print</button></div>
+<div class="search-area"><input id="purchaseHistorySearch" placeholder="Search vendor / invoice / item..." oninput="renderPurchaseHistory()"></div>
+<div class="table-wrapper"><table id="purchaseHistoryTable"><thead><tr><th>Date</th><th>Vendor Invoice No</th><th>Vendor</th><th>Mobile</th><th>GST No</th><th>Total Amount GST</th><th>View</th><th>Bill</th></tr></thead><tbody id="purchaseHistoryBody"></tbody></table></div>
+</section>
+
+<!-- SALES -->
+<section id="salesTab" class="tab-content">
+<div class="section-header"><h2>New Sales Invoice</h2></div>
+<form id="salesForm" onsubmit="saveSale(event)">
+<div class="form-grid">
+<div class="form-group"><label>Invoice No *</label><input id="invoiceNo" readonly></div>
+<div class="form-group"><label>Invoice Date *</label><input id="invoiceDate" type="date" readonly required></div>
+<div class="form-group"><label>Customer Name *</label><input id="customerName" required oninput="this.value=cap(this.value)"></div>
+<div class="form-group"><label>Mobile No</label><input id="customerMobile" inputmode="numeric" maxlength="10"></div>
+<div class="form-group"><label>Email ID</label><input id="customerEmail" type="email"></div>
+<div class="form-group"><label>GSTIN</label><input id="customerGSTIN"></div>
+<div class="form-group full-width"><label>Address</label><input id="customerAddress" oninput="this.value=cap(this.value)"></div>
+</div>
+<div class="line-entry"><h3>Add Sales Item</h3><div class="form-grid">
+<div class="form-group full-width"><label>Item / Barcode *</label><input id="invoiceItemSearch" placeholder="Type item or scan barcode and press Enter" oninput="filterInvoiceItems()" onkeydown="barcodeAutoAddKey(event,'sales')" autocomplete="off"><div id="invoiceSuggestions" class="suggestions"></div></div>
+<div class="form-group"><label>HSN Code</label><input id="invoiceHSN" readonly></div>
+<div class="form-group"><label>Qty *</label><input id="invoiceQty" type="number" min="0.01" step="0.01" value="1"></div>
+<div class="form-group"><label>Unit</label><input id="invoiceUnit" readonly></div>
+<div class="form-group"><label>Rate *</label><input id="invoiceRate" type="number" min="0" step="0.01" readonly></div>
+<div class="form-group"><label>Current Stock</label><input id="invoiceStock" readonly></div>
+</div><div id="selectedInvoiceItem" class="selected-item">No item selected</div><button type="button" class="secondary-btn" onclick="addInvoiceLine()">＋ Add Item</button></div>
+<div class="table-wrapper"><table><thead><tr><th>SL.No.</th><th>Item Description</th><th>HSN Code</th><th>Qty</th><th>Unit</th><th>Rate</th><th>Amount</th><th>CGST 9%</th><th>SGST 9%</th><th>Grand Total</th><th>Action</th></tr></thead><tbody id="invoiceLinesBody"></tbody></table></div>
+<div class="totals"><div><span>Subtotal</span><b id="invoiceSubtotal">₹0.00</b></div><div><span>CGST (9%)</span><b id="invoiceCGST">₹0.00</b></div><div><span>SGST (9%)</span><b id="invoiceSGST">₹0.00</b></div><div class="grand"><span>Grand Total</span><b id="invoiceGrandTotal">₹0.00</b></div></div>
+<div class="words-box"><label>Amount in Words</label><div id="amountWords">Rupees Zero Only</div></div>
+<div class="form-grid"><div class="form-group full-width"><label>Terms & Conditions</label><textarea id="termsConditions" rows="4">1. Goods once sold will not be taken back.\n2. Payment is subject to the agreed terms.\n3. Warranty as applicable to the product.</textarea></div><div class="form-group full-width"><label>Bank Details</label><textarea id="bankDetails" rows="3" placeholder="Bank Name, A/c No, IFSC"></textarea></div></div>
+<div class="signature-box"><div>Authorized Sign</div><div class="signature-line"></div></div>
+<div class="button-row"><button class="primary-btn" type="submit">Save Invoice</button><button class="secondary-btn" type="button" onclick="printCurrentSale()">Print Invoice</button><button class="secondary-btn" type="button" onclick="saveCurrentSalePDF()">Save PDF</button></div>
+</form></section>
+
+<!-- SALES HISTORY -->
+<section id="salesHistoryTab" class="tab-content">
+<div class="section-header"><h2>Sales History</h2><button class="secondary-btn" onclick="printTable('salesHistoryTable','Sales History')">Print</button></div>
+<div class="search-area"><input id="salesHistorySearch" placeholder="Search invoice / customer / item..." oninput="renderSalesHistory()"></div>
+<div class="table-wrapper"><table id="salesHistoryTable"><thead><tr><th>Date</th><th>Invoice No</th><th>Customer</th><th>Mobile</th><th>GSTIN</th><th>Grand Total</th><th>View</th></tr></thead><tbody id="salesHistoryBody"></tbody></table></div>
+</section>
+
+<!-- STOCK -->
+<section id="stockTab" class="tab-content">
+<div class="section-header"><h2>Current Stock & Movement</h2><button class="secondary-btn" onclick="printTable('stockTable','Current Stock')">Print</button></div>
+<div class="search-area"><input id="stockSearch" placeholder="Search stock..." oninput="renderStock()"></div>
+<div class="table-wrapper"><table id="stockTable"><thead><tr><th>Code</th><th>Item</th><th>Barcode</th><th>Stock</th><th>Unit</th><th>Purchase Rate</th><th>Sale Rate</th><th>Min Stock</th><th>Status</th><th>Stock Value</th></tr></thead><tbody id="stockBody"></tbody></table></div>
+<h3 class="subheading">Stock Movement History</h3><div class="table-wrapper"><table><thead><tr><th>Date</th><th>Type</th><th>Reference</th><th>Item</th><th>Qty</th><th>Rate</th><th>Total</th><th>Party/Reason</th></tr></thead><tbody id="movementBody"></tbody></table></div>
+</section>
+
+<!-- SUPPLIER -->
+<section id="supplierTab" class="tab-content">
+<div class="section-header"><h2>Supplier Master</h2></div>
+<form id="supplierForm" onsubmit="saveSupplier(event)"><div class="form-grid"><div class="form-group"><label>Supplier Name *</label><input id="supplierName" required oninput="this.value=cap(this.value)"></div><div class="form-group"><label>Mobile</label><input id="supplierMobile" maxlength="10" inputmode="numeric"></div><div class="form-group"><label>GSTIN</label><input id="supplierGSTIN"></div><div class="form-group full-width"><label>Address</label><input id="supplierAddress" oninput="this.value=cap(this.value)"></div></div><button class="primary-btn" type="submit">Save Supplier</button></form>
+<div class="table-wrapper supplier-table"><table><thead><tr><th>Supplier</th><th>Mobile</th><th>GSTIN</th><th>Address</th><th>Action</th></tr></thead><tbody id="supplierBody"></tbody></table></div>
+</section>
+
+<!-- ADJUSTMENT -->
+<section id="adjustmentTab" class="tab-content">
+<div class="section-header"><h2>Stock Adjustment</h2></div>
+<form id="adjustmentForm" onsubmit="saveAdjustment(event)"><div class="form-grid"><div class="form-group full-width"><label>Item / Barcode *</label><input id="adjustmentItemSearch" required oninput="filterAdjustmentItems()" autocomplete="off"><div id="adjustmentSuggestions" class="suggestions"></div></div><div class="form-group"><label>Adjustment Type *</label><select id="adjustmentType"><option value="IN">Stock IN</option><option value="OUT">Stock OUT</option></select></div><div class="form-group"><label>Quantity *</label><input id="adjustmentQty" type="number" min="0.01" step="0.01" required></div><div class="form-group"><label>Reason *</label><input id="adjustmentReason" required></div></div><div id="adjustmentSelected" class="selected-item">No item selected</div><button class="primary-btn" type="submit">Save Adjustment</button></form>
+<div class="table-wrapper"><table><thead><tr><th>Date</th><th>Item</th><th>Type</th><th>Qty</th><th>Reason</th><th>Balance</th></tr></thead><tbody id="adjustmentBody"></tbody></table></div>
+</section>
+</main>
+
+<!-- ITEM MODAL -->
+<div id="itemModal" class="modal"><div class="modal-card"><div class="modal-head"><h2 id="itemModalTitle">Add Item</h2><button onclick="closeItemForm()">×</button></div><form id="itemForm" onsubmit="saveItem(event)"><div class="form-grid"><div class="form-group"><label>Item Code</label><input id="itemCode" readonly></div><div class="form-group"><label>Item Name *</label><input id="itemName" required oninput="this.value=cap(this.value)"></div><div class="form-group"><label>HSN Code</label><input id="itemHSN"></div><div class="form-group"><label>Unit</label><select id="itemUnit"><option>Nos</option><option>PCS</option><option>Box</option><option>Set</option><option>Kg</option><option>Meter</option><option>Liter</option></select></div><div class="form-group"><label>Purchase Rate</label><input id="itemPurchaseRate" type="number" min="0" step="0.01"></div><div class="form-group"><label>Sale Rate</label><input id="itemSaleRate" type="number" min="0" step="0.01"></div><div class="form-group"><label>Opening Stock</label><input id="itemStock" type="number" min="0" step="0.01" value="0"></div><div class="form-group"><label>Minimum Stock</label><input id="itemMinStock" type="number" min="0" step="0.01" value="0"></div><div class="form-group full-width"><label>Barcode</label><div class="barcode-row"><input id="itemBarcode" readonly><button type="button" class="secondary-btn" onclick="generateNewBarcode()">Generate</button></div></div></div><div class="barcode-preview"><svg id="barcodePreview"></svg><div id="barcodeNumber"></div></div><div class="button-row"><button type="button" class="secondary-btn" onclick="closeItemForm()">Cancel</button><button class="primary-btn" type="submit">Save Item</button></div></form></div></div>
+
+<script src="barcode.js"></script>
+<script src="inventory.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script type="module" src="inventory-import.js"></script>
+<script src="inventory-bulk.js"></script>
+<script src="inventory-display-fix.js"></script>
+<script src="inventory-table-fix.js?v=4"></script></html>
+<script src="inventory-ui-fix.js"></script>
+<script src="inventory-table-fix.js"></script>
+<script src="inventory-pagination.js"></script>
+<script src="inventory-table-scroll.js"></script>
+<script src="inventory-horizontal-scroll.js"></script>
+</body>
+</html>

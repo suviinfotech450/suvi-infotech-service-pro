@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GST | SUVI INFOTECH SERVICE PRO</title>
+
+<link rel="stylesheet" href="gst.css">
+</head>
+
+<body>
+
+<header class="gst-header">
+
+    <div>
+       <div class="brand" id="gstFirmName">SUVI INFOTECH</div>
+        <div class="module-name">GST RETURN & REPORTS</div>
+    </div>
+
+  <div class="header-buttons">
+    <button class="dashboard-btn" onclick="goDashboard()">
+        ← Back to Dashboard
+    </button>
+</div>
+</header>
+
+
+<main class="gst-container">
+
+<!-- GST SETTINGS -->
+
+<section class="card">
+
+    <div class="section-title">
+        <div>
+            <h2>GST Settings</h2>
+            <p>GST module settings</p>
+        </div>
+
+        <button class="primary" onclick="saveGSTSettings()">
+            Save Settings
+        </button>
+    </div>
+
+    <div class="form-grid">
+
+        <label>
+            Business Name
+            <input id="businessName" value="SUVI INFOTECH">
+        </label>
+
+        <label>
+            GSTIN
+            <input
+                id="gstin"
+                maxlength="15"
+                placeholder="Enter GSTIN">
+        </label>
+
+        <label>
+            State
+            <select id="businessState">
+                <option>Karnataka</option>
+                <option>Tamil Nadu</option>
+                <option>Kerala</option>
+                <option>Other</option>
+            </select>
+        </label>
+
+        <label>
+            Default Sale Type
+            <select id="defaultSaleType">
+                <option value="intra">
+                    Intra-State - CGST + SGST
+                </option>
+
+                <option value="inter">
+                    Inter-State - IGST
+                </option>
+            </select>
+        </label>
+
+    </div>
+
+</section>
+
+<!-- PERIOD -->
+
+<section class="card">
+
+    <div class="period-grid">
+
+        <label>
+            Return
+            <select id="returnType" onchange="changeReturnPage(this.value)">
+                <option value="gstr1">GSTR-1</option>
+                <option value="gstr3b">GSTR-3B</option>
+                <option value="gstr9">GSTR-9</option>
+                <option value="reports">GST Reports</option>
+            </select>
+        </label>
+
+        <label>
+            Period
+            <select id="periodType">
+                <option value="month">Monthly</option>
+                <option value="quarter">Quarterly</option>
+                <option value="year">Financial Year</option>
+            </select>
+        </label>
+
+        <label>
+            From
+            <input type="date" id="fromDate">
+        </label>
+
+        <label>
+            To
+            <input type="date" id="toDate">
+        </label>
+
+        <button class="primary apply-button" onclick="applyPeriod()">
+            Apply
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- SUMMARY -->
+
+<section class="summary-grid">
+
+    <div class="summary-card">
+        <span>GST Sales Bills</span>
+        <strong id="salesBills">0</strong>
+    </div>
+
+    <div class="summary-card">
+        <span>GST Purchase Bills</span>
+        <strong id="purchaseBills">0</strong>
+    </div>
+
+    <div class="summary-card">
+        <span>Taxable Sales</span>
+        <strong id="taxableSales">₹0.00</strong>
+    </div>
+
+    <div class="summary-card">
+        <span>Output GST</span>
+        <strong id="outputGST">₹0.00</strong>
+    </div>
+
+    <div class="summary-card">
+        <span>Purchase GST</span>
+        <strong id="purchaseGST">₹0.00</strong>
+    </div>
+
+</section>
+
+
+<!-- TABS -->
+
+<section class="card">
+
+<div class="tabs">
+
+    <button
+        class="tab active"
+        onclick="showTab('gstr1Tab',this)">
+        GSTR-1
+    </button>
+
+    <button
+        class="tab"
+        onclick="showTab('gstr3bTab',this)">
+        GSTR-3B
+    </button>
+
+    <button
+        class="tab"
+        onclick="showTab('gstr9Tab',this)">
+        GSTR-9
+    </button>
+
+    <button
+        class="tab"
+        onclick="showTab('reportsTab',this)">
+        Reports / Export
+    </button>
+
+</div>
+
+
+<!-- GSTR 1 -->
+
+<div id="gstr1Tab" class="tab-content active">
+
+    <div class="section-title">
+
+        <div>
+            <h2>GSTR-1</h2>
+            <p>Outward supplies</p>
+        </div>
+
+        <div class="action-buttons">
+            <button onclick="exportGSTR1()">Export CSV</button>
+            <button onclick="window.print()">Print</button>
+        </div>
+
+    </div>
+
+    <div class="notice">
+        GST Sales data is read from Inventory GST Sales Entry.
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>SL</th>
+                    <th>Date</th>
+                    <th>Invoice No</th>
+                    <th>Customer</th>
+                    <th>GSTIN</th>
+                    <th>Type</th>
+                    <th>Taxable</th>
+                    <th>IGST</th>
+                    <th>CGST</th>
+                    <th>SGST</th>
+                    <th>GST</th>
+                    <th>Grand Total</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="gstr1Body"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- GSTR 3B -->
+
+<div id="gstr3bTab" class="tab-content">
+
+    <div class="section-title">
+
+        <div>
+            <h2>GSTR-3B</h2>
+            <p>Summary return</p>
+        </div>
+
+        <div class="action-buttons">
+            <button onclick="exportGSTR3B()">Export CSV</button>
+            <button onclick="window.print()">Print</button>
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Section</th>
+                    <th>Description</th>
+                    <th>Taxable Value</th>
+                    <th>IGST</th>
+                    <th>CGST</th>
+                    <th>SGST/UTGST</th>
+                    <th>Cess</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="gstr3bBody"></tbody>
+
+        </table>
+
+    </div>
+
+    <div class="notice">
+        Purchase GST shown here is source data only. Eligible ITC must be reconciled with GST Portal / GSTR-2B before filing.
+    </div>
+
+</div>
+
+
+<!-- GSTR 9 -->
+
+<div id="gstr9Tab" class="tab-content">
+
+    <div class="section-title">
+
+        <div>
+            <h2>GSTR-9</h2>
+            <p>Annual return working summary</p>
+        </div>
+
+        <div class="action-buttons">
+            <button onclick="exportGSTR9()">Export CSV</button>
+            <button onclick="window.print()">Print</button>
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Table</th>
+                    <th>Particulars</th>
+                    <th>Taxable</th>
+                    <th>IGST</th>
+                    <th>CGST</th>
+                    <th>SGST</th>
+                    <th>Cess</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="gstr9Body"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- REPORTS -->
+
+<div id="reportsTab" class="tab-content">
+
+    <div class="section-title">
+
+        <div>
+            <h2>GST Reports</h2>
+            <p>GST reconciliation reports</p>
+        </div>
+
+        <div class="action-buttons">
+            <button onclick="exportSales()">Sales CSV</button>
+            <button onclick="exportPurchases()">Purchase CSV</button>
+            <button onclick="window.print()">Print</button>
+        </div>
+
+    </div>
+
+    <div class="report-grid">
+
+        <div class="report-card">
+            <span>Output GST</span>
+            <strong id="reportOutputGST">₹0.00</strong>
+        </div>
+
+        <div class="report-card">
+            <span>Purchase GST</span>
+            <strong id="reportPurchaseGST">₹0.00</strong>
+        </div>
+
+        <div class="report-card">
+            <span>Net GST Working</span>
+            <strong id="reportNetGST">₹0.00</strong>
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Date</th>
+                    <th>Document</th>
+                    <th>Party</th>
+                    <th>Source</th>
+                    <th>Taxable</th>
+                    <th>GST</th>
+                    <th>Total</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="reportsBody"></tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="gst.js"></script>
+<script src="gst.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const firmName =
+        localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM")
+        || "SUVI INFOTECH";
+
+    const name = firmName.trim();
+
+    // Header
+    const gstFirmName = document.getElementById("gstFirmName");
+    if (gstFirmName) {
+        gstFirmName.textContent = name;
+    }
+
+    // Business Name
+    const businessName = document.getElementById("businessName");
+    if (businessName) {
+        businessName.value = name;
+    }
+
+});
+</script>
+
+</body>
+</html>

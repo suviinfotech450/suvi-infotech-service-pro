@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUVI INFOTECH - Payment & Collection</title>
+    <link rel="stylesheet" href="payment.css">
+</head>
+
+<body>
+
+<div class="payment-page">
+
+    <!-- HEADER -->
+    <header class="payment-header">
+        <div class="header-left">
+           <div class="brand" id="paymentFirmName">SUVI INFOTECH</div> 
+            <h1>Payment & Collection</h1>
+            <p>Customer Payment & Outstanding Management</p>
+        </div>
+
+        <div class="header-actions">
+            <button type="button" class="back-btn" onclick="history.back()">
+                ← Back
+            </button>
+
+            <button type="button" class="dashboard-btn"
+                    onclick="window.top.location.href='../../dashboard.html'">
+                ← Back to Dashboard
+            </button>
+        </div>
+    </header>
+
+
+    <!-- SUMMARY -->
+    <section class="summary-grid">
+
+        <div class="summary-card received">
+            <div class="summary-icon">₹</div>
+            <div>
+                <span>Total Received</span>
+                <strong id="totalReceived">₹0.00</strong>
+            </div>
+        </div>
+
+        <div class="summary-card pending">
+            <div class="summary-icon">⏳</div>
+            <div>
+                <span>Total Outstanding</span>
+                <strong id="totalOutstanding">₹0.00</strong>
+            </div>
+        </div>
+
+        <div class="summary-card today">
+            <div class="summary-icon">📅</div>
+            <div>
+                <span>Today's Collection</span>
+                <strong id="todayCollection">₹0.00</strong>
+            </div>
+        </div>
+
+        <div class="summary-card bills">
+            <div class="summary-icon">🧾</div>
+            <div>
+                <span>Total Payments</span>
+                <strong id="totalPayments">0</strong>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PAYMENT ENTRY -->
+    <section class="payment-card">
+
+        <div class="section-title">
+            <div>
+                <h2>💰 Payment Entry</h2>
+                <p>Record customer payment / collection</p>
+            </div>
+        </div>
+
+        <form id="paymentForm">
+
+            <div class="form-grid">
+
+                <div class="field">
+                    <label>Receipt No.</label>
+                    <input type="text" id="receiptNo" readonly>
+                </div>
+
+                <div class="field">
+                    <label>Date *</label>
+                    <input type="date" id="paymentDate" required>
+                </div>
+
+                <div class="field">
+                    <label>Customer Name *</label>
+                    <input type="text" id="customerName"
+                           placeholder="Enter customer name" required>
+                </div>
+
+                <div class="field">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="mobile"
+                           maxlength="10"
+                           placeholder="10 digit mobile">
+                </div>
+
+                <div class="field">
+                    <label>Invoice / Bill No.</label>
+                    <input type="text" id="invoiceNo"
+                           placeholder="Invoice / Bill No.">
+                </div>
+
+                <div class="field">
+                    <label>Total Bill Amount</label>
+                    <input type="number" id="billAmount"
+                           min="0" step="0.01"
+                           placeholder="0.00">
+                </div>
+
+                <div class="field">
+                    <label>Previous Paid Amount</label>
+                    <input type="number" id="previousPaid"
+                           min="0" step="0.01"
+                           value="0">
+                </div>
+
+                <div class="field">
+                    <label>Current Paid Amount *</label>
+                    <input type="number" id="paidAmount"
+                           min="0" step="0.01"
+                           placeholder="0.00"
+                           required>
+                </div>
+
+                <div class="field">
+                    <label>Balance Amount</label>
+                    <input type="number" id="balanceAmount"
+                           readonly value="0">
+                </div>
+
+                <div class="field">
+                    <label>Payment Mode *</label>
+                    <select id="paymentMode" required>
+                        <option value="">Select Payment Mode</option>
+                        <option value="Cash">Cash</option>
+                        <option value="UPI">UPI</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="Cheque">Cheque</option>
+                        <option value="Card">Card</option>
+                    </select>
+                </div>
+
+                <div class="field field-wide">
+                    <label>Remarks</label>
+                    <textarea id="remarks"
+                              rows="2"
+                              placeholder="Enter remarks"></textarea>
+                </div>
+
+            </div>
+
+            <div class="entry-actions">
+                <button type="button" class="reset-btn"
+                        onclick="resetPaymentForm()">
+                    ↻ Reset
+                </button>
+
+                <button type="submit" class="save-btn">
+                    💾 Save Payment
+                </button>
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- PAYMENT HISTORY -->
+    <section class="payment-card history-card">
+
+        <div class="section-title history-title">
+            <div>
+                <h2>📋 Payment History</h2>
+                <p>Customer payment and collection records</p>
+            </div>
+        </div>
+        <!-- PAYMENT REMINDER POPUP -->
+<div id="paymentReminderModal" class="reminder-modal">
+
+    <div class="reminder-box">
+
+        <div class="reminder-header">
+            <h2>🔔 Payment Reminder</h2>
+            <button type="button" onclick="closePaymentReminder()">×</button>
+        </div>
+
+        <div class="reminder-details">
+
+            <div>
+                <span>Invoice / Bill No.</span>
+                <strong id="reminderInvoice">-</strong>
+            </div>
+
+            <div>
+                <span>Customer Name</span>
+                <strong id="reminderCustomer">-</strong>
+            </div>
+
+            <div>
+                <span>Mobile Number</span>
+                <strong id="reminderMobile">-</strong>
+            </div>
+
+            <div class="reminder-amount">
+                <span>Total Bill Amount</span>
+                <strong id="reminderTotal">₹0.00</strong>
+            </div>
+
+            <div class="reminder-amount">
+                <span>Paid Amount</span>
+                <strong id="reminderPaid">₹0.00</strong>
+            </div>
+
+            <div class="reminder-amount balance">
+                <span>Balance Amount</span>
+                <strong id="reminderBalance">₹0.00</strong>
+            </div>
+
+        </div>
+
+        <div class="reminder-actions">
+
+            <button type="button"
+                    class="close-reminder-btn"
+                    onclick="closePaymentReminder()">
+                Close
+            </button>
+
+            <button type="button"
+                    class="whatsapp-reminder-btn"
+                    onclick="sendCurrentPaymentReminder()">
+                📱 Send WhatsApp Reminder
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+        <!-- FILTER -->
+        <div class="filter-box">
+
+            <div class="filter-field">
+                <label>Search</label>
+                <input type="text" id="searchPayment"
+                       placeholder="Customer / Mobile / Receipt / Invoice">
+            </div>
+
+            <div class="filter-field">
+                <label>From Date</label>
+                <input type="date" id="fromDate">
+            </div>
+
+            <div class="filter-field">
+                <label>To Date</label>
+                <input type="date" id="toDate">
+            </div>
+
+            <div class="filter-field">
+                <label>Payment Mode</label>
+                <select id="filterMode">
+                    <option value="">All Modes</option>
+                    <option value="Cash">Cash</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Bank Transfer">Bank Transfer</option>
+                    <option value="Cheque">Cheque</option>
+                    <option value="Card">Card</option>
+                </select>
+            </div>
+
+            <div class="filter-actions">
+                <button type="button" onclick="applyPaymentFilters()">
+                    🔍 Search
+                </button>
+
+                <button type="button" class="clear-btn"
+                        onclick="clearPaymentFilters()">
+                    Clear
+                </button>
+            </div>
+
+        </div>
+
+
+        <!-- TABLE -->
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Receipt No.</th>
+                        <th>Date</th>
+                        <th>Customer</th>
+                        <th>Mobile</th>
+                        <th>Invoice No.</th>
+                        <th>Bill Amount</th>
+                        <th>Paid Amount</th>
+                        <th>Balance</th>
+                        <th>Mode</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="paymentHistoryBody"></tbody>
+
+            </table>
+
+        </div>
+
+        <div id="noPaymentData" class="no-data">
+            No payment records found.
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="payment-footer">
+        <strong id="paymentFooterFirmName">SUVI INFOTECH</strong>
+        <span>Payment & Collection Management</span>
+    </footer>
+
+</div>
+
+<script src="payment.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const firmName =
+        localStorage.getItem("SUVI_INFOTECH_SELECTED_FIRM")
+        || "SUVI INFOTECH";
+
+    const firmElement =
+        document.getElementById("paymentFirmName");
+
+    if (firmElement) {
+        firmElement.textContent = firmName.trim();
+    }
+
+    document.title =
+        firmName.trim() + " - Payment & Collection";
+});
+</script>
+
+</body>
+</html>

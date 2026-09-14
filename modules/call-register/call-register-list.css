@@ -1,0 +1,232 @@
+/* =========================================================
+   SUVI INFOTECH
+   CALL REGISTER HISTORY
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+}
+
+/* HEADER */
+
+.module-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #dbe3ec;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #123c69;
+}
+
+.module-name {
+    margin-top: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #52616f;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navigation button {
+    border: none;
+    border-radius: 7px;
+    padding: 9px 15px;
+    background: #123c69;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.navigation button:hover {
+    opacity: 0.9;
+}
+
+/* MAIN */
+
+.call-history-container {
+    width: 100%;
+    padding: 20px;
+}
+
+.history-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.history-top h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #123c69;
+}
+
+#callHistorySearch {
+    width: 300px;
+    max-width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+#callHistorySearch:focus {
+    border-color: #123c69;
+}
+
+/* TABLE */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid #dbe3ec;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+#callHistoryTable {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: collapse;
+}
+
+#callHistoryTable th {
+    padding: 12px 10px;
+    background: #123c69;
+    color: #ffffff;
+    border: 1px solid #dbe3ec;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#callHistoryTable td {
+    padding: 11px 10px;
+    border: 1px solid #e2e8f0;
+    font-size: 13px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#callHistoryTable tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+#callHistoryTable tbody tr:hover {
+    background: #eef4fb;
+}
+
+#callHistoryTable td:first-child {
+    font-weight: 600;
+}
+
+/* EMPTY / LOADING */
+
+#callHistoryBody td[colspan="9"] {
+    padding: 25px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .module-header {
+        padding: 12px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .brand-name {
+        font-size: 20px;
+    }
+
+    .module-name {
+        font-size: 15px;
+    }
+
+    .navigation {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .navigation button {
+        font-size: 13px;
+        padding: 8px 11px;
+    }
+
+    .call-history-container {
+        padding: 12px;
+    }
+
+    .history-top {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .history-top h2 {
+        font-size: 21px;
+    }
+
+    #callHistorySearch {
+        width: 100%;
+    }
+
+    .table-wrapper {
+        border-radius: 7px;
+    }
+}
+.history-actions {
+    white-space: nowrap;
+    text-align: center;
+}
+
+.edit-call-btn,
+.delete-call-btn {
+    border: none;
+    border-radius: 5px;
+    padding: 6px 9px;
+    margin: 2px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.edit-call-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.delete-call-btn {
+    background: #dc2626;
+    color: white;
+}
+
+.edit-call-btn:hover,
+.delete-call-btn:hover {
+    opacity: 0.85;
+}

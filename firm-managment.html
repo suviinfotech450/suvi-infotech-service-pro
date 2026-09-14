@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firm Management - SUVI INFOTECH</title>
+    <link rel="stylesheet" href="firm-management.css">
+</head>
+
+<body>
+
+<div class="page-container">
+
+    <header class="page-header">
+        <div>
+            <h1>SUVI INFOTECH</h1>
+            <h2>Firm Management</h2>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="history.back()">← Back</button>
+            <button onclick="goDashboard()">← Back to Dashboard</button>
+        </div>
+    </header>
+
+    <section class="firm-form-section" id="firmFormSection">
+
+        <h3 id="formTitle">Add New Firm</h3>
+
+        <form id="firmForm">
+
+            <input type="hidden" id="editIndex">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Firm Name *</label>
+                    <input type="text" id="firmName" required>
+                </div>
+
+                <div>
+                    <label>Proprietor / Contact Person</label>
+                    <input type="text" id="contactPerson">
+                </div>
+
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="tel" id="mobile" maxlength="10">
+                </div>
+
+                <div>
+                    <label>Landline</label>
+                    <input type="tel" id="landline">
+                </div>
+
+                <div>
+                    <label>Email</label>
+                    <input type="email" id="email">
+                </div>
+
+                <div>
+                    <label>GST Number</label>
+                    <input type="text" id="gstNumber">
+                </div>
+
+                <div>
+                    <label>City</label>
+                    <input type="text" id="city">
+                </div>
+
+                <div>
+                    <label>State</label>
+                    <select id="state">
+                        <option value="">Select State</option>
+                        <option>Karnataka</option>
+                        <option>Tamil Nadu</option>
+                        <option>Kerala</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Pincode</label>
+                    <input type="text" id="pincode" maxlength="6">
+                </div>
+
+                <div class="full-width">
+                    <label>Address</label>
+                    <textarea id="address" rows="3"></textarea>
+                </div>
+
+                <div class="full-width">
+                    <label>Bank Details</label>
+                    <textarea id="bankDetails" rows="3"></textarea>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-btn">Save Firm</button>
+                <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
+            </div>
+
+        </form>
+    </section>
+
+    <section class="firm-list-section">
+
+     <div class="list-header">
+    <h3>Firm List</h3>
+
+    <div>
+        <span id="firmCount">0 Firms</span>
+
+        <button type="button" id="newFirmBtn">
+            + New Firm
+        </button>
+    </div>
+</div>
+        <div id="firmList"></div>
+
+    </section>
+
+</div>
+
+<script src="firm-management.js"></script>
+<script src="company-context.js"></script>
+</body>
+</html>

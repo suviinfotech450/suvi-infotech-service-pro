@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SUVI INFOTECH - Ticket Raise</title>
+
+    <link rel="stylesheet" href="ticket-raise.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="header-title">
+           <div class="brand-name" id="ticketFirmName">
+    SUVI INFOTECH
+</div>
+            <div class="page-name">Ticket Raise</div>
+        </div>
+
+        <div class="header-actions">
+            <button type="button" onclick="goBack()">← Back</button>
+            <button type="button" onclick="goDashboard()">← Back to Dashboard</button>
+        </div>
+    </header>
+
+
+    <!-- MAIN -->
+    <main class="ticket-container">
+
+        <section class="ticket-card">
+
+            <div class="section-title">
+                <h2>🎫 New Ticket</h2>
+            </div>
+
+
+            <form id="ticketForm">
+
+                <!-- ROW 1 -->
+                <div class="form-row">
+
+                    <div class="field-group">
+                        <label for="ticketId">
+                            Ticket ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="ticketId"
+                            name="ticketId"
+                            readonly
+                            placeholder="Auto"
+                        >
+                    </div>
+
+
+                    <div class="field-group">
+                        <label for="ticketDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="text"
+                            id="ticketDate"
+                            name="ticketDate"
+                            readonly
+                        >
+                    </div>
+
+
+                    <div class="field-group">
+                        <label for="ticketTime">
+                            Time
+                        </label>
+
+                        <input
+                            type="text"
+                            id="ticketTime"
+                            name="ticketTime"
+                            readonly
+                        >
+                    </div>
+
+                </div>
+
+                <!-- EXPECTED VISIT DATE & TIME -->
+
+<div class="form-row">
+
+    <div class="field-group">
+
+        <label for="expectedVisitDate">
+            Expected Visit Date
+        </label>
+
+        <input
+            type="date"
+            id="expectedVisitDate"
+            name="expectedVisitDate"
+        >
+
+    </div>
+
+
+    <div class="field-group">
+
+        <label for="expectedVisitTime">
+            Expected Visit Time
+        </label>
+
+        <input
+            type="time"
+            id="expectedVisitTime"
+            name="expectedVisitTime"
+        >
+
+    </div>
+
+</div>
+
+                <!-- CLIENT SEARCH -->
+                <div class="field-group full-width">
+
+                    <label for="clientSearch">
+                        Client Search
+                    </label>
+
+                    <input
+                        type="text"
+                        id="clientSearch"
+                        name="clientSearch"
+                        placeholder="Type client name or mobile number..."
+                        autocomplete="off"
+                    >
+
+                    <div
+                        id="clientSuggestions"
+                        class="suggestions"
+                    ></div>
+
+                </div>
+
+
+                <!-- CLIENT DETAILS -->
+                <div class="form-row">
+
+                    <div class="field-group">
+
+                        <label for="clientName">
+                            Client Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clientName"
+                            name="clientName"
+                            required
+                            placeholder="Client name"
+                        >
+
+                    </div>
+
+
+                    <div class="field-group">
+
+                        <label for="mobileNumber">
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="mobileNumber"
+                            name="mobileNumber"
+                            maxlength="10"
+                            placeholder="10 digit mobile number"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADDRESS -->
+                <div class="field-group full-width">
+
+                    <label for="address">
+                        Address
+                    </label>
+
+                    <input
+                        type="text"
+                        id="address"
+                        name="address"
+                        placeholder="Client address"
+                    >
+
+                </div>
+
+
+                <!-- COMPLAINT -->
+                <div class="field-group full-width">
+
+                    <label for="complaint">
+                        Complaint / Problem <span>*</span>
+                    </label>
+
+                    <textarea
+                        id="complaint"
+                        name="complaint"
+                        rows="4"
+                        required
+                        placeholder="Enter customer complaint or problem..."
+                    ></textarea>
+
+                </div>
+
+                <!-- PRINTER MODEL -->
+
+<div class="field-group full-width" id="printerModelGroup" style="display:none;">
+
+    <label for="printerModel">
+        Printer Model
+    </label>
+
+    <input
+    type="text"
+    id="printerModel"
+    name="printerModel"
+    list="printerModelList"
+    placeholder="Type or search printer model"
+    autocomplete="off"
+>
+
+<datalist id="printerModelList">
+
+    <option value="HP LaserJet 1020">
+    <option value="HP LaserJet 1022">
+    <option value="HP LaserJet M1005">
+    <option value="HP LaserJet Pro M1132">
+    <option value="HP LaserJet Pro M1212">
+    <option value="Canon LBP 2900">
+    <option value="Canon LBP 6030">
+    <option value="Canon MF3010">
+    <option value="Epson L3110">
+    <option value="Epson L3150">
+    <option value="Epson L3250">
+    <option value="Brother DCP-T420W">
+    <option value="Brother DCP-L2541DW">
+
+</datalist>
+
+</div>
+
+                <!-- CATEGORY + PRIORITY -->
+                <div class="form-row">
+
+                    <div class="field-group">
+
+                        <label for="category">
+                            Category <span>*</span>
+                        </label>
+
+                        <select
+                            id="category"
+                            name="category"
+                            required
+                        >
+                            <option value="">Select category</option>
+                            <option value="Computer">Computer</option>
+                            <option value="Laptop">Laptop</option>
+                            <option value="Printer">Printer</option>
+                            <option value="Cartridge Refilling">Cartridge Refilling</option>
+                            <option value="CCTV">CCTV</option>
+                            <option value="Solar Camera">Solar Camera</option>
+                            <option value="Networking">Networking</option>
+                            <option value="Software">Software</option>
+                            <option value="AMC">AMC</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="field-group">
+
+                        <label for="priority">
+                            Priority <span>*</span>
+                        </label>
+
+                        <select
+                            id="priority"
+                            name="priority"
+                            required
+                        >
+                            <option value="">Select priority</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Urgent">Urgent</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TECHNICIAN + STATUS -->
+                <div class="form-row">
+
+                    <div class="field-group">
+
+                        <label for="technician">
+                            Assigned Technician
+                        </label>
+
+                        <input
+                            type="text"
+                            id="technician"
+                            name="technician"
+                            placeholder="Technician name"
+                        >
+
+                    </div>
+
+
+                    <div class="field-group">
+
+                        <label for="status">
+                            Status <span>*</span>
+                        </label>
+
+                        <select
+                            id="status"
+                            name="status"
+                            required
+                        >
+                            <option value="">Select status</option>
+                            <option value="Open">Open</option>
+                            <option value="Process">Process</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Hold">Hold</option>
+                            <option value="Complete">Complete</option>
+                            <option value="Cancel">Cancel</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REASON -->
+                <div
+                    class="field-group full-width"
+                    id="reasonGroup"
+                >
+
+                    <label for="reason">
+                        Reason
+                    </label>
+
+                    <input
+                        type="text"
+                        id="reason"
+                        name="reason"
+                        placeholder="Enter reason"
+                    >
+
+                </div>
+
+
+                <!-- REMARKS -->
+                <div class="field-group full-width">
+
+                    <label for="remarks">
+                        Remarks
+                    </label>
+
+                    <textarea
+                        id="remarks"
+                        name="remarks"
+                        rows="3"
+                        placeholder="Additional remarks..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="btn-save"
+                    >
+                        💾 Save Ticket
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="btn-reset"
+                    >
+                        ↻ Reset
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- TICKET HISTORY -->
+        <section class="ticket-card history-card">
+
+            <div class="section-title">
+                <h2>📋 Ticket History</h2>
+            </div>
+
+            <div class="history-search">
+
+                <input
+                    type="text"
+                    id="ticketHistorySearch"
+                    placeholder="Search Ticket ID, Client or Mobile..."
+                >
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table id="ticketHistoryTable">
+
+                    <thead>
+                        <tr>
+                            <th>Ticket ID</th>
+                            <th>Date</th>
+                            <th>Client</th>
+                            <th>Mobile</th>
+                            <th>Category</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Technician</th>
+                            <th>Reason</th>
+                            <th>Action</th>
+                            
+                        </tr>
+                    </thead>
+
+                    <tbody id="ticketHistoryBody">
+
+                        <tr>
+                            <td
+                                colspan="8"
+                                class="no-data"
+                            >
+                                No tickets found
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="ticket-raise.js"></script>
+
+</body>
+</html>

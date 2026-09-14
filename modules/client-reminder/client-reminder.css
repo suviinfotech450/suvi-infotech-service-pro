@@ -1,0 +1,415 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f6fb;
+    color: #1f2937;
+}
+
+.page-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 18px;
+}
+
+/* HEADER */
+
+.page-header {
+    background: linear-gradient(135deg, #0d6efd, #1557b0);
+    color: white;
+    padding: 18px 22px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.brand-name {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.page-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttons button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.back-btn {
+    background: white;
+    color: #1557b0;
+}
+
+.dashboard-btn {
+    background: #e9f2ff;
+    color: #1557b0;
+}
+
+/* SUMMARY */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.summary-card span {
+    display: block;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.summary-card strong {
+    font-size: 24px;
+}
+
+.summary-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f1ff;
+    color: #0d6efd;
+}
+
+/* CARDS */
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1557b0;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.section-title i {
+    margin-right: 7px;
+}
+
+/* FORM */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #475569;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    padding: 10px 11px;
+    font-size: 14px;
+    outline: none;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 2px rgba(13,110,253,0.10);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+}
+
+.form-actions button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.save-btn {
+    background: #0d6efd;
+    color: white;
+}
+
+.clear-btn {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+/* FILTER */
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* TABLE */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+
+thead th {
+    background: #eaf3ff;
+    color: #174ea6;
+    font-size: 13px;
+    padding: 12px 10px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+tbody td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background: #f8fbff;
+}
+
+.status-badge,
+.priority-badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-completed {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.priority-normal {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.priority-high {
+    background: #ffe8cc;
+    color: #c2410c;
+}
+
+.priority-urgent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.action-btn {
+    border: none;
+    padding: 7px 9px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+
+.complete-btn {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 25px;
+    color: #64748b;
+    display: none;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-buttons {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .page-container {
+        padding: 10px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .summary-card {
+        padding: 13px;
+    }
+
+    .summary-card strong {
+        font-size: 20px;
+    }
+
+    .form-grid,
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-buttons {
+        flex-direction: column;
+    }
+
+    .header-buttons button {
+        width: 100%;
+    }
+
+    .card {
+        padding: 14px;
+    }
+}
+/* Client Reminder - Font Size Improvement */
+
+body {
+    font-size: 15px;
+}
+
+.brand-name {
+    font-size: 24px;
+}
+
+.page-title {
+    font-size: 20px;
+}
+
+.section-title {
+    font-size: 20px;
+}
+
+.form-group label {
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    font-size: 16px;
+}
+
+.summary-card span {
+    font-size: 15px;
+}
+
+.summary-card strong {
+    font-size: 27px;
+}
+
+table th {
+    font-size: 15px;
+}
+
+table td {
+    font-size: 15px;
+}
+
+.action-btn {
+    font-size: 15px;
+}
+
+.header-buttons button,
+.form-actions button {
+    font-size: 15px;
+}

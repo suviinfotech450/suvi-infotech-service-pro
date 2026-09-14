@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SUVI INFOTECH | Client Master</title>
+
+    <link rel="stylesheet" href="client-master.css">
+</head>
+
+<body>
+
+<main class="client-master-page">
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+    <header class="client-header">
+
+        <div class="header-brand">
+            <div class="brand-small" id="clientMasterFirmName">
+                SUVI INFOTECH
+            </div>
+            <div class="brand-tagline">Nothing Is Impossible</div>
+        </div>
+
+        <div class="header-title">
+            <h1>👤 Client Master</h1>
+            <p>Manage Your Valued Clients</p>
+        </div>
+
+        <div class="header-actions">
+            <button
+                type="button"
+                id="backToDashboard"
+                class="back-dashboard-button">
+                ← Back to Dashboard
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         TOGGLE
+         ===================================================== -->
+
+    <section class="client-toggle-section">
+
+        <div class="toggle-container">
+
+            <button
+                type="button"
+                id="clientDetailsTab"
+                class="toggle-button active">
+
+                👤 Client Details
+
+            </button>
+
+
+            <button
+                type="button"
+                id="serviceHistoryTab"
+                class="toggle-button">
+
+                🛠️ Service History
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CLIENT DETAILS
+         ===================================================== -->
+
+    <section
+        id="clientDetailsSection"
+        class="client-section active-section">
+
+
+        <!-- SECTION HEADER -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>Client Details</h2>
+
+                <p>
+                    Complete client information
+                </p>
+
+            </div>
+
+
+            <div class="client-search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="search"
+                    id="clientSearch"
+                    placeholder="Search Client ID, Name or Mobile..."
+                    autocomplete="off">
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CLIENT FORM
+             ================================================= -->
+
+        <div class="client-form-card">
+
+            <div class="form-title">
+
+                <div>
+
+                    <h2>Client Information</h2>
+
+                    <span>
+                        Add or manage client details
+                    </span>
+
+                </div>
+
+                <span id="clientFormMode">
+                    New Client
+                </span>
+
+            </div>
+
+
+            <form id="clientForm">
+
+                <div class="form-grid">
+
+
+                    <!-- DATE -->
+
+                    <div class="form-group">
+
+                        <label for="clientDate">
+                            Date
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clientDate"
+                            name="clientDate"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- CLIENT ID -->
+
+                    <div class="form-group">
+
+                        <label for="clientId">
+                            Client ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clientId"
+                            name="clientId"
+                            readonly>
+
+                    </div>
+
+
+                    <!-- CALLER NAME -->
+
+                    <div class="form-group">
+
+                        <label for="contactPerson">
+                            Caller Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contactPerson"
+                            name="contactPerson"
+                            placeholder="Enter caller name"
+                            autocomplete="off"
+                            required>
+
+                    </div>
+
+
+                    <!-- MOBILE -->
+
+                    <div class="form-group">
+
+                        <label for="mobileNumber">
+                            Mobile Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="mobileNumber"
+                            name="mobileNumber"
+                            placeholder="10 digit mobile number"
+                            inputmode="numeric"
+                            maxlength="10"
+                            required>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="emailId">
+                            Email ID
+                        </label>
+
+                        <input
+                            type="email"
+                            id="emailId"
+                            name="emailId"
+                            placeholder="Enter email address">
+
+                    </div>
+
+
+                    <!-- GST -->
+
+                    <div class="form-group">
+
+                        <label for="gstNumber">
+                            GST Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="gstNumber"
+                            name="gstNumber"
+                            placeholder="Enter GST number"
+                            autocomplete="off">
+
+                    </div>
+
+
+                    <!-- DEPARTMENT -->
+
+                    <div class="form-group">
+
+                        <label for="departmentName">
+                            Department Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="departmentName"
+                            name="departmentName"
+                            placeholder="Enter department name"
+                            autocomplete="off">
+
+                    </div>
+
+
+                    <!-- STATE -->
+
+                    <div class="form-group">
+
+                        <label for="state">
+                            State
+                        </label>
+
+                        <select
+                            id="state"
+                            name="state">
+
+                            <option value="">
+                                Select State
+                            </option>
+
+                            <option value="Karnataka">
+                                Karnataka
+                            </option>
+
+                            <option value="Tamil Nadu">
+                                Tamil Nadu
+                            </option>
+
+                            <option value="Kerala">
+                                Kerala
+                            </option>
+
+                            <option value="Andhra Pradesh">
+                                Andhra Pradesh
+                            </option>
+
+                            <option value="Telangana">
+                                Telangana
+                            </option>
+
+                            <option value="Maharashtra">
+                                Maharashtra
+                            </option>
+
+                            <option value="Goa">
+                                Goa
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- PINCODE -->
+
+                    <div class="form-group">
+
+                        <label for="pincode">
+                            Pincode
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            name="pincode"
+                            placeholder="6 digit pincode"
+                            inputmode="numeric"
+                            maxlength="6">
+
+                    </div>
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="form-group full-width">
+
+                        <label for="address">
+                            Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            name="address"
+                            rows="3"
+                            placeholder="Enter complete address"></textarea>
+
+                    </div>
+
+
+                    <!-- NOTES -->
+
+                    <div class="form-group full-width">
+
+                        <label for="notes">
+                            Notes
+                        </label>
+
+                        <textarea
+                            id="notes"
+                            name="notes"
+                            rows="2"
+                            placeholder="Additional notes"></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORM BUTTONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        id="clearClientButton"
+                        class="secondary-button">
+
+                        Clear
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        id="saveClientButton"
+                        class="primary-button">
+
+                        💾 Save Client
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- =================================================
+             CLIENT TABLE
+             ================================================= -->
+
+        <div class="client-list-card">
+
+            <div class="list-header">
+
+                <div>
+
+                    <h2>Client Details</h2>
+
+                    <p id="clientTotalCount">
+                        0 Clients
+                    </p>
+
+                </div>
+
+            </div>
+
+<div class="client-cards-wrapper">
+
+    <div
+        id="client-table"
+        class="client-cards-grid">
+
+        <div class="empty-client-row">
+            No client records found.
+        </div>
+
+    </div>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICE HISTORY
+         ===================================================== -->
+
+    <section
+        id="serviceHistorySection"
+        class="client-section">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>Service History</h2>
+
+                <p>
+                    Complete service history of clients
+                </p>
+
+            </div>
+
+
+            <div class="client-search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="search"
+                    id="serviceHistorySearch"
+                    placeholder="Search Client ID, Name or Service..."
+                    autocomplete="off">
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SERVICE HISTORY CARD
+             ================================================= -->
+
+        <div class="service-history-card">
+
+            <div class="history-header">
+
+                <div>
+
+                    <h2>
+                        Service History
+                    </h2>
+
+                    <p>
+                        Client service records
+                    </p>
+
+                </div>
+
+
+                <span id="serviceHistoryCount">
+                    0 Records
+                </span>
+
+            </div>
+
+
+            <div
+                id="serviceHistoryList"
+                class="service-history-list">
+
+
+                <div class="empty-service-history">
+
+                    <div class="empty-icon">
+                        🛠️
+                    </div>
+
+                    <h3>
+                        No Service History
+                    </h3>
+
+                    <p>
+                        Service records will appear here
+                        after calls are saved.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+<script src="../../company-context.js"></script>     
+<script src="client-master.js"></script>
+<script src="../../firebase-config.js"></script>
+<script src="../../js/firebase-sync.js"></script>
+
+</body>
+
+</html>

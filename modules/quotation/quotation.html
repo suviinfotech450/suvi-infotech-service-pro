@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUVI INFOTECH - Estimation / Quotation</title>
+<link rel="stylesheet" href="quotation.css">
+</head>
+<body>
+
+<div class="page">
+
+    <header class="page-header no-print">
+        <div>
+           <h1 id="quotationFirmName">SUVI INFOTECH</h1>
+            <p>ESTIMATION / QUOTATION</p>
+        </div>
+        <div class="nav-buttons">
+            <button type="button" onclick="history.back()">← Back</button>
+            <button onclick="window.location.href='../../dashboard.html'">
+    ← Back to Dashboard
+</button>
+        </div>
+    </header>
+
+    <section class="design-selector no-print">
+        <div class="design-selector-head">
+            <div>
+                <h2>Choose Quotation Design</h2>
+                <p>Select one design before saving. The selected design is saved with the quotation.</p>
+            </div>
+            <span id="selectedDesignLabel">Design 1 Selected</span>
+        </div>
+
+        <div class="design-grid">
+            <button type="button" class="design-card selected" data-design="1">
+                <span class="design-check">✓</span>
+                <div class="mini-paper d1">
+                    <div class="mini-head"><b>SUVI INFOTECH</b><span>QUOTATION</span></div>
+                    <div class="mini-line"></div>
+                    <div class="mini-info"><i></i><i></i></div>
+                    <div class="mini-client"><i></i><i></i><i></i><i></i></div>
+                    <div class="mini-table"></div>
+                    <div class="mini-total"></div>
+                </div>
+                <strong>Design 1</strong>
+                <small>Classic Professional</small>
+            </button>
+
+            <button type="button" class="design-card" data-design="2">
+                <span class="design-check">✓</span>
+                <div class="mini-paper d2">
+                    <div class="mini-head"><b>SUVI INFOTECH</b><span>QUOTATION</span></div>
+                    <div class="mini-cards"><i></i><i></i></div>
+                    <div class="mini-client-round"></div>
+                    <div class="mini-table"></div>
+                    <div class="mini-total round"></div>
+                </div>
+                <strong>Design 2</strong>
+                <small>Modern Cards</small>
+            </button>
+
+            <button type="button" class="design-card" data-design="3">
+                <span class="design-check">✓</span>
+                <div class="mini-paper d3">
+                    <div class="mini-head"><b>SUVI INFOTECH</b><span>QUOTATION</span></div>
+                    <div class="mini-line"></div>
+                    <div class="mini-under"><i></i><i></i><i></i></div>
+                    <div class="mini-table"></div>
+                    <div class="mini-total dark"></div>
+                </div>
+                <strong>Design 3</strong>
+                <small>Premium Minimal</small>
+            </button>
+
+            <button type="button" class="design-card" data-design="4">
+                <span class="design-check">✓</span>
+                <div class="mini-paper d4">
+                    <div class="mini-side"></div>
+                    <div class="mini-head"><b>SUVI INFOTECH</b><span>QUOTATION</span></div>
+                    <div class="mini-info"></div>
+                    <div class="mini-client"></div>
+                    <div class="mini-table"></div>
+                    <div class="mini-total green"></div>
+                </div>
+                <strong>Design 4</strong>
+                <small>Executive Green</small>
+            </button>
+        </div>
+    </section>
+
+    <form id="quotationForm">
+
+        <section class="quotation-sheet">
+
+            <div class="quotation-header">
+                <div class="company">
+   <h2 id="quotationCompanyName">SUVI INFOTECH</h2>
+    <p class="company-tagline">COMPUTER &amp; IT SERVICE SOLUTIONS</p>
+
+    <div class="company-details">
+        <div id="quotationAddress">#1793, 4th Division, 16th Ward, Ashwini Layout, Gundlupet</div>
+        <div id="quotationLocation">Chamarajanagar Dist - 571111, Karnataka</div>
+        <div>
+    Mobile: <span id="quotationMobile">9738413450</span> |
+    Landline: <span id="quotationLandline">080-23902363</span> |
+    Email: <span id="quotationEmail">suviinfotech450@gmail.com</span>
+</div>        <div class="company-gstin">
+    GSTIN: <span>29CSAPP6665C1ZI</span>
+</div>
+    </div>
+</div>
+
+                <div class="quotation-title">
+                    <h1>QUOTATION</h1>
+                    <input id="quoteNo" readonly>
+                </div>
+            </div>
+
+            <div class="quote-meta">
+                <label>
+                    <span>Quotation Date</span>
+                    <input id="quoteDate" readonly>
+                </label>
+                <label>
+                    <span>Valid Until</span>
+                    <input id="validUntil" type="date">
+                </label>
+            </div>
+
+            <section class="client-box">
+                <div class="box-title">CLIENT DETAILS</div>
+
+                <div class="client-grid">
+                    <label>
+                        <span>Client Code</span>
+                        <input id="clientCode" readonly>
+                    </label>
+
+                    <label>
+                        <span>Client Name</span>
+                        <input id="clientName" autocomplete="off" placeholder="Enter client name">
+                    </label>
+
+                    <label>
+                        <span>Mobile Number</span>
+                        <input id="mobile" inputmode="numeric" maxlength="10" placeholder="10 digit mobile number">
+                    </label>
+
+                    <label>
+                        <span>GSTIN</span>
+                        <input id="gstin" maxlength="15" placeholder="Enter GSTIN">
+                    </label>
+
+                    <label class="address">
+                        <span>Address</span>
+                        <textarea id="address" rows="2" placeholder="Enter client address"></textarea>
+                    </label>
+                </div>
+            </section>
+
+            <section class="items-section">
+                <div class="section-heading">
+                    <h3>ITEMS / SERVICES</h3>
+                    <button type="button" class="primary no-print" onclick="addRow()">+ Add Item</button>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="items-table">
+                        <thead>
+                            <tr>
+                                <th class="sl">SL</th>
+                                <th>ITEM / PARTICULAR</th>
+                                <th class="qty">QTY</th>
+                                <th class="unit">UNIT</th>
+                                <th class="price">PRICE / UNIT</th>
+                                <th class="amount">AMOUNT</th>
+                                <th class="remove-col no-print">ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="items"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="summary-area">
+
+                <div class="remarks-box">
+                    <div class="box-title">TERMS &amp; CONDITIONS / REMARKS</div>
+                    <textarea id="remarks" rows="7">1. Quotation is valid for the period mentioned above.
+2. Prices are subject to change without prior notice.
+3. Payment terms as agreed with the customer.
+4. Warranty / AMC terms are as per manufacturer policy.
+5. Additional work or materials will be charged separately.</textarea>
+                </div>
+
+                <div class="totals-box">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <strong id="subtotal">₹0.00</strong>
+                    </div>
+
+                    <div class="total-row">
+                        <span>Discount</span>
+                        <input id="discount" type="number" min="0" step="0.01" value="0">
+                    </div>
+
+                    <div class="total-row">
+                        <span>Taxable Amount</span>
+                        <strong id="taxableAmount">₹0.00</strong>
+                    </div>
+
+                    <div class="gst-controls no-print">
+                        <label>
+                            GST Applicable
+                            <select id="gstApplicable">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            GST Type
+                            <select id="gstType">
+                                <option value="cgst_sgst">CGST + SGST</option>
+                                <option value="igst">IGST</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            GST Rate
+                            <select id="gstRate">
+                                <option value="18">18%</option>
+                                <option value="12">12%</option>
+                                <option value="5">5%</option>
+                                <option value="0">0%</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <div class="total-row" id="cgstRow">
+                        <span id="cgstLabel">CGST (9%)</span>
+                        <strong id="cgstAmount">₹0.00</strong>
+                    </div>
+
+                    <div class="total-row" id="sgstRow">
+                        <span id="sgstLabel">SGST (9%)</span>
+                        <strong id="sgstAmount">₹0.00</strong>
+                    </div>
+
+                    <div class="total-row hidden" id="igstRow">
+                        <span id="igstLabel">IGST (18%)</span>
+                        <strong id="igstAmount">₹0.00</strong>
+                    </div>
+
+                    <div class="grand-total">
+                        <div class="words-side">
+                            <span>AMOUNT IN WORDS</span>
+                            <strong id="amountInWords">Rupees Zero Only</strong>
+                        </div>
+                        <div class="grand-side">
+                            <span>GRAND TOTAL</span>
+                            <strong id="grandTotal">₹0.00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="signature-area">
+                <div class="signature customer-signature">
+                    <div class="signature-space"></div>
+                    <div class="signature-line"></div>
+                    <strong>Customer Signature</strong>
+                </div>
+
+                <div class="signature authorized-signature">
+                    <div class="signature-space"></div>
+                    <div class="signature-line"></div>
+                    <strong>Authorized Signature</strong>
+                    <span id="quotationSignature">For SUVI INFOTECH</span>
+                </div>
+            </div>
+
+            <div class="actions no-print">
+                <label class="copies">
+                    <input type="checkbox" id="printThreeCopies">
+                    Print 3 Copies
+                </label>
+
+                <button type="button" onclick="clearQuotation()">Clear</button>
+                <button type="button" onclick="printQuotation()">Print Preview</button>
+                <button type="submit" class="primary">Save Quotation</button>
+            </div>
+
+        </section>
+    </form>
+
+    <section class="history no-print">
+        <div class="history-heading">
+            <div>
+                <h2>🧾 Quotation History</h2>
+                <p>Saved quotations</p>
+            </div>
+            <span id="count">0 Quotations</span>
+        </div>
+
+        <div class="history-table-wrap">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Quotation No</th>
+                        <th>Client</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="history"></tbody>
+            </table>
+        </div>
+    </section>
+
+</div>
+
+<script type="module" src="quotation.js"></script>
+</body>
+</html>

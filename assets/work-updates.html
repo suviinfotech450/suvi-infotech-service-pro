@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Updates | SUVI INFOTECH</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f6fa;
+            color: #172033;
+        }
+
+        .top-header {
+            background: linear-gradient(135deg, #102a43, #0b1d33);
+            color: white;
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .brand strong {
+            display: block;
+            font-size: 17px;
+        }
+
+        .brand small {
+            display: block;
+            font-size: 10px;
+            opacity: .8;
+            margin-top: 2px;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-btn {
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            background: #1683c4;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .nav-btn:hover {
+            opacity: .9;
+        }
+
+        .page-content {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        .page-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .page-title h1 {
+            margin: 0;
+            font-size: 34px;
+            font-weight: 800;
+        }
+
+        .page-title p {
+            margin: 5px 0 0;
+            color: #667085;
+            font-size: 16px;
+        }
+
+        .add-btn {
+            border: none;
+            background: #0b9b68;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 9px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .add-btn:hover {
+            background: #087d55;
+        }
+
+        .filters {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 180px 1fr 180px;
+            gap: 10px;
+            margin-bottom: 18px;
+            box-shadow: 0 5px 15px rgba(15,42,67,.07);
+        }
+
+        .filters input,
+        .filters select {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 12px;
+            border: 1px solid #d8e1ea;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            background: white;
+        }
+
+        .filters input:focus,
+        .filters select:focus {
+            border-color: #1683c4;
+        }
+
+        .table-card {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow-x: auto;
+            box-shadow: 0 5px 15px rgba(15,42,67,.07);
+        }
+
+        table {
+            width: 100%;
+            min-width: 0;
+            border-collapse: collapse;
+            table-layout: auto;
+        }
+
+        th {
+            background: #edf5fb;
+            color: #17334f;
+            font-size: 17px;
+            font-weight: 800;
+            padding: 17px 12px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 17px 12px;
+            border-top: 1px solid #edf2f7;
+            font-size: 17px;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        tbody tr:hover {
+            background: #f8fbfd;
+        }
+
+        /* Highlight important fields */
+        .work-id-highlight {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 900;
+            color: #075985;
+            background: #dff3ff;
+            padding: 8px 12px;
+            border-radius: 7px;
+        }
+
+        .work-highlight {
+            font-size: 17px;
+            font-weight: 800;
+        }
+
+        .client-highlight {
+            font-size: 18px;
+            font-weight: 900;
+            color: #17334f;
+        }
+
+        .amount-highlight {
+            font-size: 17px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 8px 13px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .completed {
+            background: #dff7ec;
+            color: #087a52;
+        }
+
+        .pending {
+            background: #fff1d6;
+            color: #a56600;
+        }
+
+        .in-progress {
+            background: #e8edff;
+            color: #4056a1;
+        }
+
+        .action-cell {
+            white-space: nowrap;
+        }
+
+        .edit-btn,
+        .delete-btn {
+            border: none;
+            padding: 9px 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 800;
+            margin-right: 4px;
+        }
+
+        .edit-btn {
+            background: #e4f0ff;
+            color: #1769aa;
+        }
+
+        .delete-btn {
+            background: #ffe5e5;
+            color: #d32f2f;
+        }
+
+        .edit-btn:hover,
+        .delete-btn:hover {
+            opacity: .8;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 35px;
+            color: #8a98a8;
+            font-size: 15px;
+        }
+
+        @media (max-width: 700px) {
+            .top-header,
+            .page-title {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .navigation {
+                justify-content: stretch;
+            }
+
+            .nav-btn {
+                flex: 1;
+            }
+
+            .filters {
+                grid-template-columns: 1fr;
+            }
+
+            .page-content {
+                padding: 15px 10px;
+            }
+
+            .page-title h1 {
+                font-size: 26px;
+            }
+
+            .page-title p {
+                font-size: 15px;
+            }
+
+            .add-btn {
+                width: 100%;
+            }
+
+            .table-card {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 900px;
+            }
+        }
+       /* =========================================
+   FULL SCREEN PAGE FIT
+========================================= */
+
+html,
+body {
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-content {
+    width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 24px 16px !important;
+}
+
+.table-card {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+table {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    table-layout: auto !important;
+}
+
+/* Desktop */
+@media (min-width: 701px) {
+    .page-content {
+        width: 100vw !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .page-content {
+        width: 100% !important;
+        padding: 15px 10px !important;
+    }
+
+    .table-card {
+        overflow-x: auto !important;
+    }
+
+    table {
+        min-width: 900px !important;
+    }
+} 
+/* =========================================
+   WORK UPDATE CUSTOM MODAL
+========================================= */
+
+.work-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.work-modal-box {
+    width: 100%;
+    max-width: 520px;
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+.work-modal-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: #17334f;
+}
+
+.work-form-group {
+    margin-bottom: 14px;
+}
+
+.work-form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #344054;
+}
+
+.work-form-group input,
+.work-form-group select {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #d8e1ea;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.work-form-group input:focus,
+.work-form-group select:focus {
+    border-color: #1683c4;
+}
+
+.work-modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.work-modal-actions button {
+    flex: 1;
+    min-height: 46px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.work-cancel-btn {
+    background: #e9eef3;
+    color: #344054;
+}
+
+.work-save-btn {
+    background: #0b9b68;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div class="brand">
+        <img src="suvi_logo.png" alt="SUVI INFOTECH">
+
+        <div>
+            <strong>SUVI INFOTECH</strong>
+            <small>SERVICEOPS PRO</small>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="history.back()">
+            ← Back
+        </button>
+
+        <button class="nav-btn"
+                onclick="location.href='../../dashboard.html'">
+            ← Back to Dashboard
+        </button>
+    </div>
+
+</header>
+
+<main class="page-content">
+
+    <div class="page-title">
+        <div>
+            <h1>🛠️ Work Updates</h1>
+            <p>Add and manage daily work details</p>
+        </div>
+
+        <button class="add-btn" onclick="addWorkUpdate()">
+            + Add Work Update
+        </button>
+    </div>
+
+    <div class="filters">
+
+        <input type="date"
+               id="dateFilter"
+               onchange="filterWorkUpdates()">
+
+        <input type="text"
+               id="searchBox"
+               placeholder="Search Work ID, Service or Client..."
+               oninput="filterWorkUpdates()">
+
+        <select id="statusFilter"
+                onchange="filterWorkUpdates()">
+            <option value="">All Status</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+        </select>
+
+    </div>
+
+    <div class="table-card">
+
+        <table>
+            <thead>
+                <tr>
+                    <tr>
+    <th>Date</th>
+    <th>Work ID</th>
+    <th>Service / Work</th>
+    <th>Dept</th>
+    <th>Parts / Material Name</th>
+    <th>Qty</th>
+    <th>Client / Name</th>
+    <th>Amount</th>
+    <th>Payment Type</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+                </tr>
+            </thead>
+
+            <tbody id="workTableBody"></tbody>
+        </table>
+
+        <div class="empty-state" id="emptyState">
+            No work updates found.
+        </div>
+
+    </div>
+
+</main>
+<div class="work-modal" id="workModal">
+    <div class="work-modal-box">
+
+        <div class="work-modal-title" id="workModalTitle">
+            Add Work Update
+        </div>
+
+        <div class="work-form-group">
+    <label>Service / Work</label>
+   <input type="text" id="workFormService"
+       list="workSuggestions"
+       placeholder="Enter service / work">
+
+<datalist id="workSuggestions">
+    <option value="Computer Service">
+    <option value="Laptop Service">
+    <option value="Printer Service">
+    <option value="Cartridge Refilling">
+    <option value="CCTV Camera">
+    <option value="Solar Camera">
+    <option value="Networking">
+    <option value="Software Upgrade">
+    <option value="AMC Service">
+    <option value="Computer Accessories">
+</datalist>
+</div>
+
+<div class="work-form-group">
+    <label>Dept</label>
+    <input type="text" id="workFormDept"
+           placeholder="Enter department">
+</div>
+
+<div class="work-form-group">
+    <label>Qty</label>
+    <input type="number" id="workFormQty"
+           placeholder="1" min="1" value="1">
+</div>
+<div class="work-form-group">
+    <label>Parts / Material Name</label>
+    <input type="text"
+           id="workFormParts"
+           list="partsSuggestions"
+           placeholder="Enter parts / material name">
+
+    <datalist id="partsSuggestions">
+        <option value="Toner Powder">
+        <option value="Toner Cartridge">
+        <option value="Drum Unit">
+        <option value="Pickup Roller">
+        <option value="Printer Roller">
+        <option value="USB Cable">
+        <option value="SMPS">
+        <option value="RAM">
+        <option value="SSD">
+        <option value="Hard Disk">
+        <option value="Keyboard">
+        <option value="Mouse">
+        <option value="Network Cable">
+        <option value="RJ45 Connector">
+        <option value="CCTV Camera">
+        <option value="Power Adapter">
+        <option value="Other">
+    </datalist>
+</div>
+        <div class="work-form-group">
+            <label>Client Name</label>
+           <input type="text" id="workFormClient"
+       list="clientSuggestions"
+       placeholder="Enter client name">
+
+<datalist id="clientSuggestions"></datalist>
+        </div>
+
+        <div class="work-form-group">
+            <label>Amount</label>
+            <input type="number" id="workFormAmount"
+                   placeholder="0">
+        </div>
+
+        <div class="work-form-group">
+            <label>Payment Type</label>
+            <select id="workFormPaymentType">
+                <option value="Cash">Cash</option>
+                <option value="Credit">Credit</option>
+            </select>
+        </div>
+
+        <div class="work-form-group">
+            <label>Status</label>
+            <select id="workFormStatus">
+                <option value="Completed">Completed</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Cancel">Cancel</option>
+            </select>
+        </div>
+
+        <div class="work-modal-actions">
+            <button class="work-cancel-btn"
+                    onclick="closeWorkModal()">
+                Cancel
+            </button>
+
+            <button class="work-save-btn"
+                    onclick="saveWorkModal()">
+                Save
+            </button>
+        </div>
+
+    </div>
+</div>
+<script>
+
+ /* =========================================================
+   SUVI INFOTECH - WORK UPDATES
+   ========================================================= */
+
+let workUpdates = JSON.parse(
+    localStorage.getItem("suviWorkUpdates") || "[]"
+);
+
+let workModalMode = "add";
+let editingWorkItem = null;
+
+
+/* =========================================================
+   WORK ID - WK01, WK02, WK03...
+   ========================================================= */
+
+function getNextWorkNumber() {
+
+    let maxNumber = 0;
+
+    workUpdates.forEach(item => {
+
+        const value = String(item.workId || "").trim();
+
+        // WK01 / WK001 / WK1
+        const wkMatch = value.match(/^WK(\d+)$/i);
+
+        if (wkMatch) {
+
+            const number = parseInt(wkMatch[1], 10);
+
+            if (number > maxNumber) {
+                maxNumber = number;
+            }
+
+        } else if (/^\d+$/.test(value)) {
+
+            // Old numeric ID: 1, 2, 3...
+            const number = parseInt(value, 10);
+
+            if (number > maxNumber) {
+                maxNumber = number;
+            }
+        }
+    });
+
+    return maxNumber + 1;
+}
+
+
+/* =========================================================
+   NORMALIZE OLD WORK IDs
+   Old: 1, 2, 3
+   New: WK01, WK02, WK03
+   ========================================================= */
+
+function normalizeWorkIds() {
+
+    let changed = false;
+
+    workUpdates.forEach((item, index) => {
+
+        const oldId = String(item.workId || "").trim();
+
+        // If ID is numeric or missing, assign sequential WK ID
+        if (!/^WK\d+$/i.test(oldId)) {
+
+            item.workId =
+                "WK" + String(index + 1).padStart(2, "0");
+
+            changed = true;
+        }
+    });
+
+    // Also fix duplicate WK IDs
+    const usedIds = new Set();
+
+    workUpdates.forEach(item => {
+
+        let id = String(item.workId || "").trim();
+
+        if (!id || usedIds.has(id.toUpperCase())) {
+
+            let nextNumber = getNextWorkNumber();
+
+            id =
+                "WK" + String(nextNumber).padStart(2, "0");
+
+            item.workId = id;
+
+            changed = true;
+        }
+
+        usedIds.add(id.toUpperCase());
+    });
+
+    if (changed) {
+
+        localStorage.setItem(
+            "suviWorkUpdates",
+            JSON.stringify(workUpdates)
+        );
+    }
+}
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+function getLocalDate() {
+
+    const now = new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(now.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(now.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+
+function formatDate(dateString) {
+
+    if (!dateString) return "-";
+
+    const parts =
+        String(dateString).split("-");
+
+    if (parts.length !== 3) {
+        return dateString;
+    }
+
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+}
+
+
+/* =========================================================
+   SAFE DISPLAY
+   ========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+function escapeAttribute(value) {
+
+    return String(value ?? "")
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
+}
+
+
+/* =========================================================
+   LOAD TABLE
+   ========================================================= */
+
+function loadWorkUpdates() {
+
+    const tbody =
+        document.getElementById("workTableBody");
+
+    const emptyState =
+        document.getElementById("emptyState");
+
+    if (!tbody) return;
+
+
+    tbody.innerHTML = "";
+
+
+    const dateFilter =
+        document.getElementById("dateFilter");
+
+    const searchBox =
+        document.getElementById("searchBox");
+
+    const statusFilter =
+        document.getElementById("statusFilter");
+
+
+    const dateValue =
+        dateFilter ? dateFilter.value : "";
+
+    const searchValue =
+        searchBox
+            ? searchBox.value.toLowerCase().trim()
+            : "";
+
+    const statusValue =
+        statusFilter
+            ? statusFilter.value
+            : "";
+
+
+    const filtered =
+        workUpdates.filter(item => {
+
+            const workId =
+                String(item.workId || "").toLowerCase();
+
+            const work =
+                String(item.work || "").toLowerCase();
+
+            const dept =
+                String(item.dept || "").toLowerCase();
+
+            const parts =
+                String(item.parts || "").toLowerCase();
+
+            const client =
+                String(item.client || "").toLowerCase();
+
+            const amount =
+                String(item.amount || "").toLowerCase();
+
+            const status =
+                String(item.status || "");
+
+
+            const dateMatch =
+                !dateValue ||
+                item.date === dateValue;
+
+
+            const searchMatch =
+                !searchValue ||
+                workId.includes(searchValue) ||
+                work.includes(searchValue) ||
+                dept.includes(searchValue) ||
+                parts.includes(searchValue) ||
+                client.includes(searchValue) ||
+                amount.includes(searchValue);
+
+
+            const statusMatch =
+                !statusValue ||
+                status === statusValue;
+
+
+            return (
+                dateMatch &&
+                searchMatch &&
+                statusMatch
+            );
+        });
+
+
+    filtered.forEach(item => {
+
+        const row =
+            document.createElement("tr");
+
+
+        let statusClass = "pending";
+
+
+        if (item.status === "Completed") {
+
+            statusClass = "completed";
+
+        } else if (item.status === "In Progress") {
+
+            statusClass = "in-progress";
+
+        } else if (item.status === "Cancel") {
+
+            statusClass = "cancel";
+        }
+
+
+        row.innerHTML = `
+
+            <td>
+                ${formatDate(item.date)}
+            </td>
+
+            <td>
+                <span class="work-id-highlight">
+                    ${escapeHtml(item.workId)}
+                </span>
+            </td>
+
+            <td>
+                <span class="work-highlight">
+                    ${escapeHtml(item.work || "-")}
+                </span>
+            </td>
+
+            <td>
+                ${escapeHtml(item.dept || "-")}
+            </td>
+
+            <td>
+                ${escapeHtml(item.parts || "-")}
+            </td>
+
+            <td>
+                ${escapeHtml(item.qty || "1")}
+            </td>
+
+            <td>
+                <span class="client-highlight">
+                    ${escapeHtml(item.client || "-")}
+                </span>
+            </td>
+
+            <td>
+                <span class="amount-highlight">
+                    ₹ ${escapeHtml(item.amount || "0")}
+                </span>
+            </td>
+
+            <td>
+                <span class="status ${item.paymentType === "Cash" ? "completed" : "pending"}">
+                    ${escapeHtml(item.paymentType || "Credit")}
+                </span>
+            </td>
+
+            <td>
+                <span class="status ${statusClass}">
+                    ${escapeHtml(item.status || "Completed")}
+                </span>
+            </td>
+
+            <td class="action-cell">
+
+                <button
+                    class="edit-btn"
+                    onclick="editWorkUpdate('${escapeAttribute(item.workId)}')">
+                    ✏️ Edit
+                </button>
+
+                <button
+                    class="delete-btn"
+                    onclick="deleteWorkUpdate('${escapeAttribute(item.workId)}')">
+                    🗑️ Delete
+                </button>
+                <button
+    class="whatsapp-btn"
+    onclick="sendWorkWhatsApp('${escapeAttribute(item.workId)}')">
+    💬 WhatsApp
+</button>
+            </td>
+        `;
+
+
+        tbody.appendChild(row);
+    });
+
+
+    if (emptyState) {
+
+        emptyState.style.display =
+            filtered.length ? "none" : "block";
+    }
+}
+
+
+/* =========================================================
+   OPEN ADD / EDIT MODAL
+   ========================================================= */
+
+function openWorkModal(mode = "add", item = null) {
+
+    workModalMode = mode;
+    editingWorkItem = item;
+
+
+    const modal =
+        document.getElementById("workModal");
+
+    if (!modal) {
+
+        alert("Work Update modal not found.");
+        return;
+    }
+
+
+    const title =
+        document.getElementById("workModalTitle");
+
+
+    const service =
+        document.getElementById("workFormService");
+
+    const dept =
+        document.getElementById("workFormDept");
+
+    const qty =
+        document.getElementById("workFormQty");
+
+    const parts =
+        document.getElementById("workFormParts");
+
+    const client =
+        document.getElementById("workFormClient");
+
+    const amount =
+        document.getElementById("workFormAmount");
+
+    const paymentType =
+        document.getElementById("workFormPaymentType");
+
+    const status =
+        document.getElementById("workFormStatus");
+
+
+    if (mode === "edit" && item) {
+
+        if (title) {
+            title.textContent = "Edit Work Update";
+        }
+
+        if (service) {
+            service.value = item.work || "";
+        }
+
+        if (dept) {
+            dept.value = item.dept || "";
+        }
+
+        if (qty) {
+            qty.value = item.qty || "1";
+        }
+
+        if (parts) {
+            parts.value = item.parts || "";
+        }
+
+        if (client) {
+            client.value = item.client || "";
+        }
+
+        if (amount) {
+            amount.value = item.amount || "0";
+        }
+
+        if (paymentType) {
+            paymentType.value = item.paymentType || "Credit";
+        }
+
+        if (status) {
+            status.value = item.status || "Completed";
+        }
+
+    } else {
+
+        if (title) {
+            title.textContent = "Add Work Update";
+        }
+
+        if (service) {
+            service.value = "";
+        }
+
+        if (dept) {
+            dept.value = "";
+        }
+
+        if (qty) {
+            qty.value = "1";
+        }
+
+        if (parts) {
+            parts.value = "";
+        }
+
+        if (client) {
+            client.value = "";
+        }
+
+        if (amount) {
+            amount.value = "";
+        }
+
+        if (paymentType) {
+            paymentType.value = "Cash";
+        }
+
+        if (status) {
+            status.value = "Completed";
+        }
+    }
+
+
+    loadWorkSuggestions();
+
+
+    modal.style.display = "flex";
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+   ========================================================= */
+
+function closeWorkModal() {
+
+    const modal =
+        document.getElementById("workModal");
+
+    if (modal) {
+        modal.style.display = "none";
+    }
+
+    workModalMode = "add";
+    editingWorkItem = null;
+}
+
+
+/* =========================================================
+   ADD WORK UPDATE
+   ========================================================= */
+
+function addWorkUpdate() {
+
+    openWorkModal("add");
+}
+
+
+/* =========================================================
+   SAVE WORK UPDATE
+   New + Edit
+   ========================================================= */
+
+function saveWorkModal() {
+
+    const work =
+        document.getElementById("workFormService")
+            .value
+            .trim();
+
+
+    const dept =
+        document.getElementById("workFormDept")
+            .value
+            .trim() || "-";
+
+
+    const qty =
+        document.getElementById("workFormQty")
+            .value || "1";
+
+
+    const parts =
+        document.getElementById("workFormParts")
+            .value
+            .trim() || "-";
+
+
+    const client =
+        document.getElementById("workFormClient")
+            .value
+            .trim() || "-";
+
+
+    const amount =
+        document.getElementById("workFormAmount")
+            .value
+            .trim() || "0";
+
+
+    const paymentType =
+        document.getElementById("workFormPaymentType")
+            .value || "Cash";
+
+
+    const status =
+        document.getElementById("workFormStatus")
+            .value || "Completed";
+
+
+    if (!work) {
+
+        alert("Please enter Service / Work");
+
+        return;
+    }
+
+
+    /* -----------------------------------------
+       EDIT EXISTING RECORD
+       ----------------------------------------- */
+
+    if (
+        workModalMode === "edit" &&
+        editingWorkItem
+    ) {
+
+        editingWorkItem.work =
+            work;
+
+        editingWorkItem.dept =
+            dept;
+
+        editingWorkItem.qty =
+            qty;
+
+        editingWorkItem.parts =
+            parts;
+
+        editingWorkItem.client =
+            client;
+
+        editingWorkItem.amount =
+            amount;
+
+        editingWorkItem.paymentType =
+            paymentType;
+
+        editingWorkItem.status =
+            status;
+
+
+        // IMPORTANT:
+        // Work ID is NOT changed during edit.
+
+
+        localStorage.setItem(
+            "suviWorkUpdates",
+            JSON.stringify(workUpdates)
+        );
+
+
+        loadWorkUpdates();
+
+        closeWorkModal();
+
+        alert(
+            "Work Update Updated Successfully"
+        );
+
+        return;
+    }
+
+
+    /* -----------------------------------------
+       NEW RECORD
+       ----------------------------------------- */
+
+    const nextNumber =
+        getNextWorkNumber();
+
+
+    const workId =
+        "WK" +
+        String(nextNumber).padStart(2, "0");
+
+
+    workUpdates.push({
+
+        date: getLocalDate(),
+
+        workId: workId,
+
+        work: work,
+
+        dept: dept,
+
+        parts: parts,
+
+        qty: qty,
+
+        client: client,
+
+        amount: amount,
+
+        paymentType: paymentType,
+
+        status: status
+    });
+
+
+    localStorage.setItem(
+        "suviWorkUpdates",
+        JSON.stringify(workUpdates)
+    );
+
+
+    loadWorkUpdates();
+
+    closeWorkModal();
+
+
+    alert(
+        "Work Update Saved Successfully\nWork ID: " +
+        workId
+    );
+}
+
+
+/* =========================================================
+   EDIT
+   ========================================================= */
+
+function editWorkUpdate(workId) {
+
+    const item =
+        workUpdates.find(
+            item =>
+                String(item.workId) ===
+                String(workId)
+        );
+
+
+    if (!item) {
+
+        alert("Work Update not found.");
+
+        return;
+    }
+
+
+    openWorkModal(
+        "edit",
+        item
+    );
+}
+
+
+/* =========================================================
+   DELETE
+   ========================================================= */
+
+function deleteWorkUpdate(workId) {
+
+    const item =
+        workUpdates.find(
+            item =>
+                String(item.workId) ===
+                String(workId)
+        );
+
+
+    if (!item) return;
+
+
+    const confirmed =
+        confirm(
+            "Delete Work Update " +
+            workId +
+            "?"
+        );
+
+
+    if (!confirmed) return;
+
+
+    workUpdates =
+        workUpdates.filter(
+            item =>
+                String(item.workId) !==
+                String(workId)
+        );
+
+
+    localStorage.setItem(
+        "suviWorkUpdates",
+        JSON.stringify(workUpdates)
+    );
+
+
+    loadWorkUpdates();
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+function filterWorkUpdates() {
+
+    loadWorkUpdates();
+}
+
+
+/* =========================================================
+   AUTOCOMPLETE SUGGESTIONS
+   ========================================================= */
+
+function loadWorkSuggestions() {
+
+    const clientList =
+        document.getElementById(
+            "clientSuggestions"
+        );
+
+
+    if (clientList) {
+
+        clientList.innerHTML = "";
+
+      const clients = [];
+
+// Client Master inda clients load madi
+const savedClients =
+    localStorage.getItem("suviInfotechClients");
+
+if (savedClients) {
+    try {
+        const clientMaster =
+            JSON.parse(savedClients);
+
+        clientMaster.forEach(item => {
+
+            const client =
+                String(
+                    item.contactPerson ||
+                    item.companyName ||
+                    ""
+                ).trim();
+
+            if (
+                client &&
+                client !== "-" &&
+                !clients.includes(client)
+            ) {
+                clients.push(client);
+            }
+        });
+
+    } catch (error) {
+        console.warn(
+            "Client Master data could not be loaded.",
+            error
+        );
+    }
+}
+
+// Existing Work Updates clients kooda keep madi
+workUpdates.forEach(item => {
+
+    const client =
+        String(item.client || "").trim();
+
+    if (
+        client &&
+        client !== "-" &&
+        !clients.includes(client)
+    ) {
+        clients.push(client);
+    }
+}); 
+
+        clients.sort();
+
+
+        clients.forEach(client => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = client;
+
+            clientList.appendChild(option);
+        });
+    }
+
+
+    const workList =
+        document.getElementById(
+            "workSuggestions"
+        );
+
+
+    if (workList) {
+
+        const existing = new Set();
+
+        workList.querySelectorAll("option")
+            .forEach(option => {
+
+                existing.add(
+                    option.value.toLowerCase()
+                );
+            });
+
+
+        workUpdates.forEach(item => {
+
+            const work =
+                String(item.work || "").trim();
+
+
+            if (
+                work &&
+                !existing.has(
+                    work.toLowerCase()
+                )
+            ) {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = work;
+
+                workList.appendChild(option);
+
+                existing.add(
+                    work.toLowerCase()
+                );
+            }
+        });
+    }
+}
+
+function sendWorkWhatsApp(workId) {
+
+    const item = workUpdates.find(
+        item => String(item.workId) === String(workId)
+    );
+
+    if (!item) {
+        alert("Work Update not found.");
+        return;
+    }
+
+    const clientName = String(item.client || "").trim();
+
+    if (!clientName || clientName === "-") {
+        alert("Client name not available.");
+        return;
+    }
+
+    // Client Master data
+    const savedClients =
+        localStorage.getItem("suviInfotechClients");
+
+    if (!savedClients) {
+        alert("Client Master data not found.");
+        return;
+    }
+
+    let clients = [];
+
+    try {
+        clients = JSON.parse(savedClients);
+    } catch (error) {
+        alert("Client Master data error.");
+        return;
+    }
+
+    // Find client by name
+    const client = clients.find(
+        c =>
+            String(c.contactPerson || "").trim().toLowerCase() ===
+            clientName.toLowerCase()
+    );
+
+    if (!client) {
+        alert("Client not found in Client Master.");
+        return;
+    }
+
+    const mobileNumber =
+        String(client.mobileNumber || "").replace(/\D/g, "");
+
+    if (!/^[6-9]\d{9}$/.test(mobileNumber)) {
+        alert("Valid mobile number not found for this client.");
+        return;
+    }
+
+    const message =
+`Hello ${clientName},
+
+SUVI INFOTECH
+
+Work ID: ${item.workId}
+Service / Work: ${item.work || "-"}
+Parts / Material: ${item.parts || "-"}
+Qty: ${item.qty || "1"}
+Amount: ${item.amount || "-"}
+Payment: ${item.paymentType || "Credit"}
+Status: ${item.status || "-"}
+
+Thank you,
+SUVI INFOTECH`;
+
+    const whatsappUrl =
+        "https://wa.me/91" +
+        mobileNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.open(whatsappUrl, "_blank");
+}
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+normalizeWorkIds();
+
+loadWorkUpdates();
+
+loadWorkSuggestions();  
+</script>
+
+</body>
+</html>

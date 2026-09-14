@@ -1,0 +1,276 @@
+/* =====================================================
+   SUVI INFOTECH - RECYCLE BIN
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.recycle-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.recycle-header {
+    width: 100%;
+    padding: 20px 24px;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #164e63
+    );
+    color: #ffffff;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.15);
+}
+
+.recycle-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.recycle-header p {
+    margin: 6px 0 0;
+    font-size: 15px;
+    color: #cbd5e1;
+}
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
+.recycle-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.recycle-navigation button {
+    border: 0;
+    border-radius: 10px;
+    padding: 11px 18px;
+    background: #0f766e;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.recycle-navigation button:hover {
+    background: #115e59;
+    transform: translateY(-1px);
+}
+
+/* =====================================================
+   MAIN CARD
+   ===================================================== */
+
+.recycle-card {
+    width: 100%;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #dbe4ec;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* =====================================================
+   TITLE
+   ===================================================== */
+
+.recycle-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.recycle-title h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #0f172a;
+}
+
+.recycle-title p {
+    margin: 6px 0 0;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.retention-info {
+    min-width: 150px;
+    padding: 12px 16px;
+    text-align: center;
+    border-radius: 12px;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+}
+
+.retention-info strong {
+    display: block;
+    color: #047857;
+    font-size: 17px;
+}
+
+.retention-info span {
+    display: block;
+    margin-top: 3px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+/* =====================================================
+   SEARCH
+   ===================================================== */
+
+.recycle-search {
+    margin-bottom: 18px;
+}
+
+.recycle-search input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+.recycle-search input:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.10);
+}
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+
+.recycle-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.recycle-table-wrap table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+.recycle-table-wrap th {
+    padding: 13px 12px;
+    background: #0f172a;
+    color: #ffffff;
+    text-align: left;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.recycle-table-wrap td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 13px;
+    color: #334155;
+}
+
+.recycle-table-wrap tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    .recycle-page {
+        padding: 12px;
+    }
+
+    .recycle-header {
+        padding: 18px;
+    }
+
+    .recycle-header h1 {
+        font-size: 22px;
+    }
+
+    .recycle-card {
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    .recycle-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .retention-info {
+        width: 100%;
+    }
+
+    .recycle-navigation {
+        flex-direction: row;
+    }
+
+    .recycle-navigation button {
+        flex: 1;
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+}
+/* =====================================================
+   RECYCLE BIN ACTION ICONS
+===================================================== */
+
+.restore-btn,
+.permanent-delete-btn {
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 6px;
+    transition: 0.2s ease;
+}
+
+.restore-btn {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.restore-btn:hover {
+    background: #bbf7d0;
+    transform: translateY(-1px);
+}
+
+.permanent-delete-btn {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.permanent-delete-btn:hover {
+    background: #fecaca;
+    transform: translateY(-1px);
+}

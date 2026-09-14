@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMC Service | SUVI INFOTECH</title>
+
+<style>
+/* =========================================================
+   PAGE COLOR CODE
+   Primary   : #7C3AED
+   Secondary : #A855F7
+   Accent    : #F59E0B
+   Light     : #F5F3FF
+   ========================================================= */
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    min-height:100vh;
+    color:#172033;
+    background:linear-gradient(135deg,#F5F3FF 0%,#EDE9FE 50%,#FEF3C7 100%);
+    background-attachment:fixed;
+}
+
+.page{
+    width:100%;
+    max-width:1180px;
+    margin:auto;
+    padding:25px 20px 50px;
+}
+
+.navigation{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.back-btn,
+.dashboard-btn{
+    border:none;
+    background:#fff;
+    color:#334155;
+    border-radius:12px;
+    padding:12px 18px;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(15,23,42,.08);
+}
+
+.back-btn{
+    width:42px;
+    height:42px;
+    padding:0;
+    font-size:27px;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:22px;
+}
+
+.brand{
+    color:#7C3AED;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    margin-bottom:5px;
+}
+
+.header h1{
+    color:#4C1D95;
+    font-size:29px;
+    margin-bottom:5px;
+}
+
+.header p{
+    color:#64748B;
+    font-size:14px;
+}
+
+.service-card,
+.history-card{
+    background:rgba(255,255,255,.97);
+    border:1px solid #DDD6FE;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 20px 55px rgba(124,58,237,.13);
+}
+
+.card-header,
+.history-header{
+    padding:24px 28px;
+    background:linear-gradient(135deg,#EDE9FE,#F3E8FF,#FEF3C7);
+    border-bottom:1px solid #C4B5FD;
+}
+
+.card-header h2,
+.history-header h2{
+    color:#4C1D95;
+    font-size:20px;
+}
+
+.card-header p,
+.history-header p{
+    margin-top:5px;
+    color:#64748B;
+    font-size:13px;
+}
+
+.form-area{padding:28px}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:19px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.full{grid-column:1/-1}
+
+.field label{
+    color:#334155;
+    font-size:13px;
+    font-weight:700;
+}
+
+.required{color:#EF4444}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:1px solid #D9E1EC;
+    background:#fff;
+    color:#172033;
+    border-radius:12px;
+    padding:12px 14px;
+    font:14px "Segoe UI",Arial,sans-serif;
+    outline:none;
+}
+
+input,
+select{height:48px}
+
+textarea{
+    min-height:95px;
+    resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#7C3AED;
+    box-shadow:0 0 0 4px rgba(124,58,237,.10);
+}
+
+.auto-field{
+    background:#F8FAFC!important;
+    color:#475569!important;
+    font-weight:700;
+}
+
+.client-row{
+    display:flex;
+    gap:9px;
+}
+
+.client-row input{flex:1}
+
+.lookup-btn{
+    min-width:105px;
+    border:none;
+    border-radius:11px;
+    background:linear-gradient(135deg,#7C3AED,#A855F7);
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.status{
+    display:none;
+    padding:13px 15px;
+    margin-top:18px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.status.success{
+    display:block;
+    background:#ECFDF5;
+    color:#047857;
+    border:1px solid #BBF7D0;
+}
+
+.status.warning{
+    display:block;
+    background:#FFF7ED;
+    color:#C2410C;
+    border:1px solid #FED7AA;
+}
+
+.save-area{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid #EDE9FE;
+}
+
+.save-info strong{
+    display:block;
+    color:#334155;
+    font-size:13px;
+}
+
+.save-info span{
+    color:#64748B;
+    font-size:12px;
+}
+
+.save-btn{
+    min-width:170px;
+    height:50px;
+    border:none;
+    border-radius:13px;
+    background:linear-gradient(135deg,#7C3AED,#6D28D9);
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 9px 22px rgba(124,58,237,.18);
+}
+
+.history-card{margin-top:25px}
+
+.history-header{padding:20px 24px}
+
+.table-wrapper{overflow-x:auto}
+
+.history-table{
+    width:100%;
+    min-width:1200px;
+    border-collapse:collapse;
+}
+
+.history-table th,
+.history-table td{
+    padding:13px 14px;
+    text-align:left;
+    border-bottom:1px solid #EDF1F6;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+.history-table th{
+    background:#F5F3FF;
+    color:#4C1D95;
+    font-weight:800;
+}
+
+.history-table td{color:#475569}
+
+.empty-history{
+    text-align:center;
+    padding:35px;
+    color:#94A3B8;
+}
+
+@media(max-width:700px){
+    .page{padding:18px 12px 35px}
+    .header{flex-direction:column;align-items:flex-start}
+    .header h1{font-size:24px}
+    .dashboard-btn{width:100%}
+    .form-area{padding:20px 17px}
+    .form-grid{grid-template-columns:1fr}
+    .full{grid-column:auto}
+    .client-row{flex-direction:column}
+    .lookup-btn{height:46px}
+    .save-area{flex-direction:column;align-items:stretch}
+    .save-btn{width:100%}
+}
+/* AMC - FIT TO PAGE ONLY */
+
+.page{
+    width:100% !important;
+    max-width:1400px !important;
+    margin:0 auto !important;
+    padding:10px 14px 20px !important;
+}
+
+.navigation{
+    margin-bottom:6px !important;
+}
+
+.header{
+    margin-bottom:8px !important;
+}
+
+.service-card,
+.history-card{
+    width:100% !important;
+}
+
+.form-area{
+    padding:12px 16px !important;
+}
+
+.form-grid{
+    gap:10px 12px !important;
+}
+
+.field{
+    margin-bottom:0 !important;
+}
+
+.card-header{
+    padding:10px 16px !important;
+}
+
+.save-area{
+    margin-top:12px !important;
+    padding-top:10px !important;
+}
+
+.history-card{
+    margin-top:10px !important;
+}
+
+.history-header{
+    padding:10px 16px !important;
+}
+
+.table-wrapper{
+    width:100% !important;
+    overflow-x:auto !important;
+}
+
+.history-table{
+    width:100% !important;
+    min-width:1100px !important;
+}
+/* AMC - TRUE FULL WIDTH FIT */
+
+.page{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    padding:10px 12px 20px !important;
+}
+
+.service-card,
+.history-card{
+    width:100% !important;
+}
+
+.navigation{
+    margin-bottom:8px !important;
+}
+
+.header{
+    margin-bottom:10px !important;
+}
+
+.card-header{
+    padding:12px 16px !important;
+}
+
+.form-area{
+    padding:14px 16px !important;
+}
+
+.form-grid{
+    gap:10px 12px !important;
+}
+
+.save-area{
+    margin-top:12px !important;
+    padding-top:10px !important;
+}
+
+.history-card{
+    margin-top:10px !important;
+}
+
+.history-header{
+    padding:12px 16px !important;
+}
+
+.table-wrapper{
+    width:100% !important;
+    overflow-x:auto !important;
+}
+
+.history-table{
+    width:100% !important;
+}
+/* AMC - FONT SIZE BOOST ONLY */
+
+.brand{
+    font-size:15px !important;
+}
+
+.header h1{
+    font-size:31px !important;
+}
+
+.header p{
+    font-size:15px !important;
+}
+
+.back-btn{
+    font-size:28px !important;
+}
+
+.dashboard-btn{
+    font-size:15px !important;
+}
+
+.card-header h2,
+.history-header h2{
+    font-size:22px !important;
+}
+
+.card-header p,
+.history-header p{
+    font-size:14px !important;
+}
+
+.field label{
+    font-size:15px !important;
+}
+
+input,
+select,
+textarea{
+    font-size:17px !important;
+}
+
+input::placeholder,
+textarea::placeholder{
+    font-size:15px !important;
+}
+
+.lookup-btn{
+    font-size:15px !important;
+}
+
+.status{
+    font-size:14px !important;
+}
+
+.save-info strong{
+    font-size:15px !important;
+}
+
+.save-info span{
+    font-size:14px !important;
+}
+
+.save-btn{
+    font-size:16px !important;
+}
+
+.history-table th{
+    font-size:14px !important;
+}
+
+.history-table td{
+    font-size:14px !important;
+}
+
+.empty-history{
+    font-size:14px !important;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="navigation">
+        <button type="button" class="back-btn" id="serviceBackButton">←</button>
+        <button type="button" class="dashboard-btn" id="backToDashboard">← Back to Dashboard</button>
+    </div>
+
+    <header class="header">
+
+        <div>
+           <div class="brand" id="amcFirmName">
+    SUVI INFOTECH
+</div>
+            <h1>📋 AMC Service</h1>
+            <p>Annual Maintenance Contract management</p>
+        </div>
+
+
+    </header>
+
+
+    <section class="service-card">
+
+        <div class="card-header">
+            <h2>AMC Service Entry</h2>
+            <p>Create and manage annual maintenance contract details.</p>
+        </div>
+
+        <div class="form-area">
+
+            <form id="amcForm">
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label>Date</label>
+                        <input type="text" id="entryDate" class="auto-field" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label>Client ID</label>
+                        <div class="client-row">
+                            <input type="text" id="clientId" placeholder="Enter Client ID">
+                            <button type="button" class="lookup-btn" id="clientLookup">🔎 Lookup</button>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Client Name <span class="required">*</span></label>
+                        <input type="text" id="clientName" placeholder="Client / Company Name">
+                    </div>
+
+                    <div class="field">
+                        <label>Contact Number</label>
+                        <input type="tel" id="contactNumber" maxlength="10" placeholder="10 digit mobile number">
+                    </div>
+
+                    <div class="field">
+                        <label>AMC ID</label>
+                        <input type="text" id="amcId" class="auto-field" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label>AMC Type <span class="required">*</span></label>
+                        <select id="amcType">
+                            <option value="">Select AMC Type</option>
+                            <option>Comprehensive AMC</option>
+                            <option>Non-Comprehensive AMC</option>
+                            <option>Preventive Maintenance AMC</option>
+                            <option>Annual Service Contract</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Start Date <span class="required">*</span></label>
+                        <input type="date" id="startDate">
+                    </div>
+
+                    <div class="field">
+                        <label>End Date <span class="required">*</span></label>
+                        <input type="date" id="endDate">
+                    </div>
+
+                    <div class="field">
+                        <label>Service Frequency</label>
+                        <select id="frequency">
+                            <option value="">Select Frequency</option>
+                            <option>Monthly</option>
+                            <option>Quarterly</option>
+                            <option>Half-Yearly</option>
+                            <option>Yearly</option>
+                            <option>On Call</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Covered Service</label>
+                        <select id="coveredService">
+                            <option value="">Select Service</option>
+                            <option>Computer Maintenance</option>
+                            <option>Printer Service</option>
+                            <option>Cartridge Refilling</option>
+                            <option>Networking</option>
+                            <option>CCTV Camera</option>
+                            <option>Solar Camera</option>
+                            <option>Computer + Printer</option>
+                            <option>Complete IT Support</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>No. of Visits</label>
+                        <input type="number" id="visitCount" min="0" step="1" placeholder="Example: 12">
+                    </div>
+
+                    <div class="field">
+                        <label>AMC Amount <span class="required">*</span></label>
+                        <input type="number" id="amount" min="0" step="0.01" placeholder="₹ 0.00">
+                    </div>
+
+                    <div class="field">
+                        <label>Payment Status</label>
+                        <select id="paymentStatus">
+                            <option value="">Select Status</option>
+                            <option>Pending</option>
+                            <option>Partially Paid</option>
+                            <option>Paid</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>AMC Status</label>
+                        <select id="amcStatus">
+                            <option>Active</option>
+                            <option>Pending</option>
+                            <option>Expired</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label>Remarks</label>
+                        <textarea id="remarks" placeholder="Enter AMC remarks..."></textarea>
+                    </div>
+
+                </div>
+
+                <div id="statusMessage" class="status"></div>
+
+                <div class="save-area">
+
+                    <div class="save-info">
+                        <strong>AMC History</strong>
+                        <span>Saved AMC contracts will appear below.</span>
+                    </div>
+
+                    <button type="submit" class="save-btn">
+                        💾 Save AMC
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <section class="history-card">
+
+        <div class="history-header">
+            <h2>AMC History</h2>
+            <p>Previous annual maintenance contract records</p>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table class="history-table">
+
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>AMC ID</th>
+                        <th>Client ID</th>
+                        <th>Client Name</th>
+                        <th>AMC Type</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Frequency</th>
+                        <th>Covered Service</th>
+                        <th>Visits</th>
+                        <th>Amount</th>
+                        <th>Payment</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+const STORAGE_KEY = "suviInfotechAMCRecords";
+const CLIENT_KEY = "suviClientMaster";
+
+const form = document.getElementById("amcForm");
+const entryDate = document.getElementById("entryDate");
+const clientId = document.getElementById("clientId");
+const clientName = document.getElementById("clientName");
+const contactNumber = document.getElementById("contactNumber");
+const amcId = document.getElementById("amcId");
+const amcType = document.getElementById("amcType");
+const startDate = document.getElementById("startDate");
+const endDate = document.getElementById("endDate");
+const frequency = document.getElementById("frequency");
+const coveredService = document.getElementById("coveredService");
+const visitCount = document.getElementById("visitCount");
+const amount = document.getElementById("amount");
+const paymentStatus = document.getElementById("paymentStatus");
+const amcStatus = document.getElementById("amcStatus");
+const remarks = document.getElementById("remarks");
+const statusMessage = document.getElementById("statusMessage");
+const historyBody = document.getElementById("historyBody");
+
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+function setToday(){
+
+    const d = new Date();
+
+    const months = [
+        "Jan","Feb","Mar","Apr","May","Jun",
+        "Jul","Aug","Sep","Oct","Nov","Dec"
+    ];
+
+    entryDate.value =
+        `${d.getDate()}-${months[d.getMonth()]}-${d.getFullYear()}`;
+
+}
+
+
+/* =========================================================
+   AMC ID
+   ========================================================= */
+
+function createAMCId(){
+
+    const records = getRecords();
+
+    return "AMC" +
+        String(records.length + 1).padStart(3,"0");
+
+}
+
+
+/* =========================================================
+   RECORDS
+   ========================================================= */
+
+function getRecords(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(STORAGE_KEY)
+        ) || [];
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   CLIENT LOOKUP
+   ========================================================= */
+
+function getClients(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(CLIENT_KEY)
+        ) || [];
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+document
+    .getElementById("clientLookup")
+    .addEventListener("click",function(){
+
+        const id =
+            clientId.value.trim().toLowerCase();
+
+        if(!id){
+
+            alert("Please enter Client ID.");
+
+            clientId.focus();
+
+            return;
+
+        }
+
+        const clients = getClients();
+
+        const client =
+            clients.find(function(item){
+
+                return String(
+                    item.clientId ||
+                    item.id ||
+                    ""
+                ).toLowerCase() === id;
+
+            });
+
+
+        if(client){
+
+            clientName.value =
+                client.companyName ||
+                client.contactPerson ||
+                client.name ||
+                "";
+
+            contactNumber.value =
+                client.mobileNumber ||
+                client.mobile ||
+                client.phone ||
+                "";
+
+            statusMessage.className =
+                "status success";
+
+            statusMessage.textContent =
+                "✓ Client found. Client details auto-filled.";
+
+        }else{
+
+            statusMessage.className =
+                "status warning";
+
+            statusMessage.textContent =
+                "Client not found. Please verify Client ID.";
+
+        }
+
+    });
+
+
+/* =========================================================
+   SAVE AMC
+   ========================================================= */
+
+form.addEventListener("submit",function(event){
+
+    event.preventDefault();
+
+
+    if(!clientName.value.trim()){
+
+        alert("Please enter Client Name.");
+
+        clientName.focus();
+
+        return;
+
+    }
+
+
+    if(!amcType.value){
+
+        alert("Please select AMC Type.");
+
+        amcType.focus();
+
+        return;
+
+    }
+
+
+    if(!startDate.value){
+
+        alert("Please select Start Date.");
+
+        startDate.focus();
+
+        return;
+
+    }
+
+
+    if(!endDate.value){
+
+        alert("Please select End Date.");
+
+        endDate.focus();
+
+        return;
+
+    }
+
+
+    if(endDate.value < startDate.value){
+
+        alert("End Date cannot be before Start Date.");
+
+        endDate.focus();
+
+        return;
+
+    }
+
+
+    if(amount.value === ""){
+
+        alert("Please enter AMC Amount.");
+
+        amount.focus();
+
+        return;
+
+    }
+
+
+    const records = getRecords();
+
+
+    const record = {
+
+        id:
+            "AMC" + Date.now(),
+
+        date:
+            entryDate.value,
+
+        amcId:
+            amcId.value,
+
+        clientId:
+            clientId.value.trim(),
+
+        clientName:
+            clientName.value.trim(),
+
+        contactNumber:
+            contactNumber.value.trim(),
+
+        amcType:
+            amcType.value,
+
+        startDate:
+            startDate.value,
+
+        endDate:
+            endDate.value,
+
+        frequency:
+            frequency.value,
+
+        coveredService:
+            coveredService.value,
+
+        visitCount:
+            Number(visitCount.value || 0),
+
+        amount:
+            Number(amount.value),
+
+        paymentStatus:
+            paymentStatus.value,
+
+        amcStatus:
+            amcStatus.value,
+
+        remarks:
+            remarks.value.trim()
+
+    };
+
+
+    records.push(record);
+
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(records)
+    );
+
+
+    alert("AMC saved successfully.");
+
+
+    form.reset();
+
+    setToday();
+
+    amcId.value = createAMCId();
+
+    statusMessage.className =
+        "status";
+
+    statusMessage.textContent =
+        "";
+
+    loadHistory();
+
+});
+
+
+/* =========================================================
+   SAFE TEXT
+   ========================================================= */
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+function loadHistory(){
+
+    const records =
+        getRecords();
+
+    historyBody.innerHTML = "";
+
+
+    if(!records.length){
+
+        historyBody.innerHTML = `
+            <tr>
+                <td colspan="13" class="empty-history">
+                    No AMC records yet.
+                </td>
+            </tr>
+        `;
+
+        return;
+
+    }
+
+
+    records
+        .slice()
+        .reverse()
+        .forEach(function(record){
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>${escapeHtml(record.date)}</td>
+
+                <td>${escapeHtml(record.amcId)}</td>
+
+                <td>${escapeHtml(record.clientId)}</td>
+
+                <td>${escapeHtml(record.clientName)}</td>
+
+                <td>${escapeHtml(record.amcType)}</td>
+
+                <td>${escapeHtml(record.startDate)}</td>
+
+                <td>${escapeHtml(record.endDate)}</td>
+
+                <td>${escapeHtml(record.frequency)}</td>
+
+                <td>${escapeHtml(record.coveredService)}</td>
+
+                <td>${escapeHtml(record.visitCount)}</td>
+
+                <td>
+                    ₹${Number(record.amount || 0).toFixed(2)}
+                </td>
+
+                <td>${escapeHtml(record.paymentStatus)}</td>
+
+                <td>${escapeHtml(record.amcStatus)}</td>
+
+            `;
+
+
+            historyBody.appendChild(row);
+
+        });
+
+}
+/* =====================================================
+   DYNAMIC FIRM NAME
+   ===================================================== */
+
+const amcFirmName =
+    document.getElementById("amcFirmName");
+
+if (amcFirmName) {
+
+    const selectedFirm =
+        localStorage.getItem(
+            "SUVI_INFOTECH_SELECTED_FIRM"
+        );
+
+    if (selectedFirm) {
+        amcFirmName.textContent =
+            selectedFirm.trim();
+    }
+}
+
+/* =========================================================
+   BACK TO SERVICE MODULES
+   ========================================================= */
+
+document
+    .getElementById("serviceBackButton")
+    .addEventListener("click",function(){
+
+        window.history.back();
+
+    });
+
+
+/* =========================================================
+   BACK TO DASHBOARD
+   ========================================================= */
+
+document
+    .getElementById("backToDashboard")
+    .addEventListener("click",function(){
+
+        window.top.location.href =
+    "../../../dashboard.html";
+
+    });
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+setToday();
+
+amcId.value =
+    createAMCId();
+
+loadHistory();
+
+</script>
+
+</body>
+</html>

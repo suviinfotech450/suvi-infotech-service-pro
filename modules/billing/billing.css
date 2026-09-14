@@ -1,0 +1,801 @@
+/* =========================================================
+   SUVI INFOTECH - BILLING FINAL CSS
+   NON-GST CASH BILLING
+   Full-width + Fit-to-page + Readable large fonts
+   Existing HTML / JS structure preserved
+   ========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+    color:#172033;
+}
+
+body{
+    min-height:100vh;
+    background:
+        linear-gradient(135deg,#eef5ff 0%,#f8fbff 48%,#eef8f6 100%) !important;
+}
+
+/* ================= PAGE ================= */
+
+.billing-page{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 auto !important;
+    padding:10px 14px 18px !important;
+}
+
+/* ================= HEADER ================= */
+
+.billing-header{
+    width:100% !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:18px !important;
+    padding:10px 16px !important;
+    margin-bottom:8px !important;
+    border-radius:12px !important;
+    background:linear-gradient(135deg,#063b7a,#0876d1) !important;
+    color:#fff !important;
+    box-shadow:0 5px 16px rgba(0,55,120,.18) !important;
+}
+
+.eyebrow{
+    font-size:14px !important;
+    font-weight:900 !important;
+    letter-spacing:.8px !important;
+    color:#dbeafe !important;
+}
+
+.billing-header h1{
+    margin:2px 0 !important;
+    font-size:28px !important;
+    line-height:1.1 !important;
+    font-weight:900 !important;
+    color:#fff !important;
+}
+
+.billing-header p{
+    margin:0 !important;
+    font-size:14px !important;
+    color:#dbeafe !important;
+}
+
+.back-btn{
+    min-height:40px !important;
+    padding:8px 15px !important;
+    border:1px solid rgba(255,255,255,.35) !important;
+    border-radius:8px !important;
+    background:#fff !important;
+    color:#0752a5 !important;
+    font-size:14px !important;
+    font-weight:800 !important;
+    cursor:pointer !important;
+}
+
+/* ================= CARDS ================= */
+
+.billing-card,
+.history-card{
+    width:100% !important;
+    background:#fff !important;
+    border:1px solid #d7e3f0 !important;
+    border-radius:12px !important;
+    padding:11px !important;
+    margin-bottom:9px !important;
+    box-shadow:0 5px 18px rgba(15,55,100,.09) !important;
+}
+
+/* ================= BILL TITLE ================= */
+
+.billing-title{
+    min-height:40px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:10px !important;
+    margin-bottom:7px !important;
+    padding:6px 10px !important;
+    border-radius:9px !important;
+    background:linear-gradient(135deg,#e7f0ff,#f0f8ff) !important;
+    border:1px solid #c9ddf5 !important;
+    color:#0752a5 !important;
+}
+
+.billing-title span{
+    font-size:22px !important;
+}
+
+.billing-title strong{
+    font-size:20px !important;
+    font-weight:900 !important;
+    letter-spacing:.8px !important;
+}
+
+/* ================= META ================= */
+
+.bill-meta-grid{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+    margin-bottom:8px !important;
+}
+
+.meta-card{
+    padding:7px 11px !important;
+    border:1px solid #d8e5f2 !important;
+    border-radius:8px !important;
+    background:#f8fbff !important;
+}
+
+.meta-card span{
+    display:block !important;
+    font-size:12px !important;
+    font-weight:800 !important;
+    color:#64748b !important;
+}
+
+.meta-card strong{
+    display:block !important;
+    margin-top:2px !important;
+    font-size:17px !important;
+    font-weight:900 !important;
+    color:#0752a5 !important;
+}
+
+/* ================= SECTION TITLES ================= */
+
+.section-title{
+    min-height:32px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    margin:6px 0 5px !important;
+    padding:6px 10px !important;
+    border-radius:7px !important;
+    background:#eef6ff !important;
+    border-left:4px solid #0876d1 !important;
+    color:#0752a5 !important;
+    font-size:16px !important;
+    font-weight:900 !important;
+}
+
+/* ================= CLIENT ================= */
+
+.client-grid{
+    display:grid !important;
+    grid-template-columns:.8fr 1.3fr .95fr 1.8fr !important;
+    gap:6px !important;
+}
+
+.field{
+    min-width:0 !important;
+}
+
+.field-wide{
+    grid-column:auto !important;
+}
+
+.field label{
+    display:block !important;
+    margin-bottom:3px !important;
+    font-size:14px !important;
+    font-weight:800 !important;
+    color:#334155 !important;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100% !important;
+    height:40px !important;
+    min-height:40px !important;
+    padding:7px 10px !important;
+    border:1px solid #cbd8e6 !important;
+    border-radius:6px !important;
+    background:#fff !important;
+    color:#172033 !important;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+    font-size:17px !important;
+    font-weight:500 !important;
+    outline:none !important;
+}
+
+.field textarea{
+    height:58px !important;
+    min-height:58px !important;
+    resize:vertical !important;
+    line-height:1.4 !important;
+}
+
+.field input::placeholder,
+.field textarea::placeholder{
+    font-size:15px !important;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:#0876d1 !important;
+    box-shadow:0 0 0 2px rgba(8,118,209,.10) !important;
+}
+
+.field small{
+    display:block !important;
+    margin-top:2px !important;
+    font-size:11px !important;
+    color:#0f8a72 !important;
+    font-weight:700 !important;
+}
+
+/* ================= ADD ITEM ================= */
+
+.item-title-row{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+}
+
+.add-btn{
+    min-height:31px !important;
+    padding:7px 12px !important;
+    border:0 !important;
+    border-radius:6px !important;
+    background:#0876d1 !important;
+    color:#fff !important;
+    font-size:13px !important;
+    font-weight:900 !important;
+    cursor:pointer !important;
+}
+
+.add-btn:hover{
+    filter:brightness(.94);
+}
+
+/* ================= ITEMS TABLE ================= */
+
+.table-wrap{
+    width:100% !important;
+    overflow-x:auto !important;
+    border:1px solid #d5e1ee !important;
+    border-radius:7px !important;
+}
+
+.items-table{
+    width:100% !important;
+    min-width:900px !important;
+    border-collapse:collapse !important;
+    table-layout:fixed !important;
+}
+
+.items-table th{
+    padding:8px 6px !important;
+    background:#063b7a !important;
+    color:#fff !important;
+    border:1px solid #174e8e !important;
+    font-size:13px !important;
+    font-weight:900 !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+}
+
+.items-table td{
+    padding:5px !important;
+    border:1px solid #dbe5ef !important;
+    background:#fff !important;
+    font-size:14px !important;
+    font-weight:600 !important;
+    text-align:center !important;
+    vertical-align:middle !important;
+}
+
+.items-table td input,
+.items-table td select{
+    width:100% !important;
+    height:36px !important;
+    min-height:36px !important;
+    padding:6px 8px !important;
+    border:1px solid #cbd8e6 !important;
+    border-radius:5px !important;
+    font-size:15px !important;
+    font-weight:600 !important;
+}
+
+.item-manual-input{
+    margin-top:4px !important;
+}
+
+.items-table th:nth-child(1),
+.items-table td:nth-child(1){
+    width:5% !important;
+}
+
+.items-table th:nth-child(2),
+.items-table td:nth-child(2){
+    width:30% !important;
+}
+
+.items-table th:nth-child(3),
+.items-table td:nth-child(3){
+    width:8% !important;
+}
+
+.items-table th:nth-child(4),
+.items-table td:nth-child(4){
+    width:18% !important;
+}
+
+.items-table th:nth-child(5),
+.items-table td:nth-child(5){
+    width:16% !important;
+}
+
+.items-table th:nth-child(6),
+.items-table td:nth-child(6){
+    width:17% !important;
+}
+
+.items-table th:nth-child(7),
+.items-table td:nth-child(7){
+    width:6% !important;
+}
+
+.line-amount{
+    font-weight:900 !important;
+    color:#087a62 !important;
+    white-space:nowrap !important;
+}
+
+.remove-item{
+    width:30px !important;
+    height:30px !important;
+    border:0 !important;
+    border-radius:5px !important;
+    background:#ef5350 !important;
+    color:#fff !important;
+    font-size:18px !important;
+    font-weight:900 !important;
+    cursor:pointer !important;
+}
+
+/* ================= PAYMENT + TOTALS ================= */
+
+.billing-bottom{
+    display:grid !important;
+    grid-template-columns:1.55fr .75fr !important;
+    gap:10px !important;
+    margin-top:8px !important;
+}
+
+.payment-card,
+.totals-card{
+    padding:9px !important;
+    border:1px solid #d7e3ef !important;
+    border-radius:9px !important;
+    background:#fff !important;
+}
+
+.payment-card{
+    background:linear-gradient(135deg,#f2fbf8,#ffffff) !important;
+}
+
+.totals-card{
+    background:linear-gradient(135deg,#fffdf1,#ffffff) !important;
+}
+
+.payment-card .field{
+    margin-bottom:7px !important;
+}
+
+.payment-card label{
+    font-size:14px !important;
+}
+
+.payment-card select,
+.payment-card textarea{
+    font-size:16px !important;
+}
+
+/* ================= TOTALS ================= */
+
+.total-row{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:12px !important;
+    padding:6px 5px !important;
+    border-bottom:1px solid #e8edf2 !important;
+    font-size:15px !important;
+    font-weight:700 !important;
+}
+
+.total-row strong{
+    font-size:15px !important;
+    font-weight:900 !important;
+}
+
+.discount-row input{
+    width:110px !important;
+    height:35px !important;
+    min-height:35px !important;
+    padding:5px 8px !important;
+    border:1px solid #cbd8e6 !important;
+    border-radius:5px !important;
+    font-size:15px !important;
+}
+
+.grand-total{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    margin-top:5px !important;
+    padding:8px 10px !important;
+    border-radius:7px !important;
+    background:#fff3c4 !important;
+    border:1px solid #f0d878 !important;
+}
+
+.grand-total span{
+    font-size:16px !important;
+    font-weight:900 !important;
+    color:#405000 !important;
+}
+
+.grand-total strong{
+    font-size:22px !important;
+    font-weight:900 !important;
+    color:#087a62 !important;
+}
+
+/* ================= SIGNATURE ================= */
+
+.signature-section{
+    display:flex !important;
+    justify-content:flex-end !important;
+    margin-top:6px !important;
+}
+
+.signature-box{
+    width:210px !important;
+    text-align:center !important;
+}
+
+.signature-space{
+    height:20px !important;
+}
+
+.signature-line{
+    border-top:1px solid #334155 !important;
+}
+
+.signature-box strong{
+    display:block !important;
+    margin-top:5px !important;
+    font-size:11px !important;
+    font-weight:900 !important;
+}
+
+/* ================= ACTIONS ================= */
+
+.form-actions{
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:8px !important;
+    margin-top:6px !important;
+    padding-top:6px !important;
+    border-top:1px solid #dce5ed !important;
+}
+
+.form-actions button{
+    min-height:38px !important;
+    padding:7px 16px !important;
+    border-radius:6px !important;
+    font-size:14px !important;
+    font-weight:900 !important;
+    cursor:pointer !important;
+}
+
+.secondary-btn{
+    background:#edf2f7 !important;
+    color:#334155 !important;
+    border:1px solid #cbd5e1 !important;
+}
+
+.save-btn{
+    background:#087a62 !important;
+    color:#fff !important;
+    border:1px solid #087a62 !important;
+}
+
+/* ================= HISTORY ================= */
+
+.history-card{
+    margin-top:8px !important;
+}
+
+.history-header{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:15px !important;
+    margin-bottom:7px !important;
+}
+
+.history-header h2{
+    margin:0 !important;
+    font-size:20px !important;
+    font-weight:900 !important;
+    color:#0752a5 !important;
+}
+
+.history-header p{
+    margin:2px 0 0 !important;
+    font-size:13px !important;
+    color:#64748b !important;
+}
+
+#billCount{
+    padding:6px 10px !important;
+    border-radius:15px !important;
+    background:#e8f2ff !important;
+    color:#0752a5 !important;
+    font-size:14px !important;
+    font-weight:900 !important;
+}
+
+.history-table-wrap{
+    width:100% !important;
+    overflow-x:auto !important;
+}
+
+.history-table{
+    width:100% !important;
+    min-width:900px !important;
+    border-collapse:collapse !important;
+}
+
+.history-table th{
+    padding:8px 6px !important;
+    background:#063b7a !important;
+    color:#fff !important;
+    font-size:13px !important;
+    font-weight:900 !important;
+    white-space:nowrap !important;
+}
+
+.history-table td{
+    padding:7px 6px !important;
+    border:1px solid #dce5ed !important;
+    font-size:14px !important;
+    font-weight:600 !important;
+    text-align:center !important;
+}
+
+.history-action{
+    padding:5px 10px !important;
+    border:0 !important;
+    border-radius:5px !important;
+    background:#0876d1 !important;
+    color:#fff !important;
+    font-size:12px !important;
+    font-weight:800 !important;
+    cursor:pointer !important;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .client-grid{
+        grid-template-columns:1fr 1fr !important;
+    }
+
+    .billing-bottom{
+        grid-template-columns:1fr !important;
+    }
+}
+
+@media(max-width:650px){
+
+    .billing-page{
+        padding:7px !important;
+    }
+
+    .billing-header{
+        flex-direction:column !important;
+        align-items:stretch !important;
+        padding:9px 11px !important;
+    }
+
+    .billing-header h1{
+        font-size:24px !important;
+    }
+
+    .back-btn{
+        width:100% !important;
+    }
+
+    .bill-meta-grid{
+        grid-template-columns:1fr 1fr !important;
+    }
+
+    .client-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .billing-title strong{
+        font-size:18px !important;
+    }
+
+    .section-title{
+        font-size:15px !important;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+        font-size:17px !important;
+    }
+
+    .items-table{
+        min-width:900px !important;
+    }
+
+    .form-actions{
+        flex-wrap:wrap !important;
+    }
+
+    .form-actions button{
+        flex:1 1 30% !important;
+        font-size:13px !important;
+    }
+
+    .history-header{
+        flex-direction:column !important;
+        align-items:flex-start !important;
+    }
+}
+
+/* =========================================================
+   IMPORTANT:
+   NON-GST BILLING
+   No GST / HSN / CGST / SGST / IGST fields added here.
+   ========================================================= */
+/* BILLING - FINAL FONT SIZE BOOST */
+
+.billing-header h1{
+    font-size:32px !important;
+}
+
+.eyebrow{
+    font-size:15px !important;
+}
+
+.billing-header p{
+    font-size:15px !important;
+}
+
+.back-btn{
+    font-size:15px !important;
+}
+
+.billing-title strong{
+    font-size:22px !important;
+}
+
+.billing-title span{
+    font-size:25px !important;
+}
+
+.meta-card span{
+    font-size:13px !important;
+}
+
+.meta-card strong{
+    font-size:19px !important;
+}
+
+.section-title{
+    font-size:18px !important;
+}
+
+.field label{
+    font-size:15px !important;
+}
+
+.field input,
+.field select,
+.field textarea{
+    font-size:18px !important;
+}
+
+.field input::placeholder,
+.field textarea::placeholder{
+    font-size:16px !important;
+}
+
+.add-btn{
+    font-size:14px !important;
+}
+
+.items-table th{
+    font-size:14px !important;
+}
+
+.items-table td{
+    font-size:15px !important;
+}
+
+.items-table td input,
+.items-table td select{
+    font-size:16px !important;
+}
+
+.payment-card label{
+    font-size:15px !important;
+}
+
+.payment-card select,
+.payment-card textarea{
+    font-size:17px !important;
+}
+
+.total-row{
+    font-size:16px !important;
+}
+
+.total-row strong{
+    font-size:16px !important;
+}
+
+.discount-row input{
+    font-size:16px !important;
+}
+
+.grand-total span{
+    font-size:18px !important;
+}
+
+.grand-total strong{
+    font-size:24px !important;
+}
+
+.form-actions button{
+    font-size:15px !important;
+}
+
+.history-header h2{
+    font-size:22px !important;
+}
+
+.history-header p{
+    font-size:14px !important;
+}
+
+#billCount{
+    font-size:15px !important;
+}
+
+.history-table th{
+    font-size:14px !important;
+}
+
+.history-table td{
+    font-size:15px !important;
+}
+
+.history-action{
+    font-size:13px !important;
+}

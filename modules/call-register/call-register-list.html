@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Call Register History - SUVI INFOTECH</title>
+
+    <link rel="stylesheet" href="call-register-list.css">
+
+<style>
+/* =====================================================
+   CALL HISTORY EDIT POPUP
+   ===================================================== */
+
+.call-edit-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 99999;
+}
+
+.call-edit-box {
+    width: min(700px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+}
+
+.call-edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    background: #123f6d;
+    color: #fff;
+}
+
+.call-edit-brand {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.call-edit-title {
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+.call-edit-close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.call-edit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 22px;
+}
+
+.call-edit-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.call-edit-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #123f6d;
+}
+
+.call-edit-field input,
+.call-edit-field select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.call-edit-field input:focus,
+.call-edit-field select:focus {
+    outline: none;
+    border-color: #123f6d;
+}
+
+.call-edit-full {
+    grid-column: 1 / -1;
+}
+
+.call-edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 0 22px 22px;
+}
+
+.call-edit-cancel,
+.call-edit-save {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.call-edit-cancel {
+    background: #e5e7eb;
+    color: #222;
+}
+
+.call-edit-save {
+    background: #123f6d;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+
+    .call-edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .call-edit-full {
+        grid-column: auto;
+    }
+
+    .call-edit-actions {
+        flex-direction: column;
+    }
+
+    .call-edit-cancel,
+    .call-edit-save {
+        width: 100%;
+    }
+}
+</style>
+    
+</head>
+
+<body>
+
+    <header class="module-header">
+        <div>
+            <div class="brand-name">SUVI INFOTECH</div>
+            <div class="module-name">Call Register History</div>
+        </div>
+
+        <div class="navigation">
+            <button onclick="history.back()">← Back</button>
+            <button onclick="location.href='dashboard.html'">
+                ← Back to Dashboard
+            </button>
+        </div>
+    </header>
+
+    <main class="call-history-container">
+
+        <div class="history-top">
+            <h2>Call History</h2>
+
+            <input
+    type="search"
+    id="callHistorySearch"
+    placeholder="Search client / mobile / call ID..."
+>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table id="callHistoryTable">
+
+                <thead>
+                    <tr>
+                        <th>SL.NO</th>
+                        <th>CALL ID</th>
+                        <th>CALL DATE</th>
+                        <th>CALL TIME</th>
+                        <th>CLIENT NAME</th>
+                        <th>MOBILE NUMBER</th>
+                        <th>PURPOSE</th>
+                        <th>STATUS</th>
+                        <th>REASON</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+
+                <tbody id="callHistoryBody">
+                    <tr>
+                        <td colspan="10">Loading Call History...</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+    <script src="../../firebase-config.js"></script>
+    <script src="call-register-list.js"></script>
+
+</body>
+</html>

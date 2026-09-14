@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SUVI INFOTECH | Service Maintenance</title>
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <!-- GLASS BACKGROUND -->
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
+
+        <!-- COMPANY PANEL -->
+        <section class="company-panel">
+
+            <div class="company-content">
+
+                <div class="logo-mark">
+                    <img
+                        src="assets/suvi_logo.png"
+                        alt="SUVI INFOTECH Logo"
+                    >
+                </div>
+
+                <div class="brand">
+                    <h1>SUVI INFOTECH</h1>
+                    <p class="tagline">Nothing Is Impossible</p>
+                    <p class="solution">ONE CLICK • ALL SOLUTION</p>
+                </div>
+
+                <div class="company-info">
+
+                    <span class="eyebrow">
+                        SERVICE MAINTENANCE
+                    </span>
+
+                    <h2>
+                        Everything you need<br>
+                        in one place.
+                    </h2>
+
+                    <p>
+                        Professional service and maintenance management
+                        solution for complete business operations.
+                    </p>
+
+                    <div class="service-points">
+
+                        <div>
+                            <span>✓</span>
+                            Computer & Laptop Service
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Printer & Networking
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            CCTV & Solar Camera
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            AMC & Field Service
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOGIN PANEL -->
+        <section class="login-panel">
+
+            <div class="login-glass">
+
+                <!-- LOGIN HEADER -->
+                <div class="login-header">
+
+                    <div class="welcome-icon">
+                        ✦
+                    </div>
+
+                    <span class="login-label">
+                        SECURE ACCESS
+                    </span>
+
+                    <h2>
+                        Welcome Back
+                    </h2>
+
+                    <p>
+                        Enter your passcode to continue
+                    </p>
+
+                </div>
+
+
+                <!-- LOGIN FORM -->
+                <form id="loginForm">
+
+                    <!-- PASSCODE -->
+                    <div class="form-group">
+
+                        <label for="passcode">
+                            Passcode
+                        </label>
+
+                        <div class="input-wrap">
+
+                            <span class="input-icon">
+                                ◆
+                            </span>
+
+                            <input
+                                type="password"
+                                id="passcode"
+                                name="passcode"
+                                placeholder="Enter Passcode"
+                                autocomplete="current-password"
+                                inputmode="numeric"
+                                maxlength="6"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePasscode"
+                                class="password-toggle"
+                                aria-label="Show passcode"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOGIN OPTIONS -->
+                    <div class="login-options">
+
+                        <label class="remember-option">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+
+                            <span>
+                                Remember Me
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+                    <button
+                        type="submit"
+                        id="loginButton"
+                        class="login-button"
+                    >
+
+                        <span>
+                            LOGIN
+                        </span>
+
+                        <span class="login-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+
+                    <!-- LOGIN MESSAGE -->
+                    <div
+                        id="loginMessage"
+                        class="login-message"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+
+                <!-- VERIFICATION PREVIEW -->
+                <div class="verification-preview">
+
+                    <div class="verification-item">
+
+                        <span class="verification-icon">
+                            ◉
+                        </span>
+
+                        <div>
+                            <strong>
+                                Face Verification
+                            </strong>
+
+                            <small>
+                                Secure biometric access
+                            </small>
+                        </div>
+
+                        <span class="coming-soon">
+                            SOON
+                        </span>
+
+                    </div>
+
+
+                    <div class="verification-item">
+
+                        <span class="verification-icon">
+                            #
+                        </span>
+
+                        <div>
+                            <strong>
+                                OTP Verification
+                            </strong>
+
+                            <small>
+                                Mobile number verification
+                            </small>
+                        </div>
+
+                        <span class="coming-soon">
+                            SOON
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOOTER -->
+                <div class="login-footer">
+                    SUVI INFOTECH • Service Maintenance
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+<script src="company-context.js"></script>
+
+<script 
+    type="module" 
+    src="js/login.js"> 
+</script>
+
+    <!-- LOGIN JS -->
+    <script
+        type="module"
+        src="js/login.js">
+    </script>
+<footer class="app-copyright">
+    © 2026 SUVI INFOTECH ServiceOps Pro. All Rights Reserved.
+</footer>
+</body>
+</html>

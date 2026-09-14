@@ -1,0 +1,639 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+    background: linear-gradient(135deg, #e8f3ff, #f5f9ff, #eaf8f5);
+}
+
+body {
+    min-height: 100vh;
+}
+
+.payment-page {
+    min-height: 100vh;
+    padding: 22px;
+}
+
+
+/* HEADER */
+
+.payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, #ffffff, #eef6ff);
+    border: 1px solid #d8e6f5;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(30, 80, 130, 0.10);
+}
+
+.brand {
+    color: #2563eb;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.payment-header h1 {
+    margin: 4px 0;
+    font-size: 27px;
+}
+
+.payment-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 9px;
+}
+
+.back-btn,
+.dashboard-btn {
+    border: 1px solid #cbd5e1;
+    padding: 10px 15px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 800;
+    background: #ffffff;
+    color: #334155;
+}
+
+.dashboard-btn {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+
+/* SUMMARY */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.summary-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 105px;
+    padding: 18px;
+    background: #ffffff;
+    border: 1px solid #dce7f2;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(30, 70, 120, 0.08);
+}
+
+.summary-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 52px;
+    border-radius: 14px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.summary-card span {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.summary-card strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 22px;
+}
+
+.received .summary-icon {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.received strong {
+    color: #15803d;
+}
+
+.pending .summary-icon {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.pending strong {
+    color: #b45309;
+}
+
+.today .summary-icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.today strong {
+    color: #2563eb;
+}
+
+.bills .summary-icon {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.bills strong {
+    color: #7c3aed;
+}
+
+
+/* CARD */
+
+.payment-card {
+    background: #ffffff;
+    border: 1px solid #dce7f2;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 10px 28px rgba(30, 70, 120, 0.08);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #ffffff;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.section-title p {
+    margin: 4px 0 0;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+
+/* FORM */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-wide {
+    grid-column: 1 / -1;
+}
+
+.field label,
+.filter-field label {
+    margin-bottom: 7px;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.field input,
+.field select,
+.field textarea,
+.filter-field input,
+.filter-field select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 13px;
+    outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.filter-field input:focus,
+.filter-field select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+
+/* ACTIONS */
+
+.entry-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.reset-btn,
+.save-btn {
+    padding: 11px 18px;
+    border-radius: 9px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.reset-btn {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.save-btn {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+
+/* HISTORY */
+
+.history-title {
+    background: linear-gradient(135deg, #4338ca, #6366f1);
+}
+
+
+/* FILTER */
+
+.filter-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    gap: 12px;
+    padding: 15px;
+    margin-bottom: 16px;
+    background: #f7faff;
+    border: 1px solid #dbe7f3;
+    border-radius: 13px;
+}
+
+.filter-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-actions {
+    display: flex;
+    align-items: flex-end;
+    gap: 7px;
+}
+
+.filter-actions button {
+    height: 39px;
+    padding: 0 14px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 800;
+}
+
+.filter-actions .clear-btn {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+
+/* TABLE */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #dbe5ef;
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    min-width: 1100px;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+thead th {
+    padding: 12px 10px;
+    background: #172554;
+    color: #ffffff;
+    text-align: left;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+tbody td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #e5eaf0;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+tbody tr:hover {
+    background: #f5f9ff;
+}
+
+.amount-paid {
+    color: #15803d;
+    font-weight: 800;
+}
+
+.amount-balance {
+    color: #b45309;
+    font-weight: 800;
+}
+
+.mode-badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-weight: 800;
+    font-size: 11px;
+}
+
+.action-btn {
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-weight: 800;
+}
+
+.no-data {
+    display: none;
+    padding: 28px;
+    text-align: center;
+    color: #64748b;
+}
+
+
+/* FOOTER */
+
+.payment-footer {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 18px;
+    margin-top: 10px;
+    color: #ffffff;
+    background: #172554;
+    border-radius: 14px;
+    font-size: 12px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-actions {
+        align-items: center;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .payment-page {
+        padding: 10px;
+    }
+
+    .payment-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions button {
+        flex: 1;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field-wide {
+        grid-column: auto;
+    }
+
+    .filter-box {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-actions {
+        width: 100%;
+    }
+
+    .filter-actions button {
+        flex: 1;
+    }
+
+    .entry-actions {
+        flex-direction: column;
+    }
+
+    .entry-actions button {
+        width: 100%;
+    }
+
+    .payment-card {
+        padding: 12px;
+    }
+
+    .payment-header h1 {
+        font-size: 23px;
+    }
+}
+/* =========================
+   PAYMENT REMINDER POPUP
+========================= */
+
+.reminder-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(4px);
+}
+
+.reminder-box {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.reminder-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 20px;
+    background: linear-gradient(135deg, #2563eb, #4338ca);
+    color: #ffffff;
+}
+
+.reminder-header h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.reminder-header button {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.reminder-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 20px;
+}
+
+.reminder-details > div {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.reminder-details span {
+    display: block;
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.reminder-details strong {
+    display: block;
+    color: #172033;
+    font-size: 14px;
+}
+
+.reminder-amount strong {
+    font-size: 17px;
+}
+
+.reminder-amount.balance {
+    background: #fff7ed;
+    border-color: #fed7aa;
+}
+
+.reminder-amount.balance strong {
+    color: #c2410c;
+}
+
+.reminder-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 20px 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.close-reminder-btn,
+.whatsapp-reminder-btn {
+    padding: 11px 15px;
+    border: 0;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.close-reminder-btn {
+    background: #e2e8f0;
+    color: #334155;
+}
+
+.whatsapp-reminder-btn {
+    background: #16a34a;
+    color: #ffffff;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .reminder-details {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .reminder-actions {
+        flex-direction: column;
+        padding: 14px 15px 15px;
+    }
+
+    .close-reminder-btn,
+    .whatsapp-reminder-btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates | SUVI INFOTECH ServiceOps Pro</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f6fa;
+            color: #172033;
+        }
+
+        .top-header {
+            background: linear-gradient(135deg, #102a43, #0b1d33);
+            color: white;
+            padding: 14px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .brand strong {
+            display: block;
+            font-size: 17px;
+        }
+
+        .brand small {
+            display: block;
+            font-size: 10px;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            border: none;
+            border-radius: 8px;
+            padding: 9px 14px;
+            background: #1683c4;
+            color: white;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+        }
+
+        .page-content {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .page-title h1 {
+            margin: 0;
+            font-size: 27px;
+        }
+
+        .page-title p {
+            margin-top: 7px;
+            color: #667085;
+            font-size: 13px;
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .update-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            min-height: 220px;
+            box-shadow: 0 8px 22px rgba(15, 42, 67, 0.10);
+            border: 1px solid #e1e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: 0.2s ease;
+        }
+
+        .update-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .update-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .work-icon {
+            background: #dff7ec;
+            color: #0b9b68;
+        }
+
+        .feature-icon {
+            background: #e2f1ff;
+            color: #1683c4;
+        }
+
+        .bug-icon {
+            background: #ffe5ea;
+            color: #dc3659;
+        }
+
+        .update-card h2 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .update-card p {
+            margin: 0 0 20px;
+            color: #667085;
+            font-size: 12px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .open-btn {
+            width: 100%;
+            border: none;
+            border-radius: 9px;
+            padding: 11px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .work-btn {
+            background: #0b9b68;
+        }
+
+        .feature-btn {
+            background: #1683c4;
+        }
+
+        .bug-btn {
+            background: #dc3659;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 11px;
+            color: #7b8da0;
+        }
+
+        @media (max-width: 800px) {
+            .updates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .top-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .navigation {
+                justify-content: space-between;
+            }
+
+            .nav-btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="top-header">
+
+    <div class="brand">
+        <img src="suvi_logo.png" alt="SUVI INFOTECH">
+
+        <div>
+            <strong>SUVI INFOTECH</strong>
+            <small>SERVICEOPS PRO</small>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="history.back()">
+            ← Back
+        </button>
+
+        <button class="nav-btn" onclick="location.href='dashboard.html'">
+            ← Back to Dashboard
+        </button>
+    </div>
+
+</header>
+
+
+<main class="page-content">
+
+    <div class="page-title">
+        <h1>🔄 Updates</h1>
+        <p>Track your work, features and bugs in one place</p>
+    </div>
+
+
+    <div class="updates-grid">
+
+        <!-- WORK UPDATES -->
+        <div class="update-card">
+
+            <div class="update-icon work-icon">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+
+            <h2>Work Updates</h2>
+
+            <p>
+                Daily service work<br>
+                and activities
+            </p>
+
+            <button class="open-btn work-btn"
+                    onclick="openWorkUpdates()">
+                Open →
+            </button>
+
+        </div>
+
+
+        <!-- FEATURE UPDATES -->
+        <div class="update-card">
+
+            <div class="update-icon feature-icon">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+
+            <h2>Feature Updates</h2>
+
+            <p>
+                New features<br>
+                and improvements
+            </p>
+
+            <button class="open-btn feature-btn"
+                    onclick="openFeatureUpdates()">
+                Open →
+            </button>
+
+        </div>
+
+
+        <!-- BUG TRACKER -->
+        <div class="update-card">
+
+            <div class="update-icon bug-icon">
+                <i class="fa-solid fa-bug"></i>
+            </div>
+
+            <h2>Bug Tracker</h2>
+
+            <p>
+                Track and fix<br>
+                reported issues
+            </p>
+
+            <button class="open-btn bug-btn"
+                    onclick="openBugTracker()">
+                Open →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        SUVI INFOTECH &nbsp; | &nbsp; ServiceOps Pro
+    </div>
+
+</main>
+
+
+<script>
+
+function openWorkUpdates() {
+    location.href = "work-updates.html";
+}
+
+function openFeatureUpdates() {
+    location.href = "feature-updates.html";
+}
+
+function openBugTracker() {
+    location.href = "bug-tracker.html";
+}
+</script>
+
+</body>
+</html>
