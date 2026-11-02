@@ -1,11 +1,12 @@
 {
   "name": "suvi-infotech-service-maintenance",
-  "version": "1.0.0",
+  "version": "34.5.2",
   "description": "SUVI INFOTECH Service Pro",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "electron-builder",
+    "release": "electron-builder --win --x64 --publish always"
   },
   "keywords": [
     "suvi",
@@ -17,8 +18,13 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "electron": "^44.0.0",
-    "electron-builder": "^26.15.3"
+    "electron-builder": "^26.15.3",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0",
+    "playwright": "^1.63.0",
+    "stylelint": "^17.15.0"
   },
   "build": {
     "appId": "com.suviinfotech.servicepro",
@@ -32,6 +38,7 @@
       "!.idea/**/*"
     ],
     "win": {
+      "artifactName": "SUVI-INFOTECH-Service-Pro-Setup-${version}.${ext}",
       "target": [
         {
           "target": "nsis",
@@ -48,13 +55,22 @@
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "SUVI INFOTECH Service Pro"
-    }
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "suviinfotech450",
+        "repo": "suvi-infotech-service-pro",
+        "releaseType": "release"
+      }
+    ]
   },
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "firebase-admin": "^14.4.0",
-    "razorpay": "^2.9.8"
+    "razorpay": "^2.9.8",
+    "electron-updater": "^6.8.11"
   }
 }
